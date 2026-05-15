@@ -1,0 +1,291 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Indoor Environmental Monitoring",
+    "description": "This API provides access to environmental monitoring data, including key parameters such as humidity, temperature, and carbon dioxide levels, from selected areas within NOI Techpark Bolzano and Brunico. The data can be utilized for studies related to indoor air quality, energy efficiency, and health impact assessments.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Open Data Hub",
+      "url": "https://databrowser.opendatahub.com"
+    },
+    "license": {
+      "name": "CC0-1.0",
+      "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+    }
+  },
+  "servers": [
+    {
+      "url": "https://mobility.api.opendatahub.com/v2",
+      "description": "Open Data Hub API Server"
+    }
+  ],
+  "paths": {
+    "/flat/EnvironmentStation": {
+      "get": {
+        "summary": "Get Environmental Monitoring Data",
+        "description": "Retrieves environmental monitoring data including humidity, temperature, and carbon dioxide levels from monitoring stations in NOI Techpark Bolzano and Brunico.",
+        "operationId": "getEnvironmentalData",
+        "tags": [
+          "Environmental Monitoring"
+        ],
+        "parameters": [
+          {
+            "name": "limit",
+            "in": "query",
+            "description": "Maximum number of records to return",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 200,
+              "minimum": 1,
+              "maximum": 1000
+            }
+          },
+          {
+            "name": "offset",
+            "in": "query",
+            "description": "Number of records to skip for pagination",
+            "required": false,
+            "schema": {
+              "type": "integer",
+              "default": 0,
+              "minimum": 0
+            }
+          },
+          {
+            "name": "where",
+            "in": "query",
+            "description": "Filter criteria in SQL-like syntax",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "sactive.eq.true"
+          },
+          {
+            "name": "select",
+            "in": "query",
+            "description": "Comma-separated list of fields to return",
+            "required": false,
+            "schema": {
+              "type": "string"
+            },
+            "example": "scode,sname,scoordinate,mvalidtime,mvalue"
+          },
+          {
+            "name": "distinct",
+            "in": "query",
+            "description": "Return distinct values only",
+            "required": false,
+            "schema": {
+              "type": "boolean",
+              "default": false
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Successful response with environmental monitoring data",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "data": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/EnvironmentalStation"
+                      }
+                    },
+                    "offset": {
+                      "type": "integer",
+                      "description": "Current offset for pagination"
+                    },
+                    "limit": {
+                      "type": "integer",
+                      "description": "Current limit for pagination"
+                    }
+                  }
+                },
+                "examples": {
+                  "environmentalData": {
+                    "summary": "Example environmental monitoring data",
+                    "value": {
+                      "data": [
+                        {
+                          "scode": "NOI-BZ-01",
+                          "sname": "NOI Techpark Bolzano - Office Area 1",
+                          "stype": "EnvironmentStation",
+                          "scoordinate": {
+                            "x": 11.3568,
+                            "y": 46.4983
+                          },
+                          "sactive": true,
+                          "mperiod": 300,
+                          "mtransactiontime": "2023-10-15T14:30:00Z",
+                          "mvalidtime": "2023-10-15T14:25:00Z",
+                          "mvalue": 22.5,
+                          "tname": "temperature",
+                          "tunit": "°C"
+                        }
+                      ],
+                      "offset": 0,
+                      "limit": 200
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "Bad request - Invalid parameters",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "Internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "EnvironmentalStation": {
+        "type": "object",
+        "description": "Environmental monitoring station data with measurements",
+        "properties": {
+          "scode": {
+            "type": "string",
+            "description": "Unique station code identifier"
+          },
+          "sname": {
+            "type": "string",
+            "description": "Human-readable station name"
+          },
+          "stype": {
+            "type": "string",
+            "description": "Station type",
+            "example": "EnvironmentStation"
+          },
+          "scoordinate": {
+            "type": "object",
+            "description": "Geographic coordinates of the station",
+            "properties": {
+              "x": {
+                "type": "number",
+                "format": "double",
+                "description": "Longitude"
+              },
+              "y": {
+                "type": "number",
+                "format": "double",
+                "description": "Latitude"
+              },
+              "srid": {
+                "type": "integer",
+                "description": "Spatial Reference System Identifier",
+                "default": 4326
+              }
+            }
+          },
+          "sactive": {
+            "type": "boolean",
+            "description": "Whether the station is currently active"
+          },
+          "savailable": {
+            "type": "boolean",
+            "description": "Whether the station data is available"
+          },
+          "smetadata": {
+            "type": "object",
+            "description": "Additional metadata about the station"
+          },
+          "mperiod": {
+            "type": "integer",
+            "description": "Measurement period in seconds"
+          },
+          "mtransactiontime": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp when the data was recorded in the database"
+          },
+          "mvalidtime": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp when the measurement was taken"
+          },
+          "mvalue": {
+            "type": "number",
+            "format": "double",
+            "description": "Measured value"
+          },
+          "tname": {
+            "type": "string",
+            "description": "Type of measurement",
+            "enum": [
+              "temperature",
+              "humidity",
+              "co2",
+              "pressure",
+              "air-quality-index"
+            ]
+          },
+          "tunit": {
+            "type": "string",
+            "description": "Unit of measurement",
+            "example": "°C, %, ppm"
+          },
+          "tdescription": {
+            "type": "string",
+            "description": "Description of the measurement type"
+          },
+          "tmetadata": {
+            "type": "object",
+            "description": "Additional metadata about the measurement type"
+          }
+        }
+      },
+      "Error": {
+        "type": "object",
+        "properties": {
+          "status": {
+            "type": "integer",
+            "description": "HTTP status code"
+          },
+          "message": {
+            "type": "string",
+            "description": "Error message"
+          },
+          "timestamp": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp of the error"
+          }
+        }
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Environmental Monitoring",
+      "description": "Operations related to indoor environmental monitoring data including temperature, humidity, and CO2 levels"
+    }
+  ],
+  "externalDocs": {
+    "description": "Dataset Overview and Documentation",
+    "url": "https://databrowser.opendatahub.com/dataset-overview/fad6ba99-2f71-425a-8466-10c5d78475f6"
+  }
+}

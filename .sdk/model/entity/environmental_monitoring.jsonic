@@ -1,0 +1,161 @@
+# Entity: environmental_monitoring
+
+main: kit: entity: environmental_monitoring: {
+
+  alias: field: {}
+
+  fields: [
+    {
+      name: "mperiod"
+      req: false
+      type: "`$INTEGER`"
+    }
+    {
+      name: "mtransactiontime"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "mvalidtime"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "mvalue"
+      req: false
+      type: "`$NUMBER`"
+    }
+    {
+      name: "sactive"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "savailable"
+      req: false
+      type: "`$BOOLEAN`"
+    }
+    {
+      name: "scode"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "scoordinate"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "smetadata"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "sname"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "stype"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "tdescription"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "tmetadata"
+      req: false
+      type: "`$OBJECT`"
+    }
+    {
+      name: "tname"
+      req: false
+      type: "`$STRING`"
+    }
+    {
+      name: "tunit"
+      req: false
+      type: "`$STRING`"
+    }
+  ]
+
+  name: "environmental_monitoring"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          args: {
+            query: [
+              {
+                example: false
+                kind: "query"
+                name: "distinct"
+                orig: "distinct"
+                reqd: false
+                type: "`$BOOLEAN`"
+              }
+              {
+                example: 200
+                kind: "query"
+                name: "limit"
+                orig: "limit"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: 0
+                kind: "query"
+                name: "offset"
+                orig: "offset"
+                reqd: false
+                type: "`$INTEGER`"
+              }
+              {
+                example: "scode,sname,scoordinate,mvalidtime,mvalue"
+                kind: "query"
+                name: "select"
+                orig: "select"
+                reqd: false
+                type: "`$STRING`"
+              }
+              {
+                example: "sactive.eq.true"
+                kind: "query"
+                name: "where"
+                orig: "where"
+                reqd: false
+                type: "`$STRING`"
+              }
+            ]
+          }
+          method: "GET"
+          orig: "/flat/EnvironmentStation"
+          parts: [
+            "flat"
+            "EnvironmentStation"
+          ]
+          select: {
+            exist: [
+              "distinct"
+              "limit"
+              "offset"
+              "select"
+              "where"
+            ]
+          }
+          transform: {
+            req: "`reqdata`"
+            res: "`body`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}

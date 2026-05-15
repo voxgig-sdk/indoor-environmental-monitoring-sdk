@@ -1,0 +1,78 @@
+{
+  "existing": {
+    "environmental_monitoring": {
+      "ENVIRONMENTAL_MONITORING00": {
+        "mperiod": "s96",
+        "mtransactiontime": "s97",
+        "mvalidtime": "s98",
+        "mvalue": 153,
+        "sactive": true,
+        "savailable": false,
+        "scode": "s9c",
+        "scoordinate": {},
+        "smetadata": {},
+        "sname": "s9f",
+        "stype": "sa0",
+        "tdescription": "sa1",
+        "tmetadata": {},
+        "tname": "sa3",
+        "tunit": "sa4"
+      },
+      "ENVIRONMENTAL_MONITORING01": {
+        "mperiod": "s12c",
+        "mtransactiontime": "s12d",
+        "mvalidtime": "s12e",
+        "mvalue": 303,
+        "sactive": true,
+        "savailable": false,
+        "scode": "s132",
+        "scoordinate": {},
+        "smetadata": {},
+        "sname": "s135",
+        "stype": "s136",
+        "tdescription": "s137",
+        "tmetadata": {},
+        "tname": "s139",
+        "tunit": "s13a"
+      },
+      "ENVIRONMENTAL_MONITORING02": {
+        "mperiod": "s1c2",
+        "mtransactiontime": "s1c3",
+        "mvalidtime": "s1c4",
+        "mvalue": 453,
+        "sactive": true,
+        "savailable": false,
+        "scode": "s1c8",
+        "scoordinate": {},
+        "smetadata": {},
+        "sname": "s1cb",
+        "stype": "s1cc",
+        "tdescription": "s1cd",
+        "tmetadata": {},
+        "tname": "s1cf",
+        "tunit": "s1d0"
+      }
+    }
+  },
+  "new": {
+    "environmental_monitoring": {
+      "environmental_monitoring_ref01": {
+        "mperiod": "s258",
+        "mtransactiontime": "s259",
+        "mvalidtime": "s25a",
+        "mvalue": 603,
+        "sactive": true,
+        "savailable": false,
+        "scode": "s25e",
+        "scoordinate": {},
+        "smetadata": {},
+        "sname": "s261",
+        "stype": "s262",
+        "tdescription": "s263",
+        "tmetadata": {},
+        "tname": "s265",
+        "tunit": "s266"
+      }
+    }
+  }
+}

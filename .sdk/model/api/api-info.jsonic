@@ -1,0 +1,28 @@
+# API Information
+
+
+main: {
+  kit: {
+    info: {
+      contact: {
+        name: "Open Data Hub"
+        url: "https://databrowser.opendatahub.com"
+      }
+      description: "This API provides access to environmental monitoring data, including key parameters such as humidity, temperature, and carbon dioxide levels, from selected areas within NOI Techpark Bolzano and Brunico. The data can be utilized for studies related to indoor air quality, energy efficiency, and health impact assessments."
+      license: {
+        name: "CC0-1.0"
+        url: "https://creativecommons.org/publicdomain/zero/1.0/"
+      }
+      servers: [
+        {
+          description: "Open Data Hub API Server"
+          url: "https://mobility.api.opendatahub.com/v2"
+        }
+      ]
+      title: "Indoor Environmental Monitoring"
+      version: "1.0.0"
+    }
+  }
+}
+
+}
