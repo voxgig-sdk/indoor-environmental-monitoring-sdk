@@ -6,8 +6,8 @@ import (
 	"strings"
 	"testing"
 
-	sdk "github.com/voxgig-sdk/indoor-environmental-monitoring-sdk"
-	"github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/core"
+	sdk "github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/go"
+	"github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/go/core"
 )
 
 func TestEnvironmentalMonitoringDirect(t *testing.T) {

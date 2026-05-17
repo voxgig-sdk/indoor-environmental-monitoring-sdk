@@ -3,7 +3,7 @@ package utility
 import (
 	"reflect"
 
-	"github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/core"
+	"github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/go/core"
 )
 
 func featureHookUtil(ctx *core.Context, name string) {

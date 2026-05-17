@@ -9,10 +9,10 @@ import (
 	"testing"
 	"time"
 
-	sdk "github.com/voxgig-sdk/indoor-environmental-monitoring-sdk"
-	"github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/core"
+	sdk "github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/go"
+	"github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/go/utility/struct"
 )
 
 func TestEnvironmentalMonitoringEntity(t *testing.T) {

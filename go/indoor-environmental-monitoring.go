@@ -1,10 +1,10 @@
 package voxgigindoorenvironmentalmonitoringsdk
 
 import (
-	"github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/core"
-	"github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/entity"
-	"github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/feature"
-	_ "github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/utility"
+	"github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/go/core"
+	"github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/go/entity"
+	"github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/go/feature"
+	_ "github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/go/utility"
 )
 
 // Type aliases preserve external API.

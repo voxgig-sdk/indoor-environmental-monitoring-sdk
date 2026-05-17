@@ -3,7 +3,7 @@ package sdktest
 import (
 	"testing"
 
-	sdk "github.com/voxgig-sdk/indoor-environmental-monitoring-sdk"
+	sdk "github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/go"
 )
 
 func TestExists(t *testing.T) {

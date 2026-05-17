@@ -1,9 +1,9 @@
 package entity
 
 import (
-	"github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/core"
+	"github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/go/core"
 
-	vs "github.com/voxgig/struct"
+	vs "github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/go/utility/struct"
 )
 
 type EnvironmentalMonitoringEntity struct {
