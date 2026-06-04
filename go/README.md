@@ -28,16 +28,13 @@ package main
 
 import (
     "fmt"
-    "os"
 
     sdk "github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/go"
     "github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/go/core"
 )
 
 func main() {
-    client := sdk.NewIndoorEnvironmentalMonitoringSDK(map[string]any{
-        "apikey": os.Getenv("INDOOR-ENVIRONMENTAL-MONITORING_APIKEY"),
-    })
+    client := sdk.NewIndoorEnvironmentalMonitoringSDK(map[string]any{})
 ```
 
 ### 2. List environmentalmonitorings
@@ -140,7 +137,6 @@ Create a `.env.local` file at the project root:
 
 ```
 INDOOR-ENVIRONMENTAL-MONITORING_TEST_LIVE=TRUE
-INDOOR-ENVIRONMENTAL-MONITORING_APIKEY=<your-key>
 ```
 
 Then run:
@@ -162,7 +158,6 @@ Creates a new SDK client.
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `"apikey"` | `string` | API key for authentication. |
 | `"base"` | `string` | Base URL of the API server. |
 | `"prefix"` | `string` | URL path prefix prepended to all requests. |
 | `"suffix"` | `string` | URL path suffix appended to all requests. |

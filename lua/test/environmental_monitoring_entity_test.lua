@@ -92,7 +92,6 @@ function environmental_monitoring_basic_setup(extra)
     ["INDOORENVIRONMENTALMONITORING_TEST_ENVIRONMENTAL_MONITORING_ENTID"] = idmap,
     ["INDOORENVIRONMENTALMONITORING_TEST_LIVE"] = "FALSE",
     ["INDOORENVIRONMENTALMONITORING_TEST_EXPLAIN"] = "FALSE",
-    ["INDOORENVIRONMENTALMONITORING_APIKEY"] = "NONE",
   })
 
   local idmap_resolved = helpers.to_map(
@@ -104,7 +103,6 @@ function environmental_monitoring_basic_setup(extra)
   if env["INDOORENVIRONMENTALMONITORING_TEST_LIVE"] == "TRUE" then
     local merged_opts = vs.merge({
       {
-        apikey = env["INDOORENVIRONMENTALMONITORING_APIKEY"],
       },
       extra or {},
     })

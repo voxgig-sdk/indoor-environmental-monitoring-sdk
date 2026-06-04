@@ -21,7 +21,17 @@
           }
         ],
         "title": "Indoor Environmental Monitoring",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "tagline": "Indoor humidity, temperature and CO2 readings from NOI Techpark stations in Bolzano and Brunico",
+        "homepage": "https://mobility.api.opendatahub.com/v2",
+        "docs_url": "https://mobility.api.opendatahub.com/v2/apispec",
+        "license_short": "CC0 1.0 Universal (public domain dedication)",
+        "license_md": "- Data is published under the [Creative Commons CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/) public domain dedication\n- No attribution is legally required, but crediting the Open Data Hub South Tyrol / NOI Techpark is appreciated\n- The Open Data Hub platform is operated by [NOI S.p.A.](https://opendatahub.com/) in South Tyrol / Alto Adige, Italy",
+        "about_md": "The [Open Data Hub Mobility API](https://mobility.api.opendatahub.com/v2) is a public data service run by [NOI Techpark](https://opendatahub.com/) in South Tyrol, Italy. This SDK targets the indoor environmental monitoring data, covering humidity, temperature and CO2 measurements collected at NOI Techpark facilities in Bolzano and Brunico to support research on indoor air quality, energy efficiency and occupant well-being.\n\nWhat you get from the API:\n\n- Station metadata for the indoor monitoring sites\n- Time-series measurements for humidity, temperature and CO2\n- Both hierarchical (`tree`) and flattened (`flat`) views of stations, data types and measurements\n- An OpenAPI v3 specification served from `/apispec`\n\nThe API is open and does not require authentication for read access. CORS is reported as disabled, so browser-side calls may need a proxy. The same v2 mobility endpoint exposes many other South Tyrol mobility domains alongside the indoor sensors.",
+        "entity_desc": {
+          "environmental_monitoring": "Indoor environmental sensor stations and their humidity, temperature and CO2 time-series, accessible through the mobility API's `tree` and `flat` node endpoints under `https://mobility.api.opendatahub.com/v2/`."
+        },
+        "auth": false
       },
       "config": {
         "auth": {
@@ -29,7 +39,15 @@
         },
         "headers": {
           "content-type": "application/json"
-        }
+        },
+        "docs_order": [
+          "ts",
+          "py",
+          "php",
+          "go",
+          "rb",
+          "lua"
+        ]
       },
       "entity": {
         "environmental_monitoring": {

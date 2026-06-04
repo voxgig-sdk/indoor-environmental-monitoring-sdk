@@ -17,9 +17,7 @@ loading a specific record.
 ```ts
 import { IndoorEnvironmentalMonitoringSDK } from 'indoor-environmental-monitoring'
 
-const client = new IndoorEnvironmentalMonitoringSDK({
-  apikey: process.env.INDOOR-ENVIRONMENTAL-MONITORING_APIKEY,
-})
+const client = new IndoorEnvironmentalMonitoringSDK({})
 ```
 
 ### 2. List environmentalmonitorings
@@ -84,7 +82,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new IndoorEnvironmentalMonitoringSDK({ apikey: '...' })
+const client = new IndoorEnvironmentalMonitoringSDK()
 const testClient = client.tester()
 ```
 
@@ -120,7 +118,6 @@ const logger = {
 }
 
 const client = new IndoorEnvironmentalMonitoringSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -131,7 +128,6 @@ Create a `.env.local` file at the project root:
 
 ```
 INDOOR-ENVIRONMENTAL-MONITORING_TEST_LIVE=TRUE
-INDOOR-ENVIRONMENTAL-MONITORING_APIKEY=<your-key>
 ```
 
 Then run:
@@ -149,7 +145,6 @@ cd ts && npm test
 
 ```ts
 new IndoorEnvironmentalMonitoringSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -160,7 +155,6 @@ new IndoorEnvironmentalMonitoringSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
