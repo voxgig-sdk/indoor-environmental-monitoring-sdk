@@ -10,7 +10,7 @@ The Lua SDK for the IndoorEnvironmentalMonitoring API — an entity-oriented cli
 
 ## Install
 ```bash
-luarocks install indoor-environmental-monitoring-sdk
+luarocks install voxgig-sdk-indoor-environmental-monitoring
 ```
 
 If the module is not yet published, add the source directory to

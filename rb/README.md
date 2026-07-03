@@ -10,13 +10,13 @@ The Ruby SDK for the IndoorEnvironmentalMonitoring API — an entity-oriented cl
 
 ## Install
 ```bash
-gem install indoor-environmental-monitoring-sdk
+gem install voxgig-sdk-indoor-environmental-monitoring
 ```
 
 Or add to your `Gemfile`:
 
 ```ruby
-gem "indoor-environmental-monitoring-sdk"
+gem "voxgig-sdk-indoor-environmental-monitoring"
 ```
 
 Then run:

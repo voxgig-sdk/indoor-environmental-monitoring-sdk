@@ -8,12 +8,14 @@ source = {
   dir = "indoor-environmental-monitoring-sdk/lua"
 }
 description = {
-  summary = "IndoorEnvironmentalMonitoring SDK for Lua",
-  license = "MIT"
+  summary = "Unofficial generated Lua SDK for the Indoor Environmental Monitoring public API. Not affiliated with or endorsed by the upstream API provider.",
+  homepage = "https://github.com/voxgig-sdk/indoor-environmental-monitoring-sdk",
+  issues_url = "https://github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/issues",
+  license = "MIT",
+  labels = { "voxgig", "sdk", "generated-sdk", "openapi", "api-client", "indoor-environmental-monitoring" }
 }
 dependencies = {
   "lua >= 5.3",
-  "dkjson >= 2.5",
   "dkjson >= 2.5",
 }
 build = {

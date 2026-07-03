@@ -1,8 +1,17 @@
 {
   "name": "voxgig-sdk/indoor-environmental-monitoring",
-  "description": "IndoorEnvironmentalMonitoring SDK for PHP",
+  "description": "Unofficial generated PHP SDK for the Indoor Environmental Monitoring public API. Not affiliated with or endorsed by the upstream API provider.",
   "type": "library",
+  "keywords": ["voxgig", "sdk", "generated-sdk", "openapi", "api-client", "indoor-environmental-monitoring"],
+  "homepage": "https://github.com/voxgig-sdk/indoor-environmental-monitoring-sdk",
   "license": "MIT",
+  "authors": [
+    { "name": "Voxgig", "homepage": "https://voxgig.com" }
+  ],
+  "support": {
+    "issues": "https://github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/issues",
+    "source": "https://github.com/voxgig-sdk/indoor-environmental-monitoring-sdk"
+  },
   "minimum-stability": "stable",
   "require": {
     "php": ">=8.2"

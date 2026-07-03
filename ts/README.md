@@ -10,7 +10,7 @@ The TypeScript SDK for the IndoorEnvironmentalMonitoring API — a type-safe, en
 
 ## Install
 ```bash
-npm install indoor-environmental-monitoring
+npm install @voxgig-sdk/indoor-environmental-monitoring
 ```
 ## Tutorial: your first API call
 

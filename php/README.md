@@ -10,7 +10,7 @@ The PHP SDK for the IndoorEnvironmentalMonitoring API — an entity-oriented cli
 
 ## Install
 ```bash
-composer require voxgig/indoor-environmental-monitoring-sdk
+composer require voxgig-sdk/indoor-environmental-monitoring
 ```
 
 

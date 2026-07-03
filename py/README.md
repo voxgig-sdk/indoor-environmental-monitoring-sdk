@@ -10,7 +10,7 @@ The Python SDK for the IndoorEnvironmentalMonitoring API — an entity-oriented 
 
 ## Install
 ```bash
-pip install indoor-environmental-monitoring-sdk
+pip install voxgig-sdk-indoor-environmental-monitoring
 ```
 
 Or install from source:
