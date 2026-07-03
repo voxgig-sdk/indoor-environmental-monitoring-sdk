@@ -61,12 +61,14 @@ def _environmental_monitoring_direct_setup(mockres):
     env = runner.env_override({
         "INDOORENVIRONMENTALMONITORING_TEST_ENVIRONMENTAL_MONITORING_ENTID": {},
         "INDOORENVIRONMENTALMONITORING_TEST_LIVE": "FALSE",
+        "INDOORENVIRONMENTALMONITORING_APIKEY": "NONE",
     })
 
     live = env.get("INDOORENVIRONMENTALMONITORING_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {
+            "apikey": env.get("INDOORENVIRONMENTALMONITORING_APIKEY"),
         }
         client = IndoorEnvironmentalMonitoringSDK(merged_opts)
         return {

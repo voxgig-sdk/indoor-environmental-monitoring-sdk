@@ -1,21 +1,8 @@
 # IndoorEnvironmentalMonitoring SDK
 
-Indoor humidity, temperature and CO2 readings from NOI Techpark stations in Bolzano and Brunico
+Indoor Environmental Monitoring client, generated from the OpenAPI spec.
 
 > TypeScript, Python, PHP, Golang, Ruby, Lua SDKs, a CLI, an interactive REPL, and an MCP server for AI agents — all generated from one OpenAPI spec by [@voxgig/sdkgen](https://github.com/voxgig/sdkgen).
-
-## About Indoor Environmental Monitoring
-
-The [Open Data Hub Mobility API](https://mobility.api.opendatahub.com/v2) is a public data service run by [NOI Techpark](https://opendatahub.com/) in South Tyrol, Italy. This SDK targets the indoor environmental monitoring data, covering humidity, temperature and CO2 measurements collected at NOI Techpark facilities in Bolzano and Brunico to support research on indoor air quality, energy efficiency and occupant well-being.
-
-What you get from the API:
-
-- Station metadata for the indoor monitoring sites
-- Time-series measurements for humidity, temperature and CO2
-- Both hierarchical (`tree`) and flattened (`flat`) views of stations, data types and measurements
-- An OpenAPI v3 specification served from `/apispec`
-
-The API is open and does not require authentication for read access. CORS is reported as disabled, so browser-side calls may need a proxy. The same v2 mobility endpoint exposes many other South Tyrol mobility domains alongside the indoor sensors.
 
 ## Try it
 
@@ -49,29 +36,31 @@ gem install indoor-environmental-monitoring-sdk
 luarocks install indoor-environmental-monitoring-sdk
 ```
 
-## 30-second quickstart
+## Quickstart
 
 ### TypeScript
 
 ```ts
 import { IndoorEnvironmentalMonitoringSDK } from 'indoor-environmental-monitoring'
 
-const client = new IndoorEnvironmentalMonitoringSDK({})
+const client = new IndoorEnvironmentalMonitoringSDK({
+  apikey: process.env.INDOOR-ENVIRONMENTAL-MONITORING_APIKEY,
+})
 
 // List all environmentalmonitorings
 const environmentalmonitorings = await client.EnvironmentalMonitoring().list()
+console.log(environmentalmonitorings.data)
 ```
 
-See the [TypeScript README](ts/README.md) for the
-full guide, or scroll down for the same example in other languages.
+See the [TypeScript README](ts/README.md) for the full guide.
 
-## What's in the box
+## Surfaces
 
-| Surface | Use it for | Path |
-| --- | --- | --- |
-| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | App integration | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
-| **CLI** | Scripts, CI, ops, one-off API calls | `go-cli/` |
-| **MCP server** | AI agents (Claude, Cursor, Cline) | `go-mcp/` |
+| Surface | Path |
+| --- | --- |
+| **SDK** (TypeScript, Python, PHP, Golang, Ruby, Lua) | `ts/` `py/` `php/` `go/` `rb/` `lua/` |
+| **CLI** | `go-cli/` |
+| **MCP server** | `go-mcp/` |
 
 ## Use it from an AI agent (MCP)
 
@@ -101,7 +90,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **EnvironmentalMonitoring** | Indoor environmental sensor stations and their humidity, temperature and CO2 time-series, accessible through the mobility API's `tree` and `flat` node endpoints under `https://mobility.api.opendatahub.com/v2/`. | `/flat/EnvironmentStation` |
+| **EnvironmentalMonitoring** |  | `/flat/EnvironmentStation` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -111,12 +100,16 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
+import os
 from indoorenvironmentalmonitoring_sdk import IndoorEnvironmentalMonitoringSDK
 
-client = IndoorEnvironmentalMonitoringSDK({})
+client = IndoorEnvironmentalMonitoringSDK({
+    "apikey": os.environ.get("INDOOR-ENVIRONMENTAL-MONITORING_APIKEY"),
+})
 
 # List all environmentalmonitorings
-environmentalmonitorings, err = client.EnvironmentalMonitoring(None).list(None, None)
+environmentalmonitorings, err = client.EnvironmentalMonitoring().list()
+print(environmentalmonitorings)
 ```
 
 ### PHP
@@ -125,10 +118,13 @@ environmentalmonitorings, err = client.EnvironmentalMonitoring(None).list(None, 
 <?php
 require_once 'indoorenvironmentalmonitoring_sdk.php';
 
-$client = new IndoorEnvironmentalMonitoringSDK([]);
+$client = new IndoorEnvironmentalMonitoringSDK([
+    "apikey" => getenv("INDOOR-ENVIRONMENTAL-MONITORING_APIKEY"),
+]);
 
 // List all environmentalmonitorings
-[$environmentalmonitorings, $err] = $client->EnvironmentalMonitoring(null)->list(null, null);
+[$environmentalmonitorings, $err] = $client->EnvironmentalMonitoring()->list();
+print_r($environmentalmonitorings);
 ```
 
 ### Golang
@@ -136,10 +132,13 @@ $client = new IndoorEnvironmentalMonitoringSDK([]);
 ```go
 import sdk "github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/go"
 
-client := sdk.NewIndoorEnvironmentalMonitoringSDK(map[string]any{})
+client := sdk.NewIndoorEnvironmentalMonitoringSDK(map[string]any{
+    "apikey": os.Getenv("INDOOR-ENVIRONMENTAL-MONITORING_APIKEY"),
+})
 
 // List all environmentalmonitorings
 environmentalmonitorings, err := client.EnvironmentalMonitoring(nil).List(nil, nil)
+fmt.Println(environmentalmonitorings)
 ```
 
 ### Ruby
@@ -147,10 +146,13 @@ environmentalmonitorings, err := client.EnvironmentalMonitoring(nil).List(nil, n
 ```ruby
 require_relative "IndoorEnvironmentalMonitoring_sdk"
 
-client = IndoorEnvironmentalMonitoringSDK.new({})
+client = IndoorEnvironmentalMonitoringSDK.new({
+  "apikey" => ENV["INDOOR-ENVIRONMENTAL-MONITORING_APIKEY"],
+})
 
 # List all environmentalmonitorings
-environmentalmonitorings, err = client.EnvironmentalMonitoring(nil).list(nil, nil)
+environmentalmonitorings, err = client.EnvironmentalMonitoring().list
+puts environmentalmonitorings
 ```
 
 ### Lua
@@ -158,10 +160,13 @@ environmentalmonitorings, err = client.EnvironmentalMonitoring(nil).list(nil, ni
 ```lua
 local sdk = require("indoor-environmental-monitoring_sdk")
 
-local client = sdk.new({})
+local client = sdk.new({
+  apikey = os.getenv("INDOOR-ENVIRONMENTAL-MONITORING_APIKEY"),
+})
 
 -- List all environmentalmonitorings
-local environmentalmonitorings, err = client:EnvironmentalMonitoring(nil):list(nil, nil)
+local environmentalmonitorings, err = client:EnvironmentalMonitoring():list()
+print(environmentalmonitorings)
 ```
 
 ## Unit testing in offline mode
@@ -180,25 +185,21 @@ const result = await client.EnvironmentalMonitoring().load({ id: 'test01' })
 ### Python
 
 ```python
-client = IndoorEnvironmentalMonitoringSDK.test(None, None)
-result, err = client.EnvironmentalMonitoring(None).load(
-    {"id": "test01"}, None
-)
+client = IndoorEnvironmentalMonitoringSDK.test()
+result, err = client.EnvironmentalMonitoring().load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
-$client = IndoorEnvironmentalMonitoringSDK::test(null, null);
-[$result, $err] = $client->EnvironmentalMonitoring(null)->load(
-    ["id" => "test01"], null
-);
+$client = IndoorEnvironmentalMonitoringSDK::test();
+[$result, $err] = $client->EnvironmentalMonitoring()->load(["id" => "test01"]);
 ```
 
 ### Golang
 
 ```go
-client := sdk.TestSDK(nil, nil)
+client := sdk.Test()
 result, err := client.EnvironmentalMonitoring(nil).Load(
     map[string]any{"id": "test01"}, nil,
 )
@@ -207,19 +208,15 @@ result, err := client.EnvironmentalMonitoring(nil).Load(
 ### Ruby
 
 ```ruby
-client = IndoorEnvironmentalMonitoringSDK.test(nil, nil)
-result, err = client.EnvironmentalMonitoring(nil).load(
-  { "id" => "test01" }, nil
-)
+client = IndoorEnvironmentalMonitoringSDK.test
+result, err = client.EnvironmentalMonitoring().load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
-local client = sdk.test(nil, nil)
-local result, err = client:EnvironmentalMonitoring(nil):load(
-  { id = "test01" }, nil
-)
+local client = sdk.test()
+local result, err = client:EnvironmentalMonitoring():load({ id = "test01" })
 ```
 
 ## How it works
@@ -323,15 +320,6 @@ local result, err = client:direct({
 - [Golang](go/README.md)
 - [Ruby](rb/README.md)
 - [Lua](lua/README.md)
-
-## Using the Indoor Environmental Monitoring
-
-- Upstream: [https://mobility.api.opendatahub.com/v2](https://mobility.api.opendatahub.com/v2)
-- API docs: [https://mobility.api.opendatahub.com/v2/apispec](https://mobility.api.opendatahub.com/v2/apispec)
-
-- Data is published under the [Creative Commons CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/) public domain dedication
-- No attribution is legally required, but crediting the Open Data Hub South Tyrol / NOI Techpark is appreciated
-- The Open Data Hub platform is operated by [NOI S.p.A.](https://opendatahub.com/) in South Tyrol / Alto Adige, Italy
 
 ---
 

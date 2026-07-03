@@ -86,6 +86,7 @@ function environmental_monitoring_basic_setup($extra)
         "INDOORENVIRONMENTALMONITORING_TEST_ENVIRONMENTAL_MONITORING_ENTID" => $idmap,
         "INDOORENVIRONMENTALMONITORING_TEST_LIVE" => "FALSE",
         "INDOORENVIRONMENTALMONITORING_TEST_EXPLAIN" => "FALSE",
+        "INDOORENVIRONMENTALMONITORING_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -97,6 +98,7 @@ function environmental_monitoring_basic_setup($extra)
     if ($env["INDOORENVIRONMENTALMONITORING_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
+                "apikey" => $env["INDOORENVIRONMENTALMONITORING_APIKEY"],
             ],
             $extra ?? [],
         ]);

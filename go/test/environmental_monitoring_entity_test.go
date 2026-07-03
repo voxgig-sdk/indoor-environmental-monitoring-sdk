@@ -119,6 +119,7 @@ func environmental_monitoringBasicSetup(extra map[string]any) *entityTestSetup {
 		"INDOORENVIRONMENTALMONITORING_TEST_ENVIRONMENTAL_MONITORING_ENTID": idmap,
 		"INDOORENVIRONMENTALMONITORING_TEST_LIVE":      "FALSE",
 		"INDOORENVIRONMENTALMONITORING_TEST_EXPLAIN":   "FALSE",
+		"INDOORENVIRONMENTALMONITORING_APIKEY":         "NONE",
 	})
 
 	idmapResolved := core.ToMapAny(env["INDOORENVIRONMENTALMONITORING_TEST_ENVIRONMENTAL_MONITORING_ENTID"])
@@ -129,6 +130,7 @@ func environmental_monitoringBasicSetup(extra map[string]any) *entityTestSetup {
 	if env["INDOORENVIRONMENTALMONITORING_TEST_LIVE"] == "TRUE" {
 		mergedOpts := vs.Merge([]any{
 			map[string]any{
+				"apikey": env["INDOORENVIRONMENTALMONITORING_APIKEY"],
 			},
 			extra,
 		})

@@ -63,12 +63,14 @@ function environmental_monitoring_direct_setup(mockres)
   local env = runner.env_override({
     ["INDOORENVIRONMENTALMONITORING_TEST_ENVIRONMENTAL_MONITORING_ENTID"] = {},
     ["INDOORENVIRONMENTALMONITORING_TEST_LIVE"] = "FALSE",
+    ["INDOORENVIRONMENTALMONITORING_APIKEY"] = "NONE",
   })
 
   local live = env["INDOORENVIRONMENTALMONITORING_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {
+      apikey = env["INDOORENVIRONMENTALMONITORING_APIKEY"],
     }
     local client = sdk.new(merged_opts)
     return {

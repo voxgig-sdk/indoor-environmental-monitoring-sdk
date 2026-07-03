@@ -1,44 +1,13 @@
 {
-  "name": "indoor-environmental-monitoring",
-  "origin": "voxgig-sdk",
   "def": "indoor-environmental-monitoring_0.1.0.json",
   "main": {
+    "def": {
+      "desc": ""
+    },
     "kit": {
-      "info": {
-        "contact": {
-          "name": "Open Data Hub",
-          "url": "https://databrowser.opendatahub.com"
-        },
-        "description": "This API provides access to environmental monitoring data, including key parameters such as humidity, temperature, and carbon dioxide levels, from selected areas within NOI Techpark Bolzano and Brunico. The data can be utilized for studies related to indoor air quality, energy efficiency, and health impact assessments.",
-        "license": {
-          "name": "CC0-1.0",
-          "url": "https://creativecommons.org/publicdomain/zero/1.0/"
-        },
-        "servers": [
-          {
-            "description": "Open Data Hub API Server",
-            "url": "https://mobility.api.opendatahub.com/v2"
-          }
-        ],
-        "title": "Indoor Environmental Monitoring",
-        "version": "1.0.0",
-        "tagline": "Indoor humidity, temperature and CO2 readings from NOI Techpark stations in Bolzano and Brunico",
-        "homepage": "https://mobility.api.opendatahub.com/v2",
-        "docs_url": "https://mobility.api.opendatahub.com/v2/apispec",
-        "license_short": "CC0 1.0 Universal (public domain dedication)",
-        "license_md": "- Data is published under the [Creative Commons CC0 1.0 Universal](https://creativecommons.org/publicdomain/zero/1.0/) public domain dedication\n- No attribution is legally required, but crediting the Open Data Hub South Tyrol / NOI Techpark is appreciated\n- The Open Data Hub platform is operated by [NOI S.p.A.](https://opendatahub.com/) in South Tyrol / Alto Adige, Italy",
-        "about_md": "The [Open Data Hub Mobility API](https://mobility.api.opendatahub.com/v2) is a public data service run by [NOI Techpark](https://opendatahub.com/) in South Tyrol, Italy. This SDK targets the indoor environmental monitoring data, covering humidity, temperature and CO2 measurements collected at NOI Techpark facilities in Bolzano and Brunico to support research on indoor air quality, energy efficiency and occupant well-being.\n\nWhat you get from the API:\n\n- Station metadata for the indoor monitoring sites\n- Time-series measurements for humidity, temperature and CO2\n- Both hierarchical (`tree`) and flattened (`flat`) views of stations, data types and measurements\n- An OpenAPI v3 specification served from `/apispec`\n\nThe API is open and does not require authentication for read access. CORS is reported as disabled, so browser-side calls may need a proxy. The same v2 mobility endpoint exposes many other South Tyrol mobility domains alongside the indoor sensors.",
-        "entity_desc": {
-          "environmental_monitoring": "Indoor environmental sensor stations and their humidity, temperature and CO2 time-series, accessible through the mobility API's `tree` and `flat` node endpoints under `https://mobility.api.opendatahub.com/v2/`."
-        },
-        "auth": false
-      },
       "config": {
         "auth": {
           "prefix": "Bearer"
-        },
-        "headers": {
-          "content-type": "application/json"
         },
         "docs_order": [
           "ts",
@@ -47,157 +16,163 @@
           "go",
           "rb",
           "lua"
-        ]
+        ],
+        "headers": {
+          "content-type": "application/json"
+        }
       },
       "entity": {
         "environmental_monitoring": {
+          "active": true,
           "alias": {
             "field": {}
           },
           "fields": [
             {
+              "active": true,
               "name": "mperiod",
               "req": false,
-              "type": "`$INTEGER`",
-              "active": true
+              "type": "`$INTEGER`"
             },
             {
+              "active": true,
               "name": "mtransactiontime",
               "req": false,
-              "type": "`$STRING`",
-              "active": true
+              "type": "`$STRING`"
             },
             {
+              "active": true,
               "name": "mvalidtime",
               "req": false,
-              "type": "`$STRING`",
-              "active": true
+              "type": "`$STRING`"
             },
             {
+              "active": true,
               "name": "mvalue",
               "req": false,
-              "type": "`$NUMBER`",
-              "active": true
+              "type": "`$NUMBER`"
             },
             {
+              "active": true,
               "name": "sactive",
               "req": false,
-              "type": "`$BOOLEAN`",
-              "active": true
+              "type": "`$BOOLEAN`"
             },
             {
+              "active": true,
               "name": "savailable",
               "req": false,
-              "type": "`$BOOLEAN`",
-              "active": true
+              "type": "`$BOOLEAN`"
             },
             {
+              "active": true,
               "name": "scode",
               "req": false,
-              "type": "`$STRING`",
-              "active": true
+              "type": "`$STRING`"
             },
             {
+              "active": true,
               "name": "scoordinate",
               "req": false,
-              "type": "`$OBJECT`",
-              "active": true
+              "type": "`$OBJECT`"
             },
             {
+              "active": true,
               "name": "smetadata",
               "req": false,
-              "type": "`$OBJECT`",
-              "active": true
+              "type": "`$OBJECT`"
             },
             {
+              "active": true,
               "name": "sname",
               "req": false,
-              "type": "`$STRING`",
-              "active": true
+              "type": "`$STRING`"
             },
             {
+              "active": true,
               "name": "stype",
               "req": false,
-              "type": "`$STRING`",
-              "active": true
+              "type": "`$STRING`"
             },
             {
+              "active": true,
               "name": "tdescription",
               "req": false,
-              "type": "`$STRING`",
-              "active": true
+              "type": "`$STRING`"
             },
             {
+              "active": true,
               "name": "tmetadata",
               "req": false,
-              "type": "`$OBJECT`",
-              "active": true
+              "type": "`$OBJECT`"
             },
             {
+              "active": true,
               "name": "tname",
               "req": false,
-              "type": "`$STRING`",
-              "active": true
+              "type": "`$STRING`"
             },
             {
+              "active": true,
               "name": "tunit",
               "req": false,
-              "type": "`$STRING`",
-              "active": true
+              "type": "`$STRING`"
             }
           ],
           "name": "environmental_monitoring",
           "op": {
             "list": {
+              "input": "data",
               "name": "list",
               "points": [
                 {
+                  "active": true,
                   "args": {
                     "query": [
                       {
+                        "active": true,
                         "example": false,
                         "kind": "query",
                         "name": "distinct",
                         "orig": "distinct",
                         "reqd": false,
-                        "type": "`$BOOLEAN`",
-                        "active": true
+                        "type": "`$BOOLEAN`"
                       },
                       {
+                        "active": true,
                         "example": 200,
                         "kind": "query",
                         "name": "limit",
                         "orig": "limit",
                         "reqd": false,
-                        "type": "`$INTEGER`",
-                        "active": true
+                        "type": "`$INTEGER`"
                       },
                       {
+                        "active": true,
                         "example": 0,
                         "kind": "query",
                         "name": "offset",
                         "orig": "offset",
                         "reqd": false,
-                        "type": "`$INTEGER`",
-                        "active": true
+                        "type": "`$INTEGER`"
                       },
                       {
+                        "active": true,
                         "example": "scode,sname,scoordinate,mvalidtime,mvalue",
                         "kind": "query",
                         "name": "select",
                         "orig": "select",
                         "reqd": false,
-                        "type": "`$STRING`",
-                        "active": true
+                        "type": "`$STRING`"
                       },
                       {
+                        "active": true,
                         "example": "sactive.eq.true",
                         "kind": "query",
                         "name": "where",
                         "orig": "where",
                         "reqd": false,
-                        "type": "`$STRING`",
-                        "active": true
+                        "type": "`$STRING`"
                       }
                     ]
                   },
@@ -219,14 +194,11 @@
                   "transform": {
                     "req": "`reqdata`",
                     "res": "`body`"
-                  },
-                  "active": true
+                  }
                 }
-              ],
-              "input": "data"
+              ]
             }
           },
-          "active": true,
           "relations": {
             "ancestors": []
           }
@@ -234,9 +206,6 @@
       },
       "feature": {
         "test": {
-          "name": "test",
-          "title": "In-memory mock transport for testing without a live server",
-          "version": "0.0.1",
           "active": true,
           "config": {
             "options": {
@@ -244,6 +213,14 @@
             }
           },
           "hook": {
+            "GetData": {
+              "active": true,
+              "await": false
+            },
+            "GetMatch": {
+              "active": true,
+              "await": false
+            },
             "PostConstruct": {
               "active": true,
               "await": false
@@ -252,25 +229,11 @@
               "active": true,
               "await": false
             },
-            "SetData": {
-              "active": true,
-              "await": false
-            },
-            "GetData": {
-              "active": true,
-              "await": false
-            },
-            "SetMatch": {
-              "active": true
-            },
-            "GetMatch": {
-              "active": true,
+            "PostOperation": {
+              "active": false,
               "await": false
             },
             "PrePoint": {
-              "active": true
-            },
-            "PreSpec": {
               "active": true,
               "await": false
             },
@@ -286,20 +249,32 @@
               "active": true,
               "await": false
             },
+            "PreSpec": {
+              "active": true,
+              "await": false
+            },
             "PreTarget": {
               "active": false,
               "await": false
             },
-            "PostOperation": {
-              "active": false,
+            "SetData": {
+              "active": true,
+              "await": false
+            },
+            "SetMatch": {
+              "active": true,
               "await": false
             }
           },
+          "name": "test",
           "target": {
-            "ts": {
+            "go": {
               "deps": {}
             },
-            "go": {
+            "go-cli": {
+              "deps": {}
+            },
+            "go-mcp": {
               "deps": {}
             },
             "lua": {
@@ -314,23 +289,30 @@
             "rb": {
               "deps": {}
             },
-            "go-cli": {
-              "deps": {}
-            },
-            "go-mcp": {
+            "ts": {
               "deps": {}
             }
-          }
+          },
+          "title": "In-memory mock transport for testing without a live server",
+          "version": "0.0.1"
         }
       },
       "flow": {
         "BasicEnvironmentalMonitoringFlow": {
+          "active": true,
           "entity": "environmental_monitoring",
+          "key$": "BasicEnvironmentalMonitoringFlow",
           "kind": "basic",
           "name": "BasicEnvironmentalMonitoringFlow",
+          "param": {},
           "step": [
             {
+              "active": true,
+              "data": {},
+              "input": {},
+              "match": {},
               "op": "list",
+              "spec": [],
               "valid": [
                 {
                   "apply": "ItemExists",
@@ -338,29 +320,57 @@
                     "ref": "environmental_monitoring_ref01"
                   }
                 }
-              ],
-              "active": true,
-              "match": {},
-              "data": {},
-              "input": {},
-              "spec": []
+              ]
             }
-          ],
-          "key$": "BasicEnvironmentalMonitoringFlow",
-          "active": true,
-          "param": {}
+          ]
         }
       },
+      "info": {
+        "contact": {
+          "name": "Open Data Hub",
+          "url": "https://databrowser.opendatahub.com"
+        },
+        "description": "This API provides access to environmental monitoring data, including key parameters such as humidity, temperature, and carbon dioxide levels, from selected areas within NOI Techpark Bolzano and Brunico. The data can be utilized for studies related to indoor air quality, energy efficiency, and health impact assessments.",
+        "license": {
+          "name": "CC0-1.0",
+          "url": "https://creativecommons.org/publicdomain/zero/1.0/"
+        },
+        "servers": [
+          {
+            "description": "Open Data Hub API Server",
+            "url": "https://mobility.api.opendatahub.com/v2"
+          }
+        ],
+        "title": "Indoor Environmental Monitoring",
+        "version": "1.0.0"
+      },
+      "option": {},
       "target": {
-        "go-cli": {
-          "title": "Go CLI",
-          "ext": "go",
+        "go": {
+          "active": true,
           "comment": {
             "line": "//"
           },
+          "deps": {},
+          "ext": "go",
           "module": {
             "name": "indoor-environmental-monitoring"
           },
+          "name": "go",
+          "srcfeature": false,
+          "title": "Golang"
+        },
+        "go-cli": {
+          "active": true,
+          "comment": {
+            "line": "//"
+          },
+          "deps": {},
+          "ext": "go",
+          "module": {
+            "name": "indoor-environmental-monitoring"
+          },
+          "name": "go-cli",
           "phase": {
             "entity": {
               "active": false
@@ -375,19 +385,19 @@
               "active": false
             }
           },
-          "deps": {},
-          "name": "go-cli",
-          "active": true
+          "title": "Go CLI"
         },
         "go-mcp": {
-          "title": "Go MCP server",
-          "ext": "go",
+          "active": true,
           "comment": {
             "line": "//"
           },
+          "deps": {},
+          "ext": "go",
           "module": {
             "name": "indoor-environmental-monitoring"
           },
+          "name": "go-mcp",
           "phase": {
             "entity": {
               "active": false
@@ -402,138 +412,120 @@
               "active": false
             }
           },
-          "deps": {},
-          "name": "go-mcp",
-          "active": true
-        },
-        "ts": {
-          "title": "TypeScript",
-          "ext": "ts",
-          "comment": {
-            "line": "//"
-          },
-          "module": {
-            "name": "indoor-environmental-monitoring"
-          },
-          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
-          "deps": {
-            "dotenv": {
-              "active": true,
-              "version": "^17.4.2",
-              "kind": "dev"
-            },
-            "typescript": {
-              "active": true,
-              "version": "^5.9.3",
-              "kind": "dev"
-            },
-            "@types/node": {
-              "active": true,
-              "version": "^25.6.0",
-              "kind": "dev"
-            }
-          },
-          "name": "ts",
-          "active": true
-        },
-        "go": {
-          "title": "Golang",
-          "ext": "go",
-          "comment": {
-            "line": "//"
-          },
-          "module": {
-            "name": "indoor-environmental-monitoring"
-          },
-          "srcfeature": false,
-          "deps": {},
-          "name": "go",
-          "active": true
+          "title": "Go MCP server"
         },
         "lua": {
-          "title": "Lua",
-          "ext": "lua",
+          "active": true,
           "comment": {
             "line": "--"
           },
-          "module": {
-            "name": "indoor-environmental-monitoring"
-          },
-          "srcfeature": false,
           "deps": {
             "dkjson": {
               "active": true,
-              "version": "2.5",
-              "kind": "prod"
+              "kind": "prod",
+              "version": "2.5"
             }
           },
+          "ext": "lua",
+          "module": {
+            "name": "indoor-environmental-monitoring"
+          },
           "name": "lua",
-          "active": true
+          "srcfeature": false,
+          "title": "Lua"
         },
         "php": {
-          "title": "PHP",
-          "ext": "php",
+          "active": true,
           "comment": {
             "line": "//"
           },
+          "deps": {},
+          "ext": "php",
           "module": {
             "name": "indoor-environmental-monitoring"
           },
-          "srcfeature": false,
-          "deps": {},
           "name": "php",
-          "active": true
+          "srcfeature": false,
+          "title": "PHP"
         },
         "py": {
-          "title": "Python",
-          "ext": "py",
+          "active": true,
           "comment": {
             "line": "#"
           },
-          "module": {
-            "name": "indoor-environmental-monitoring"
-          },
-          "srcfeature": false,
           "deps": {
             "requests": {
               "active": true,
-              "version": "2.33",
-              "kind": "prod"
+              "kind": "prod",
+              "version": "2.33"
             }
           },
-          "name": "py",
-          "active": true
-        },
-        "rb": {
-          "title": "Ruby",
-          "ext": "rb",
-          "comment": {
-            "line": "#"
-          },
+          "ext": "py",
           "module": {
             "name": "indoor-environmental-monitoring"
           },
+          "name": "py",
           "srcfeature": false,
+          "title": "Python"
+        },
+        "rb": {
+          "active": true,
+          "comment": {
+            "line": "#"
+          },
           "deps": {
-            "voxgig-struct": {
-              "active": true,
-              "version": "0.0.10",
-              "kind": "prod"
-            },
             "json": {
               "active": true,
-              "version": "0",
-              "kind": "prod"
+              "kind": "prod",
+              "version": "0"
+            },
+            "voxgig-struct": {
+              "active": true,
+              "kind": "prod",
+              "version": "0.0.10"
             }
           },
+          "ext": "rb",
+          "module": {
+            "name": "indoor-environmental-monitoring"
+          },
           "name": "rb",
-          "active": true
+          "srcfeature": false,
+          "title": "Ruby"
+        },
+        "ts": {
+          "active": true,
+          "base": "node_modules/@voxgig/sdkgen/project/.sdk",
+          "comment": {
+            "line": "//"
+          },
+          "deps": {
+            "@types/node": {
+              "active": true,
+              "kind": "dev",
+              "version": "^25.6.0"
+            },
+            "dotenv": {
+              "active": true,
+              "kind": "dev",
+              "version": "^17.4.2"
+            },
+            "typescript": {
+              "active": true,
+              "kind": "dev",
+              "version": "^5.9.3"
+            }
+          },
+          "ext": "ts",
+          "module": {
+            "name": "indoor-environmental-monitoring"
+          },
+          "name": "ts",
+          "title": "TypeScript"
         }
-      },
-      "option": {}
-    },
-    "def": {
-      "desc": ""
+      }
     }
-  }
+  },
+  "name": "indoor-environmental-monitoring",
+  "origin": "voxgig-sdk"
 }

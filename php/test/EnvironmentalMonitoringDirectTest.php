@@ -68,12 +68,14 @@ function environmental_monitoring_direct_setup($mockres)
     $env = Runner::env_override([
         "INDOORENVIRONMENTALMONITORING_TEST_ENVIRONMENTAL_MONITORING_ENTID" => [],
         "INDOORENVIRONMENTALMONITORING_TEST_LIVE" => "FALSE",
+        "INDOORENVIRONMENTALMONITORING_APIKEY" => "NONE",
     ]);
 
     $live = $env["INDOORENVIRONMENTALMONITORING_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [
+            "apikey" => $env["INDOORENVIRONMENTALMONITORING_APIKEY"],
         ];
         $client = new IndoorEnvironmentalMonitoringSDK($merged_opts);
         return [

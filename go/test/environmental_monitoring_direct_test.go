@@ -93,12 +93,14 @@ func environmental_monitoringDirectSetup(mockres any) *environmental_monitoringD
 	env := envOverride(map[string]any{
 		"INDOORENVIRONMENTALMONITORING_TEST_ENVIRONMENTAL_MONITORING_ENTID": map[string]any{},
 		"INDOORENVIRONMENTALMONITORING_TEST_LIVE":    "FALSE",
+		"INDOORENVIRONMENTALMONITORING_APIKEY":       "NONE",
 	})
 
 	live := env["INDOORENVIRONMENTALMONITORING_TEST_LIVE"] == "TRUE"
 
 	if live {
 		mergedOpts := map[string]any{
+			"apikey": env["INDOORENVIRONMENTALMONITORING_APIKEY"],
 		}
 		client := sdk.NewIndoorEnvironmentalMonitoringSDK(mergedOpts)
 
