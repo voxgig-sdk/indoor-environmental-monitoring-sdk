@@ -38,10 +38,6 @@ class Config {
   options = {
     base: 'https://mobility.api.opendatahub.com/v2',
 
-    auth: {
-      prefix: 'Bearer',
-    },
-
     headers: {
       "content-type": "application/json"
     },

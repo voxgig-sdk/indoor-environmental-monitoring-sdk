@@ -9,9 +9,12 @@ The TypeScript SDK for the IndoorEnvironmentalMonitoring API — a type-safe, en
 
 
 ## Install
-```bash
-npm install @voxgig-sdk/indoor-environmental-monitoring
-```
+This package is not yet published to npm. Install it from the GitHub
+release tag (`ts/vX.Y.Z`):
+
+- Releases: [https://github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/releases](https://github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/releases)
+
+
 ## Tutorial: your first API call
 
 This tutorial walks through creating a client, listing entities, and
@@ -20,17 +23,15 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { IndoorEnvironmentalMonitoringSDK } from 'indoor-environmental-monitoring'
+import { IndoorEnvironmentalMonitoringSDK } from '@voxgig-sdk/indoor-environmental-monitoring'
 
-const client = new IndoorEnvironmentalMonitoringSDK({
-  apikey: process.env.INDOOR-ENVIRONMENTAL-MONITORING_APIKEY,
-})
+const client = new IndoorEnvironmentalMonitoringSDK()
 ```
 
 ### 2. List environmentalmonitorings
 
 ```ts
-const result = await client.EnvironmentalMonitoring().list()
+const result = await client.environmentalmonitoring.list()
 
 if (result.ok) {
   for (const item of result.data) {
@@ -81,7 +82,7 @@ Create a mock client for unit testing — no server required:
 ```ts
 const client = IndoorEnvironmentalMonitoringSDK.test()
 
-const result = await client.Planet().load({ id: 'test01' })
+const result = await client.environmentalmonitoring.load({ id: 'test01' })
 // result.ok === true
 // result.data contains mock response data
 ```
@@ -89,7 +90,7 @@ const result = await client.Planet().load({ id: 'test01' })
 You can also use the instance method:
 
 ```ts
-const client = new IndoorEnvironmentalMonitoringSDK({ apikey: '...' })
+const client = new IndoorEnvironmentalMonitoringSDK()
 const testClient = client.tester()
 ```
 
@@ -98,7 +99,7 @@ const testClient = client.tester()
 Entity instances remember their last match and data:
 
 ```ts
-const entity = client.Planet()
+const entity = client.environmentalmonitoring
 
 // First call sets internal match
 await entity.load({ id: 'example' })
@@ -125,7 +126,6 @@ const logger = {
 }
 
 const client = new IndoorEnvironmentalMonitoringSDK({
-  apikey: '...',
   extend: [logger],
 })
 ```
@@ -135,8 +135,7 @@ const client = new IndoorEnvironmentalMonitoringSDK({
 Create a `.env.local` file at the project root:
 
 ```
-INDOOR-ENVIRONMENTAL-MONITORING_TEST_LIVE=TRUE
-INDOOR-ENVIRONMENTAL-MONITORING_APIKEY=<your-key>
+INDOOR_ENVIRONMENTAL_MONITORING_TEST_LIVE=TRUE
 ```
 
 Then run:
@@ -154,7 +153,6 @@ cd ts && npm test
 
 ```ts
 new IndoorEnvironmentalMonitoringSDK(options?: {
-  apikey?: string
   base?: string
   prefix?: string
   suffix?: string
@@ -165,7 +163,6 @@ new IndoorEnvironmentalMonitoringSDK(options?: {
 
 | Option | Type | Description |
 | --- | --- | --- |
-| `apikey` | `string` | API key for authentication. |
 | `base` | `string` | Base URL of the API server. |
 | `prefix` | `string` | URL path prefix prepended to all requests. |
 | `suffix` | `string` | URL path suffix appended to all requests. |
@@ -282,7 +279,7 @@ API path: `/flat/EnvironmentStation`
 
 ### EnvironmentalMonitoring
 
-Create an instance: `const environmental_monitoring = client.EnvironmentalMonitoring()`
+Create an instance: `const environmental_monitoring = client.environmental_monitoring`
 
 #### Operations
 
@@ -313,7 +310,7 @@ Create an instance: `const environmental_monitoring = client.EnvironmentalMonito
 #### Example: List
 
 ```ts
-const environmental_monitorings = await client.EnvironmentalMonitoring().list()
+const environmental_monitorings = await client.environmental_monitoring.list()
 ```
 
 
@@ -374,7 +371,7 @@ indoor-environmental-monitoring/
 Import the SDK from the package root:
 
 ```ts
-import { IndoorEnvironmentalMonitoringSDK } from 'indoor-environmental-monitoring'
+import { IndoorEnvironmentalMonitoringSDK } from '@voxgig-sdk/indoor-environmental-monitoring'
 ```
 
 ### Entity state
@@ -384,11 +381,11 @@ stores the returned data and match criteria internally. Subsequent
 calls on the same instance can rely on this state.
 
 ```ts
-const moon = client.Moon()
-await moon.load({ planet_id: 'earth', id: 'luna' })
+const environmentalmonitoring = client.environmentalmonitoring
+await environmentalmonitoring.load({ id: "example_id" })
 
-// moon.data() now returns the loaded moon data
-// moon.match() returns { planet_id: 'earth', id: 'luna' }
+// environmentalmonitoring.data() now returns the loaded environmentalmonitoring data
+// environmentalmonitoring.match() returns { id: "example_id" }
 ```
 
 Call `make()` to create a fresh instance with the same configuration

@@ -43,8 +43,7 @@ class EnvironmentalMonitoringEntityTest < Minitest::Test
     environmental_monitoring_ref01_ent = client.EnvironmentalMonitoring(nil)
     environmental_monitoring_ref01_match = {}
 
-    environmental_monitoring_ref01_list_result, err = environmental_monitoring_ref01_ent.list(environmental_monitoring_ref01_match, nil)
-    assert_nil err
+    environmental_monitoring_ref01_list_result = environmental_monitoring_ref01_ent.list(environmental_monitoring_ref01_match, nil)
     assert environmental_monitoring_ref01_list_result.is_a?(Array)
 
   end
@@ -83,7 +82,6 @@ def environmental_monitoring_basic_setup(extra)
     "INDOORENVIRONMENTALMONITORING_TEST_ENVIRONMENTAL_MONITORING_ENTID" => idmap,
     "INDOORENVIRONMENTALMONITORING_TEST_LIVE" => "FALSE",
     "INDOORENVIRONMENTALMONITORING_TEST_EXPLAIN" => "FALSE",
-    "INDOORENVIRONMENTALMONITORING_APIKEY" => "NONE",
   })
 
   idmap_resolved = Helpers.to_map(
@@ -95,7 +93,6 @@ def environmental_monitoring_basic_setup(extra)
   if env["INDOORENVIRONMENTALMONITORING_TEST_LIVE"] == "TRUE"
     merged_opts = Vs.merge([
       {
-        "apikey" => env["INDOORENVIRONMENTALMONITORING_APIKEY"],
       },
       extra || {},
     ])

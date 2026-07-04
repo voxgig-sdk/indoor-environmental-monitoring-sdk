@@ -113,7 +113,6 @@ function basicSetup(extra?: any) {
     'INDOOR_ENVIRONMENTAL_MONITORING_TEST_ENVIRONMENTAL_MONITORING_ENTID': idmap,
     'INDOOR_ENVIRONMENTAL_MONITORING_TEST_LIVE': 'FALSE',
     'INDOOR_ENVIRONMENTAL_MONITORING_TEST_EXPLAIN': 'FALSE',
-    'INDOOR_ENVIRONMENTAL_MONITORING_APIKEY': 'NONE',
   })
 
   idmap = env['INDOOR_ENVIRONMENTAL_MONITORING_TEST_ENVIRONMENTAL_MONITORING_ENTID']
@@ -123,7 +122,6 @@ function basicSetup(extra?: any) {
   if (live) {
     client = new IndoorEnvironmentalMonitoringSDK(merge([
       {
-        apikey: env.INDOOR_ENVIRONMENTAL_MONITORING_APIKEY,
       },
       extra
     ]))

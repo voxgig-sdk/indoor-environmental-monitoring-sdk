@@ -79,14 +79,12 @@ function directSetup(mockres?: any) {
   const env = envOverride({
     'INDOORENVIRONMENTALMONITORING_TEST_ENVIRONMENTAL_MONITORING_ENTID': {},
     'INDOORENVIRONMENTALMONITORING_TEST_LIVE': 'FALSE',
-    'INDOORENVIRONMENTALMONITORING_APIKEY': 'NONE',
   })
 
   const live = 'TRUE' === env.INDOORENVIRONMENTALMONITORING_TEST_LIVE
 
   if (live) {
     const client = new IndoorEnvironmentalMonitoringSDK({
-      apikey: env.INDOORENVIRONMENTALMONITORING_APIKEY,
     })
 
     let idmap: any = env['INDOORENVIRONMENTALMONITORING_TEST_ENVIRONMENTAL_MONITORING_ENTID']

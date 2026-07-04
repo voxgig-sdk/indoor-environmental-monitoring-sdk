@@ -50,8 +50,7 @@ class TestEnvironmentalMonitoringEntity:
         environmental_monitoring_ref01_ent = client.EnvironmentalMonitoring(None)
         environmental_monitoring_ref01_match = {}
 
-        environmental_monitoring_ref01_list_result, err = environmental_monitoring_ref01_ent.list(environmental_monitoring_ref01_match, None)
-        assert err is None
+        environmental_monitoring_ref01_list_result = environmental_monitoring_ref01_ent.list(environmental_monitoring_ref01_match, None)
         assert isinstance(environmental_monitoring_ref01_list_result, list)
 
 
@@ -92,7 +91,6 @@ def _environmental_monitoring_basic_setup(extra):
         "INDOORENVIRONMENTALMONITORING_TEST_ENVIRONMENTAL_MONITORING_ENTID": idmap,
         "INDOORENVIRONMENTALMONITORING_TEST_LIVE": "FALSE",
         "INDOORENVIRONMENTALMONITORING_TEST_EXPLAIN": "FALSE",
-        "INDOORENVIRONMENTALMONITORING_APIKEY": "NONE",
     })
 
     idmap_resolved = helpers.to_map(
@@ -103,7 +101,6 @@ def _environmental_monitoring_basic_setup(extra):
     if env.get("INDOORENVIRONMENTALMONITORING_TEST_LIVE") == "TRUE":
         merged_opts = vs.merge([
             {
-                "apikey": env.get("INDOORENVIRONMENTALMONITORING_APIKEY"),
             },
             extra or {},
         ])

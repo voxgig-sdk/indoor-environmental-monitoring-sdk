@@ -10,26 +10,24 @@ This is an unofficial SDK for the Indoor Environmental Monitoring public API, ge
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/indoor-environmental-monitoring` | `npm install @voxgig-sdk/indoor-environmental-monitoring` |
-| Python | `voxgig-sdk-indoor-environmental-monitoring` | `pip install voxgig-sdk-indoor-environmental-monitoring` |
-| PHP | `voxgig-sdk/indoor-environmental-monitoring` | `composer require voxgig-sdk/indoor-environmental-monitoring` |
-| Golang | `github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/go` | `go get github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/go` |
-| Ruby | `voxgig-sdk-indoor-environmental-monitoring` | `gem install voxgig-sdk-indoor-environmental-monitoring` |
-| Lua | `voxgig-sdk-indoor-environmental-monitoring` | `luarocks install voxgig-sdk-indoor-environmental-monitoring` |
+| TypeScript | `@voxgig-sdk/indoor-environmental-monitoring` | publish pending — [install from git tag](https://github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/releases) |
+| Python | `voxgig-sdk-indoor-environmental-monitoring` | publish pending — [install from git tag](https://github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/releases) |
+| PHP | `voxgig-sdk/indoor-environmental-monitoring` | publish pending — [install from git tag](https://github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/releases) |
+| Golang | `github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/go` | `go get github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/go@latest` |
+| Ruby | `voxgig-sdk-indoor-environmental-monitoring` | publish pending — [install from git tag](https://github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/releases) |
+| Lua | `voxgig-sdk-indoor-environmental-monitoring` | publish pending — [install from git tag](https://github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/releases) |
 
 ## Quickstart
 
 ### TypeScript
 
 ```ts
-import { IndoorEnvironmentalMonitoringSDK } from 'indoor-environmental-monitoring'
+import { IndoorEnvironmentalMonitoringSDK } from '@voxgig-sdk/indoor-environmental-monitoring'
 
-const client = new IndoorEnvironmentalMonitoringSDK({
-  apikey: process.env.INDOOR-ENVIRONMENTAL-MONITORING_APIKEY,
-})
+const client = new IndoorEnvironmentalMonitoringSDK()
 
 // List all environmentalmonitorings
-const environmentalmonitorings = await client.EnvironmentalMonitoring().list()
+const environmentalmonitorings = await client.environmentalmonitoring.list()
 console.log(environmentalmonitorings.data)
 ```
 
@@ -71,7 +69,7 @@ The API exposes one entity:
 
 | Entity | Description | API path |
 | --- | --- | --- |
-| **EnvironmentalMonitoring** |  | `/flat/EnvironmentStation` |
+| **EnvironmentalMonitoring** | The EnvironmentalMonitoring entity (list). | `/flat/EnvironmentStation` |
 
 Each entity supports the following operations where available: **load**,
 **list**, **create**, **update**, and **remove**.
@@ -81,15 +79,12 @@ Each entity supports the following operations where available: **load**,
 ### Python
 
 ```python
-import os
 from indoorenvironmentalmonitoring_sdk import IndoorEnvironmentalMonitoringSDK
 
-client = IndoorEnvironmentalMonitoringSDK({
-    "apikey": os.environ.get("INDOOR-ENVIRONMENTAL-MONITORING_APIKEY"),
-})
+client = IndoorEnvironmentalMonitoringSDK()
 
 # List all environmentalmonitorings
-environmentalmonitorings, err = client.EnvironmentalMonitoring().list()
+environmentalmonitorings = client.environmentalmonitoring.list()
 print(environmentalmonitorings)
 ```
 
@@ -99,12 +94,10 @@ print(environmentalmonitorings)
 <?php
 require_once 'indoorenvironmentalmonitoring_sdk.php';
 
-$client = new IndoorEnvironmentalMonitoringSDK([
-    "apikey" => getenv("INDOOR-ENVIRONMENTAL-MONITORING_APIKEY"),
-]);
+$client = new IndoorEnvironmentalMonitoringSDK();
 
-// List all environmentalmonitorings
-[$environmentalmonitorings, $err] = $client->EnvironmentalMonitoring()->list();
+// List all environmentalmonitorings (throws on error)
+$environmentalmonitorings = $client->environmentalmonitoring()->list();
 print_r($environmentalmonitorings);
 ```
 
@@ -113,9 +106,7 @@ print_r($environmentalmonitorings);
 ```go
 import sdk "github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/go"
 
-client := sdk.NewIndoorEnvironmentalMonitoringSDK(map[string]any{
-    "apikey": os.Getenv("INDOOR-ENVIRONMENTAL-MONITORING_APIKEY"),
-})
+client := sdk.New()
 
 // List all environmentalmonitorings
 environmentalmonitorings, err := client.EnvironmentalMonitoring(nil).List(nil, nil)
@@ -127,12 +118,10 @@ fmt.Println(environmentalmonitorings)
 ```ruby
 require_relative "IndoorEnvironmentalMonitoring_sdk"
 
-client = IndoorEnvironmentalMonitoringSDK.new({
-  "apikey" => ENV["INDOOR-ENVIRONMENTAL-MONITORING_APIKEY"],
-})
+client = IndoorEnvironmentalMonitoringSDK.new
 
 # List all environmentalmonitorings
-environmentalmonitorings, err = client.EnvironmentalMonitoring().list
+environmentalmonitorings = client.environmentalmonitoring.list
 puts environmentalmonitorings
 ```
 
@@ -141,12 +130,10 @@ puts environmentalmonitorings
 ```lua
 local sdk = require("indoor-environmental-monitoring_sdk")
 
-local client = sdk.new({
-  apikey = os.getenv("INDOOR-ENVIRONMENTAL-MONITORING_APIKEY"),
-})
+local client = sdk.new()
 
 -- List all environmentalmonitorings
-local environmentalmonitorings, err = client:EnvironmentalMonitoring():list()
+local environmentalmonitorings, err = client:environmentalmonitoring():list()
 print(environmentalmonitorings)
 ```
 
@@ -159,7 +146,7 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = IndoorEnvironmentalMonitoringSDK.test()
-const result = await client.EnvironmentalMonitoring().load({ id: 'test01' })
+const result = await client.environmentalmonitoring.load({ id: 'test01' })
 // result.ok === true, result.data contains mock data
 ```
 
@@ -167,14 +154,14 @@ const result = await client.EnvironmentalMonitoring().load({ id: 'test01' })
 
 ```python
 client = IndoorEnvironmentalMonitoringSDK.test()
-result, err = client.EnvironmentalMonitoring().load({"id": "test01"})
+result = client.environmentalmonitoring.load({"id": "test01"})
 ```
 
 ### PHP
 
 ```php
 $client = IndoorEnvironmentalMonitoringSDK::test();
-[$result, $err] = $client->EnvironmentalMonitoring()->load(["id" => "test01"]);
+$result = $client->environmentalmonitoring()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -190,14 +177,14 @@ result, err := client.EnvironmentalMonitoring(nil).Load(
 
 ```ruby
 client = IndoorEnvironmentalMonitoringSDK.test
-result, err = client.EnvironmentalMonitoring().load({ "id" => "test01" })
+result = client.environmentalmonitoring.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:EnvironmentalMonitoring():load({ id = "test01" })
+local result, err = client:environmentalmonitoring():load({ id = "test01" })
 ```
 
 ## How it works
@@ -250,7 +237,7 @@ console.log(result.data)
 
 **Python:**
 ```python
-result, err = client.direct({
+result = client.direct({
     "path": "/api/resource/{id}",
     "method": "GET",
     "params": {"id": "example"},
@@ -259,7 +246,7 @@ result, err = client.direct({
 
 **PHP:**
 ```php
-[$result, $err] = $client->direct([
+$result = $client->direct([
     "path" => "/api/resource/{id}",
     "method" => "GET",
     "params" => ["id" => "example"],
@@ -277,7 +264,7 @@ result, err := client.Direct(map[string]any{
 
 **Ruby:**
 ```ruby
-result, err = client.direct({
+result = client.direct({
   "path" => "/api/resource/{id}",
   "method" => "GET",
   "params" => { "id" => "example" },

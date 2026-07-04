@@ -50,8 +50,7 @@ class EnvironmentalMonitoringEntityTest extends TestCase
         $environmental_monitoring_ref01_ent = $client->EnvironmentalMonitoring(null);
         $environmental_monitoring_ref01_match = [];
 
-        [$environmental_monitoring_ref01_list_result, $err] = $environmental_monitoring_ref01_ent->list($environmental_monitoring_ref01_match, null);
-        $this->assertNull($err);
+        $environmental_monitoring_ref01_list_result = $environmental_monitoring_ref01_ent->list($environmental_monitoring_ref01_match, null);
         $this->assertIsArray($environmental_monitoring_ref01_list_result);
 
     }
@@ -86,7 +85,6 @@ function environmental_monitoring_basic_setup($extra)
         "INDOORENVIRONMENTALMONITORING_TEST_ENVIRONMENTAL_MONITORING_ENTID" => $idmap,
         "INDOORENVIRONMENTALMONITORING_TEST_LIVE" => "FALSE",
         "INDOORENVIRONMENTALMONITORING_TEST_EXPLAIN" => "FALSE",
-        "INDOORENVIRONMENTALMONITORING_APIKEY" => "NONE",
     ]);
 
     $idmap_resolved = Helpers::to_map(
@@ -98,7 +96,6 @@ function environmental_monitoring_basic_setup($extra)
     if ($env["INDOORENVIRONMENTALMONITORING_TEST_LIVE"] === "TRUE") {
         $merged_opts = Vs::merge([
             [
-                "apikey" => $env["INDOORENVIRONMENTALMONITORING_APIKEY"],
             ],
             $extra ?? [],
         ]);

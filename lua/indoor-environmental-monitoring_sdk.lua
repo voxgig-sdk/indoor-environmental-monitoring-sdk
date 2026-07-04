@@ -244,6 +244,19 @@ end
 
 
 
+-- Idiomatic facade: client:environmental_monitoring():list() / client:environmental_monitoring():load({ id = ... })
+function IndoorEnvironmentalMonitoringSDK:environmental_monitoring(data)
+  local EntityMod = require("entity.environmental_monitoring_entity")
+  if data == nil then
+    if self._environmental_monitoring == nil then
+      self._environmental_monitoring = EntityMod.new(self, nil)
+    end
+    return self._environmental_monitoring
+  end
+  return EntityMod.new(self, data)
+end
+
+-- Deprecated: use client:environmental_monitoring() instead.
 function IndoorEnvironmentalMonitoringSDK:EnvironmentalMonitoring(data)
   local EntityMod = require("entity.environmental_monitoring_entity")
   return EntityMod.new(self, data)

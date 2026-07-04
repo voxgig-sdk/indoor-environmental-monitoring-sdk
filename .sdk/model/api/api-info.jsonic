@@ -4,6 +4,7 @@
 main: {
   kit: {
     info: {
+      auth: false
       contact: {
         name: "Open Data Hub"
         url: "https://databrowser.opendatahub.com"

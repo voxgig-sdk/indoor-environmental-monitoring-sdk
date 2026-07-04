@@ -81,6 +81,10 @@ end
 
 
 
+---@param reqmatch EnvironmentalMonitoringListMatch
+---@param ctrl? table
+---@return EnvironmentalMonitoring[]
+---@return string? err
 function EnvironmentalMonitoringEntity:list(reqmatch, ctrl)
   local utility = self._utility
   local ctx = utility.make_context({

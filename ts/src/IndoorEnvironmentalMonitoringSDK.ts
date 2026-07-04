@@ -2,6 +2,8 @@
 
 import { EnvironmentalMonitoringEntity } from './entity/EnvironmentalMonitoringEntity'
 
+export type * from './IndoorEnvironmentalMonitoringTypes'
+
 
 import { inspect } from 'node:util'
 
@@ -202,6 +204,14 @@ class IndoorEnvironmentalMonitoringSDK {
 
 
 
+  _environmental_monitoring?: EnvironmentalMonitoringEntity
+
+  // Idiomatic facade: `client.environmental_monitoring.list()` / `client.environmental_monitoring.load({ id })`.
+  get environmental_monitoring(): EnvironmentalMonitoringEntity {
+    return (this._environmental_monitoring ??= new EnvironmentalMonitoringEntity(this, undefined))
+  }
+
+  /** @deprecated Use `client.environmental_monitoring` instead. */
   EnvironmentalMonitoring(data?: any) {
     const self = this
     return new EnvironmentalMonitoringEntity(self,data)

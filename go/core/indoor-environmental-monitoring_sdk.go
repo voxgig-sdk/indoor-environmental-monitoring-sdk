@@ -245,6 +245,9 @@ func (sdk *IndoorEnvironmentalMonitoringSDK) Direct(fetchargs map[string]any) (m
 }
 
 
+// EnvironmentalMonitoring returns a EnvironmentalMonitoring entity bound to this client.
+// Idiomatic usage: client.EnvironmentalMonitoring(nil).List(nil, nil) or
+// client.EnvironmentalMonitoring(nil).Load(map[string]any{"id": ...}, nil).
 func (sdk *IndoorEnvironmentalMonitoringSDK) EnvironmentalMonitoring(data map[string]any) IndoorEnvironmentalMonitoringEntity {
 	return NewEnvironmentalMonitoringEntityFunc(sdk, data)
 }

@@ -18,7 +18,6 @@ Create a new SDK client instance.
 | Name | Type | Description |
 | --- | --- | --- |
 | `options` | `object` | SDK configuration options. |
-| `options.apikey` | `string` | API key for authentication. |
 | `options.base` | `string` | Base URL for API requests. |
 | `options.prefix` | `string` | URL prefix appended after base. |
 | `options.suffix` | `string` | URL suffix appended after path. |
@@ -110,7 +109,7 @@ Alias for `IndoorEnvironmentalMonitoringSDK.test()`.
 ## EnvironmentalMonitoringEntity
 
 ```ts
-const environmental_monitoring = client.EnvironmentalMonitoring()
+const environmental_monitoring = client.environmental_monitoring
 ```
 
 ### Fields
@@ -140,7 +139,7 @@ const environmental_monitoring = client.EnvironmentalMonitoring()
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.EnvironmentalMonitoring().list()
+const results = await client.environmental_monitoring.list()
 ```
 
 ### Common Methods
