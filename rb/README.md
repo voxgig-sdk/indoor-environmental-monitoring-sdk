@@ -28,16 +28,14 @@ require_relative "IndoorEnvironmentalMonitoring_sdk"
 client = IndoorEnvironmentalMonitoringSDK.new
 ```
 
-### 2. List environmentalmonitorings
+### 2. List environmentalmonitoring records
 
 ```ruby
 begin
-  result = client.environmentalmonitoring.list
-  if result.is_a?(Array)
-    result.each do |item|
-      d = item.data_get
-      puts "#{d["id"]} #{d["name"]}"
-    end
+  # list returns an Array of EnvironmentalMonitoring records — iterate directly.
+  environmentalmonitorings = client.EnvironmentalMonitoring.list
+  environmentalmonitorings.each do |item|
+    puts "#{item["id"]} #{item["name"]}"
   end
 rescue => err
   warn "list failed: #{err}"
@@ -85,13 +83,17 @@ end
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```ruby
-client = IndoorEnvironmentalMonitoringSDK.test
+client = IndoorEnvironmentalMonitoringSDK.test({
+  "entity" => { "environmentalmonitoring" => { "test01" => { "id" => "test01" } } },
+})
 
-result = client.environmentalmonitoring.load({ "id" => "test01" })
-# result contains mock response data
+# load returns the bare mock record (raises on error).
+environmentalmonitoring = client.EnvironmentalMonitoring.load({ "id" => "test01" })
+puts environmentalmonitoring
 ```
 
 ### Use a custom fetch function
@@ -167,7 +169,7 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `get_utility` | `() -> Utility` | Copy of the SDK utility object. |
 | `prepare` | `(fetchargs) -> Hash` | Build an HTTP request definition without sending. Raises on error. |
 | `direct` | `(fetchargs) -> Hash` | Build and send an HTTP request. Returns a result hash (`result["ok"]`); does not raise. |
-| `EnvironmentalMonitoring` | `(data) -> EnvironmentalMonitoringEntity` | Create a EnvironmentalMonitoring entity instance. |
+| `EnvironmentalMonitoring` | `(data) -> EnvironmentalMonitoringEntity` | Create an EnvironmentalMonitoring entity instance. |
 
 ### Entity interface
 
@@ -237,7 +239,7 @@ API path: `/flat/EnvironmentStation`
 
 ### EnvironmentalMonitoring
 
-Create an instance: `const environmental_monitoring = client.environmental_monitoring`
+Create an instance: `environmental_monitoring = client.EnvironmentalMonitoring`
 
 #### Operations
 
@@ -267,8 +269,9 @@ Create an instance: `const environmental_monitoring = client.environmental_monit
 
 #### Example: List
 
-```ts
-const environmental_monitorings = await client.environmental_monitoring.list()
+```ruby
+# list returns an Array of EnvironmentalMonitoring records (raises on error).
+environmental_monitorings = client.EnvironmentalMonitoring.list
 ```
 
 
@@ -343,7 +346,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```ruby
-environmentalmonitoring = client.environmentalmonitoring
+environmentalmonitoring = client.EnvironmentalMonitoring
 environmentalmonitoring.load({ "id" => "example_id" })
 
 # environmentalmonitoring.data_get now returns the loaded environmentalmonitoring data

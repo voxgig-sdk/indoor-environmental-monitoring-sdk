@@ -31,17 +31,17 @@ local sdk = require("indoor-environmental-monitoring_sdk")
 local client = sdk.new()
 ```
 
-### 2. List environmentalmonitorings
+### 2. List environmentalmonitoring records
+
+Entity operations return `(value, err)`. For `list`, `value` is the
+array of records itself — iterate it directly (there is no wrapper).
 
 ```lua
-local result, err = client:environmentalmonitoring():list()
+local environmentalmonitorings, err = client:EnvironmentalMonitoring():list()
 if err then error(err) end
 
-if type(result) == "table" then
-  for _, item in ipairs(result) do
-    local d = item:data_get()
-    print(d["id"], d["name"])
-  end
+for _, item in ipairs(environmentalmonitorings) do
+  print(item["id"], item["name"])
 end
 ```
 
@@ -88,8 +88,8 @@ Create a mock client for unit testing — no server required:
 ```lua
 local client = sdk.test()
 
-local result, err = client:environmentalmonitoring():load({ id = "test01" })
--- result contains mock response data
+local result, err = client:EnvironmentalMonitoring():load({ id = "test01" })
+-- result is the loaded data; err is set on failure
 ```
 
 ### Use a custom fetch function
@@ -167,7 +167,7 @@ Creates a test-mode client with mock transport. Both arguments may be `nil`.
 | `get_utility` | `() -> Utility` | Copy of the SDK utility object. |
 | `prepare` | `(fetchargs) -> table, err` | Build an HTTP request definition without sending. |
 | `direct` | `(fetchargs) -> table, err` | Build and send an HTTP request. |
-| `EnvironmentalMonitoring` | `(data) -> EnvironmentalMonitoringEntity` | Create a EnvironmentalMonitoring entity instance. |
+| `EnvironmentalMonitoring` | `(data) -> EnvironmentalMonitoringEntity` | Create an EnvironmentalMonitoring entity instance. |
 
 ### Entity interface
 
@@ -189,17 +189,22 @@ All entities share the same interface.
 
 ### Result shape
 
-Entity operations return `(any, err)`. The first value is a
-`table` with these keys:
+Entity operations return `(value, err)`. The `value` is the operation's
+data **directly** — there is no wrapper:
 
-| Key | Type | Description |
-| --- | --- | --- |
-| `ok` | `boolean` | `true` if the HTTP status is 2xx. |
-| `status` | `number` | HTTP status code. |
-| `headers` | `table` | Response headers. |
-| `data` | `any` | Parsed JSON response body. |
+| Operation | `value` |
+| --- | --- |
+| `load` / `create` / `update` / `remove` | the entity record (a `table`) |
+| `list` | an array (`table`) of entity records |
 
-On error, `ok` is `false` and `err` contains the error value.
+Check `err` first (it is non-`nil` on failure), then use `value`:
+
+    local environmental_monitoring, err = client:EnvironmentalMonitoring():load({ id = "example_id" })
+    if err then error(err) end
+    -- environmental_monitoring is the loaded record
+
+Only `direct()` returns a response envelope — a `table` with `ok`,
+`status`, `headers`, and `data` keys.
 
 ### Entities
 
@@ -234,7 +239,7 @@ API path: `/flat/EnvironmentStation`
 
 ### EnvironmentalMonitoring
 
-Create an instance: `const environmental_monitoring = client.environmental_monitoring`
+Create an instance: `local environmental_monitoring = client:EnvironmentalMonitoring(nil)`
 
 #### Operations
 
@@ -264,8 +269,8 @@ Create an instance: `const environmental_monitoring = client.environmental_monit
 
 #### Example: List
 
-```ts
-const environmental_monitorings = await client.environmental_monitoring.list()
+```lua
+local environmental_monitorings, err = client:EnvironmentalMonitoring():list()
 ```
 
 
@@ -340,7 +345,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```lua
-local environmentalmonitoring = client:environmentalmonitoring()
+local environmentalmonitoring = client:EnvironmentalMonitoring()
 environmentalmonitoring:load({ id = "example_id" })
 
 -- environmentalmonitoring:data_get() now returns the loaded environmentalmonitoring data

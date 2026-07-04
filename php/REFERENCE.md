@@ -85,7 +85,7 @@ Prepare a fetch definition without sending the request. Returns the
 ## EnvironmentalMonitoringEntity
 
 ```php
-$environmental_monitoring = $client->environmental_monitoring();
+$environmental_monitoring = $client->EnvironmentalMonitoring();
 ```
 
 ### Fields
@@ -115,7 +115,7 @@ $environmental_monitoring = $client->environmental_monitoring();
 List entities matching the given criteria. Returns an array. Throws on error.
 
 ```php
-$results = $client->environmental_monitoring()->list([]);
+$results = $client->EnvironmentalMonitoring()->list([]);
 ```
 
 ### Common Methods

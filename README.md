@@ -26,9 +26,11 @@ import { IndoorEnvironmentalMonitoringSDK } from '@voxgig-sdk/indoor-environment
 
 const client = new IndoorEnvironmentalMonitoringSDK()
 
-// List all environmentalmonitorings
-const environmentalmonitorings = await client.environmentalmonitoring.list()
-console.log(environmentalmonitorings.data)
+// List all environmentalmonitorings (returns EnvironmentalMonitoring[])
+const environmentalmonitorings = await client.EnvironmentalMonitoring().list()
+for (const environmentalmonitoring of environmentalmonitorings) {
+  console.log(environmentalmonitoring)
+}
 ```
 
 See the [TypeScript README](ts/README.md) for the full guide.
@@ -83,9 +85,10 @@ from indoorenvironmentalmonitoring_sdk import IndoorEnvironmentalMonitoringSDK
 
 client = IndoorEnvironmentalMonitoringSDK()
 
-# List all environmentalmonitorings
-environmentalmonitorings = client.environmentalmonitoring.list()
-print(environmentalmonitorings)
+# List all environmentalmonitorings (returns a list, raises on error)
+environmentalmonitorings = client.EnvironmentalMonitoring().list({})
+for environmentalmonitoring in environmentalmonitorings:
+    print(environmentalmonitoring)
 ```
 
 ### PHP
@@ -96,8 +99,8 @@ require_once 'indoorenvironmentalmonitoring_sdk.php';
 
 $client = new IndoorEnvironmentalMonitoringSDK();
 
-// List all environmentalmonitorings (throws on error)
-$environmentalmonitorings = $client->environmentalmonitoring()->list();
+// List all environmentalmonitorings (returns an array; throws on error)
+$environmentalmonitorings = $client->EnvironmentalMonitoring()->list();
 print_r($environmentalmonitorings);
 ```
 
@@ -120,8 +123,8 @@ require_relative "IndoorEnvironmentalMonitoring_sdk"
 
 client = IndoorEnvironmentalMonitoringSDK.new
 
-# List all environmentalmonitorings
-environmentalmonitorings = client.environmentalmonitoring.list
+# List all environmentalmonitorings (returns an Array; raises on error)
+environmentalmonitorings = client.EnvironmentalMonitoring.list
 puts environmentalmonitorings
 ```
 
@@ -133,7 +136,7 @@ local sdk = require("indoor-environmental-monitoring_sdk")
 local client = sdk.new()
 
 -- List all environmentalmonitorings
-local environmentalmonitorings, err = client:environmentalmonitoring():list()
+local environmentalmonitorings, err = client:EnvironmentalMonitoring():list()
 print(environmentalmonitorings)
 ```
 
@@ -146,22 +149,27 @@ in-memory mock, so unit tests run offline.
 
 ```ts
 const client = IndoorEnvironmentalMonitoringSDK.test()
-const result = await client.environmentalmonitoring.load({ id: 'test01' })
-// result.ok === true, result.data contains mock data
+const environmentalmonitoring = await client.EnvironmentalMonitoring().load({ id: 'test01' })
+// environmentalmonitoring is a bare EnvironmentalMonitoring populated with mock data
+console.log(environmentalmonitoring)
 ```
 
 ### Python
 
 ```python
 client = IndoorEnvironmentalMonitoringSDK.test()
-result = client.environmentalmonitoring.load({"id": "test01"})
+environmentalmonitoring = client.EnvironmentalMonitoring().load({"id": "test01"})
+print(environmentalmonitoring)
 ```
 
 ### PHP
 
 ```php
-$client = IndoorEnvironmentalMonitoringSDK::test();
-$result = $client->environmentalmonitoring()->load(["id" => "test01"]);
+// Seed fixture data so offline calls resolve without a live server.
+$client = IndoorEnvironmentalMonitoringSDK::test([
+    "entity" => ["environmentalmonitoring" => ["test01" => ["id" => "test01"]]],
+]);
+$environmentalmonitoring = $client->EnvironmentalMonitoring()->load(["id" => "test01"]);
 ```
 
 ### Golang
@@ -176,15 +184,18 @@ result, err := client.EnvironmentalMonitoring(nil).Load(
 ### Ruby
 
 ```ruby
-client = IndoorEnvironmentalMonitoringSDK.test
-result = client.environmentalmonitoring.load({ "id" => "test01" })
+# Seed fixture data so offline calls resolve without a live server.
+client = IndoorEnvironmentalMonitoringSDK.test({
+  "entity" => { "environmentalmonitoring" => { "test01" => { "id" => "test01" } } },
+})
+environmentalmonitoring = client.EnvironmentalMonitoring.load({ "id" => "test01" })
 ```
 
 ### Lua
 
 ```lua
 local client = sdk.test()
-local result, err = client:environmentalmonitoring():load({ id = "test01" })
+local result, err = client:EnvironmentalMonitoring():load({ id = "test01" })
 ```
 
 ## How it works
@@ -232,6 +243,9 @@ const result = await client.direct({
   method: 'GET',
   params: { id: 'example' },
 })
+if (result instanceof Error) {
+  throw result
+}
 console.log(result.data)
 ```
 

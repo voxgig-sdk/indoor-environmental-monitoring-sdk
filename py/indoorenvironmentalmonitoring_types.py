@@ -4,47 +4,49 @@
 # params (op.<name>.points[].args.params[]). Field/param types come from the
 # canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 # @voxgig/apidef VALID_CANON). Do not edit by hand.
+#
+# These are TypedDicts, not dataclasses: the SDK ops return/accept plain dicts
+# at runtime, and a TypedDict IS a dict shape, so the types match the runtime.
+# Optional (req:false) keys are modelled as TypedDict key-optionality
+# (total=False), split into a required base + total=False subclass when a type
+# has both required and optional keys.
 
 from __future__ import annotations
 
-from dataclasses import dataclass
-from typing import Optional, Any
+from typing import TypedDict, Any
 
 
-@dataclass
-class EnvironmentalMonitoring:
-    mperiod: Optional[int] = None
-    mtransactiontime: Optional[str] = None
-    mvalidtime: Optional[str] = None
-    mvalue: Optional[float] = None
-    sactive: Optional[bool] = None
-    savailable: Optional[bool] = None
-    scode: Optional[str] = None
-    scoordinate: Optional[dict] = None
-    smetadata: Optional[dict] = None
-    sname: Optional[str] = None
-    stype: Optional[str] = None
-    tdescription: Optional[str] = None
-    tmetadata: Optional[dict] = None
-    tname: Optional[str] = None
-    tunit: Optional[str] = None
+class EnvironmentalMonitoring(TypedDict, total=False):
+    mperiod: int
+    mtransactiontime: str
+    mvalidtime: str
+    mvalue: float
+    sactive: bool
+    savailable: bool
+    scode: str
+    scoordinate: dict
+    smetadata: dict
+    sname: str
+    stype: str
+    tdescription: str
+    tmetadata: dict
+    tname: str
+    tunit: str
 
 
-@dataclass
-class EnvironmentalMonitoringListMatch:
-    mperiod: Optional[int] = None
-    mtransactiontime: Optional[str] = None
-    mvalidtime: Optional[str] = None
-    mvalue: Optional[float] = None
-    sactive: Optional[bool] = None
-    savailable: Optional[bool] = None
-    scode: Optional[str] = None
-    scoordinate: Optional[dict] = None
-    smetadata: Optional[dict] = None
-    sname: Optional[str] = None
-    stype: Optional[str] = None
-    tdescription: Optional[str] = None
-    tmetadata: Optional[dict] = None
-    tname: Optional[str] = None
-    tunit: Optional[str] = None
-
+class EnvironmentalMonitoringListMatch(TypedDict, total=False):
+    mperiod: int
+    mtransactiontime: str
+    mvalidtime: str
+    mvalue: float
+    sactive: bool
+    savailable: bool
+    scode: str
+    scoordinate: dict
+    smetadata: dict
+    sname: str
+    stype: str
+    tdescription: str
+    tmetadata: dict
+    tname: str
+    tunit: str

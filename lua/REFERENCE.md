@@ -83,7 +83,7 @@ same parameters as `direct()`.
 ## EnvironmentalMonitoringEntity
 
 ```lua
-local environmental_monitoring = client:environmental_monitoring(nil)
+local environmental_monitoring = client:EnvironmentalMonitoring(nil)
 ```
 
 ### Fields
@@ -113,7 +113,7 @@ local environmental_monitoring = client:environmental_monitoring(nil)
 List entities matching the given criteria. Returns an array.
 
 ```lua
-local results, err = client:environmental_monitoring():list()
+local results, err = client:EnvironmentalMonitoring():list()
 ```
 
 ### Common Methods

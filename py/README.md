@@ -31,14 +31,16 @@ from indoorenvironmentalmonitoring_sdk import IndoorEnvironmentalMonitoringSDK
 client = IndoorEnvironmentalMonitoringSDK()
 ```
 
-### 2. List environmentalmonitorings
+### 2. List environmentalmonitoring records
+
+`list()` returns a `list` of records (each a `dict`) and raises on
+error — iterate it directly.
 
 ```python
 try:
-    result = client.environmentalmonitoring.list()
-    for item in result:
-        d = item.data_get()
-        print(d["id"], d["name"])
+    environmentalmonitorings = client.EnvironmentalMonitoring().list({})
+    for environmentalmonitoring in environmentalmonitorings:
+        print(environmentalmonitoring)
 except Exception as err:
     print(f"list failed: {err}")
 ```
@@ -86,8 +88,9 @@ Create a mock client for unit testing — no server required:
 ```python
 client = IndoorEnvironmentalMonitoringSDK.test()
 
-result = client.environmentalmonitoring.load({"id": "test01"})
-# result contains mock response data
+# Entity ops return the bare record and raise on error.
+environmentalmonitoring = client.EnvironmentalMonitoring().load({"id": "test01"})
+# environmentalmonitoring contains the mock response record
 ```
 
 ### Use a custom fetch function
@@ -163,7 +166,7 @@ Creates a test-mode client with mock transport. Both arguments may be `None`.
 | `get_utility` | `() -> Utility` | Copy of the SDK utility object. |
 | `prepare` | `(fetchargs) -> dict` | Build an HTTP request definition without sending. Raises on error. |
 | `direct` | `(fetchargs) -> dict` | Build and send an HTTP request. Returns a result dict (branch on `ok`). |
-| `EnvironmentalMonitoring` | `(data) -> EnvironmentalMonitoringEntity` | Create a EnvironmentalMonitoring entity instance. |
+| `EnvironmentalMonitoring` | `(data) -> EnvironmentalMonitoringEntity` | Create an EnvironmentalMonitoring entity instance. |
 
 ### Entity interface
 
@@ -234,7 +237,7 @@ API path: `/flat/EnvironmentStation`
 
 ### EnvironmentalMonitoring
 
-Create an instance: `const environmental_monitoring = client.environmental_monitoring`
+Create an instance: `environmental_monitoring = client.EnvironmentalMonitoring()`
 
 #### Operations
 
@@ -264,8 +267,8 @@ Create an instance: `const environmental_monitoring = client.environmental_monit
 
 #### Example: List
 
-```ts
-const environmental_monitorings = await client.environmental_monitoring.list()
+```python
+environmental_monitorings = client.EnvironmentalMonitoring().list({})
 ```
 
 
@@ -339,7 +342,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```python
-environmentalmonitoring = client.environmentalmonitoring
+environmentalmonitoring = client.EnvironmentalMonitoring()
 environmentalmonitoring.load({"id": "example_id"})
 
 # environmentalmonitoring.data_get() now returns the loaded environmentalmonitoring data

@@ -86,7 +86,7 @@ same parameters as `direct()`. Raises on error.
 ## EnvironmentalMonitoringEntity
 
 ```ruby
-environmental_monitoring = client.environmental_monitoring
+environmental_monitoring = client.EnvironmentalMonitoring
 ```
 
 ### Fields
@@ -116,7 +116,7 @@ environmental_monitoring = client.environmental_monitoring
 List entities matching the given criteria. Returns an array. Raises on error.
 
 ```ruby
-results = client.environmental_monitoring.list(nil)
+results = client.EnvironmentalMonitoring.list(nil)
 ```
 
 ### Common Methods

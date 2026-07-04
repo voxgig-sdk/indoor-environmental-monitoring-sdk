@@ -29,18 +29,16 @@ require_once 'indoorenvironmentalmonitoring_sdk.php';
 $client = new IndoorEnvironmentalMonitoringSDK();
 ```
 
-### 2. List environmentalmonitorings
+### 2. List environmentalmonitoring records
 
 ```php
 try {
-    $result = $client->environmentalmonitoring()->list();
-    if (is_array($result)) {
-        foreach ($result as $item) {
-            $d = $item->data_get();
-            echo $d["id"] . " " . $d["name"] . "\n";
-        }
+    // list() returns an array of EnvironmentalMonitoring records — iterate directly.
+    $environmentalmonitorings = $client->EnvironmentalMonitoring()->list();
+    foreach ($environmentalmonitorings as $item) {
+        echo $item["id"] . " " . $item["name"] . "\n";
     }
-} catch (\Exception $err) {
+} catch (\Throwable $err) {
     echo "Error: " . $err->getMessage();
 }
 ```
@@ -86,13 +84,17 @@ print_r($fetchdef["headers"]);
 
 ### Use test mode
 
-Create a mock client for unit testing — no server required:
+Create a mock client for unit testing — no server required. Seed fixture
+data via the `entity` option so offline calls resolve without a live server:
 
 ```php
-$client = IndoorEnvironmentalMonitoringSDK::test();
+$client = IndoorEnvironmentalMonitoringSDK::test([
+    "entity" => ["environmentalmonitoring" => ["test01" => ["id" => "test01"]]],
+]);
 
-$result = $client->environmentalmonitoring()->load(["id" => "test01"]);
-// $result contains mock response data
+// load() returns the bare mock record (throws on error).
+$environmentalmonitoring = $client->EnvironmentalMonitoring()->load(["id" => "test01"]);
+print_r($environmentalmonitoring);
 ```
 
 ### Use a custom fetch function
@@ -171,7 +173,7 @@ Creates a test-mode client with mock transport. Both arguments may be `null`.
 | `get_utility` | `(): Utility` | Copy of the SDK utility object. |
 | `prepare` | `(array $fetchargs): array` | Build an HTTP request definition without sending. |
 | `direct` | `(array $fetchargs): array` | Build and send an HTTP request. |
-| `EnvironmentalMonitoring` | `($data): EnvironmentalMonitoringEntity` | Create a EnvironmentalMonitoring entity instance. |
+| `EnvironmentalMonitoring` | `($data): EnvironmentalMonitoringEntity` | Create an EnvironmentalMonitoring entity instance. |
 
 ### Entity interface
 
@@ -242,7 +244,7 @@ API path: `/flat/EnvironmentStation`
 
 ### EnvironmentalMonitoring
 
-Create an instance: `const environmental_monitoring = client.environmental_monitoring`
+Create an instance: `$environmental_monitoring = $client->EnvironmentalMonitoring();`
 
 #### Operations
 
@@ -272,8 +274,9 @@ Create an instance: `const environmental_monitoring = client.environmental_monit
 
 #### Example: List
 
-```ts
-const environmental_monitorings = await client.environmental_monitoring.list()
+```php
+// list() returns an array of EnvironmentalMonitoring records (throws on error).
+$environmental_monitorings = $client->EnvironmentalMonitoring()->list();
 ```
 
 
@@ -348,7 +351,7 @@ Entity instances are stateful. After a successful `load`, the entity
 stores the returned data and match criteria internally.
 
 ```php
-$environmentalmonitoring = $client->environmentalmonitoring();
+$environmentalmonitoring = $client->EnvironmentalMonitoring();
 $environmentalmonitoring->load(["id" => "example_id"]);
 
 // $environmentalmonitoring->dataGet() now returns the loaded environmentalmonitoring data

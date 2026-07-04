@@ -220,25 +220,15 @@ class IndoorEnvironmentalMonitoringSDK:
         }
 
 
-    @property
-    def environmental_monitoring(self):
-        """Idiomatic facade: client.environmental_monitoring.list() / client.environmental_monitoring.load({"id": ...})."""
-        from entity.environmental_monitoring_entity import EnvironmentalMonitoringEntity
-        cached = getattr(self, "_environmental_monitoring", None)
-        if cached is None:
-            cached = EnvironmentalMonitoringEntity(self, None)
-            self._environmental_monitoring = cached
-        return cached
-
-    def EnvironmentalMonitoring(self, data=None):
-        # Deprecated: use client.environmental_monitoring instead.
+    def EnvironmentalMonitoring(self, data=None) -> "EnvironmentalMonitoringEntity":
+        """Entity factory: client.EnvironmentalMonitoring().list({}) / client.EnvironmentalMonitoring().load({"id": ...})."""
         from entity.environmental_monitoring_entity import EnvironmentalMonitoringEntity
         return EnvironmentalMonitoringEntity(self, data)
 
 
 
     @classmethod
-    def test(cls, testopts=None, sdkopts=None):
+    def test(cls, testopts=None, sdkopts=None) -> "IndoorEnvironmentalMonitoringSDK":
         if sdkopts is None:
             sdkopts = {}
         sdkopts = vs.clone(sdkopts)
@@ -258,3 +248,9 @@ class IndoorEnvironmentalMonitoringSDK:
         sdk.mode = "test"
 
         return sdk
+
+
+from typing import TYPE_CHECKING
+
+if TYPE_CHECKING:
+    from entity.environmental_monitoring_entity import EnvironmentalMonitoringEntity

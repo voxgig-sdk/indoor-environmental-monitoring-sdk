@@ -208,13 +208,7 @@ class IndoorEnvironmentalMonitoringSDK
   end
 
 
-  # Idiomatic facade: client.environmental_monitoring.list / client.environmental_monitoring.load({ "id" => ... })
-  def environmental_monitoring
-    require_relative 'entity/environmental_monitoring_entity'
-    @environmental_monitoring ||= EnvironmentalMonitoringEntity.new(self, nil)
-  end
-
-  # Deprecated: use client.environmental_monitoring instead.
+  # Canonical facade: client.EnvironmentalMonitoring.list / client.EnvironmentalMonitoring.load({ "id" => ... })
   def EnvironmentalMonitoring(data = nil)
     require_relative 'entity/environmental_monitoring_entity'
     EnvironmentalMonitoringEntity.new(self, data)

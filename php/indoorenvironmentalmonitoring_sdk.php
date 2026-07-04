@@ -233,10 +233,10 @@ class IndoorEnvironmentalMonitoringSDK
 
     private $_environmental_monitoring = null;
 
-    // Idiomatic facade: $client->environmental_monitoring()->list() / ->load(["id" => ...]).
-    // Also serves the deprecated PascalCase alias EnvironmentalMonitoring() (PHP method
-    // names are case-insensitive).
-    public function environmental_monitoring($data = null)
+    // Canonical facade: $client->EnvironmentalMonitoring()->list() / ->load(["id" => ...]).
+    // PHP method names are case-insensitive, so lowercase $client->environmental_monitoring()
+    // resolves here too.
+    public function EnvironmentalMonitoring($data = null)
     {
         require_once __DIR__ . '/entity/environmental_monitoring_entity.php';
         if ($data === null) {

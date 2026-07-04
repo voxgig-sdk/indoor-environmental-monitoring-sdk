@@ -80,7 +80,7 @@ Prepare a fetch definition without sending. Returns the `fetchdef` and raises on
 ## EnvironmentalMonitoringEntity
 
 ```python
-environmental_monitoring = client.environmental_monitoring
+environmental_monitoring = client.EnvironmentalMonitoring()
 ```
 
 ### Fields
@@ -110,7 +110,9 @@ environmental_monitoring = client.environmental_monitoring
 List entities matching the given criteria. Returns a list and raises on error.
 
 ```python
-results = client.environmental_monitoring.list({})
+results = client.EnvironmentalMonitoring().list({})
+for environmental_monitoring in results:
+    print(environmental_monitoring)
 ```
 
 ### Common Methods

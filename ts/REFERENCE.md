@@ -109,7 +109,7 @@ Alias for `IndoorEnvironmentalMonitoringSDK.test()`.
 ## EnvironmentalMonitoringEntity
 
 ```ts
-const environmental_monitoring = client.environmental_monitoring
+const environmental_monitoring = client.EnvironmentalMonitoring()
 ```
 
 ### Fields
@@ -139,7 +139,7 @@ const environmental_monitoring = client.environmental_monitoring
 List entities matching the given criteria. Returns an array.
 
 ```ts
-const results = await client.environmental_monitoring.list()
+const results = await client.EnvironmentalMonitoring().list()
 ```
 
 ### Common Methods

@@ -204,14 +204,7 @@ class IndoorEnvironmentalMonitoringSDK {
 
 
 
-  _environmental_monitoring?: EnvironmentalMonitoringEntity
-
-  // Idiomatic facade: `client.environmental_monitoring.list()` / `client.environmental_monitoring.load({ id })`.
-  get environmental_monitoring(): EnvironmentalMonitoringEntity {
-    return (this._environmental_monitoring ??= new EnvironmentalMonitoringEntity(this, undefined))
-  }
-
-  /** @deprecated Use `client.environmental_monitoring` instead. */
+  // Entity access: `client.EnvironmentalMonitoring().list()` / `client.EnvironmentalMonitoring().load({ id })`.
   EnvironmentalMonitoring(data?: any) {
     const self = this
     return new EnvironmentalMonitoringEntity(self,data)
