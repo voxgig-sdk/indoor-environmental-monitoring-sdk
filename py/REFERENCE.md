@@ -8,7 +8,7 @@ Complete API reference for the IndoorEnvironmentalMonitoring Python SDK.
 ### Constructor
 
 ```python
-from indoor-environmental-monitoring_sdk import IndoorEnvironmentalMonitoringSDK
+from indoorenvironmentalmonitoring_sdk import IndoorEnvironmentalMonitoringSDK
 
 client = IndoorEnvironmentalMonitoringSDK(options)
 ```
@@ -87,30 +87,30 @@ environmental_monitoring = client.EnvironmentalMonitoring()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `mperiod` | ``$INTEGER`` | No |  |
-| `mtransactiontime` | ``$STRING`` | No |  |
-| `mvalidtime` | ``$STRING`` | No |  |
-| `mvalue` | ``$NUMBER`` | No |  |
-| `sactive` | ``$BOOLEAN`` | No |  |
-| `savailable` | ``$BOOLEAN`` | No |  |
-| `scode` | ``$STRING`` | No |  |
-| `scoordinate` | ``$OBJECT`` | No |  |
-| `smetadata` | ``$OBJECT`` | No |  |
-| `sname` | ``$STRING`` | No |  |
-| `stype` | ``$STRING`` | No |  |
-| `tdescription` | ``$STRING`` | No |  |
-| `tmetadata` | ``$OBJECT`` | No |  |
-| `tname` | ``$STRING`` | No |  |
-| `tunit` | ``$STRING`` | No |  |
+| `mperiod` | `int` | No |  |
+| `mtransactiontime` | `str` | No |  |
+| `mvalidtime` | `str` | No |  |
+| `mvalue` | `float` | No |  |
+| `sactive` | `bool` | No |  |
+| `savailable` | `bool` | No |  |
+| `scode` | `str` | No |  |
+| `scoordinate` | `dict` | No |  |
+| `smetadata` | `dict` | No |  |
+| `sname` | `str` | No |  |
+| `stype` | `str` | No |  |
+| `tdescription` | `str` | No |  |
+| `tmetadata` | `dict` | No |  |
+| `tname` | `str` | No |  |
+| `tunit` | `str` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl=None) -> list`
+#### `list(reqmatch=None, ctrl=None) -> list`
 
-List entities matching the given criteria. Returns a list and raises on error.
+List entities matching the given criteria. The match is optional — call `list()` with no argument to list all records. Returns a list and raises on error.
 
 ```python
-results = client.EnvironmentalMonitoring().list({})
+results = client.EnvironmentalMonitoring().list()
 for environmental_monitoring in results:
     print(environmental_monitoring)
 ```

@@ -97,21 +97,21 @@ environmental_monitoring := client.EnvironmentalMonitoring(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `mperiod` | ``$INTEGER`` | No |  |
-| `mtransactiontime` | ``$STRING`` | No |  |
-| `mvalidtime` | ``$STRING`` | No |  |
-| `mvalue` | ``$NUMBER`` | No |  |
-| `sactive` | ``$BOOLEAN`` | No |  |
-| `savailable` | ``$BOOLEAN`` | No |  |
-| `scode` | ``$STRING`` | No |  |
-| `scoordinate` | ``$OBJECT`` | No |  |
-| `smetadata` | ``$OBJECT`` | No |  |
-| `sname` | ``$STRING`` | No |  |
-| `stype` | ``$STRING`` | No |  |
-| `tdescription` | ``$STRING`` | No |  |
-| `tmetadata` | ``$OBJECT`` | No |  |
-| `tname` | ``$STRING`` | No |  |
-| `tunit` | ``$STRING`` | No |  |
+| `mperiod` | `int` | No |  |
+| `mtransactiontime` | `string` | No |  |
+| `mvalidtime` | `string` | No |  |
+| `mvalue` | `float64` | No |  |
+| `sactive` | `bool` | No |  |
+| `savailable` | `bool` | No |  |
+| `scode` | `string` | No |  |
+| `scoordinate` | `map[string]any` | No |  |
+| `smetadata` | `map[string]any` | No |  |
+| `sname` | `string` | No |  |
+| `stype` | `string` | No |  |
+| `tdescription` | `string` | No |  |
+| `tmetadata` | `map[string]any` | No |  |
+| `tname` | `string` | No |  |
+| `tunit` | `string` | No |  |
 
 ### Operations
 

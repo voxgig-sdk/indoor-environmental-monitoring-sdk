@@ -8,7 +8,7 @@ Complete API reference for the IndoorEnvironmentalMonitoring PHP SDK.
 ### Constructor
 
 ```php
-require_once __DIR__ . '/indoor-environmental-monitoring_sdk.php';
+require_once __DIR__ . '/indoorenvironmentalmonitoring_sdk.php';
 
 $client = new IndoorEnvironmentalMonitoringSDK($options);
 ```
@@ -45,11 +45,11 @@ $client = IndoorEnvironmentalMonitoringSDK::test();
 
 Create a new `EnvironmentalMonitoringEntity` instance. Pass `null` for no initial data.
 
-#### `optionsMap(): array`
+#### `options_map(): array`
 
 Return a deep copy of the current SDK options.
 
-#### `getUtility(): ProjectNameUtility`
+#### `get_utility(): IndoorEnvironmentalMonitoringUtility`
 
 Return a copy of the SDK utility object.
 
@@ -92,47 +92,47 @@ $environmental_monitoring = $client->EnvironmentalMonitoring();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `mperiod` | ``$INTEGER`` | No |  |
-| `mtransactiontime` | ``$STRING`` | No |  |
-| `mvalidtime` | ``$STRING`` | No |  |
-| `mvalue` | ``$NUMBER`` | No |  |
-| `sactive` | ``$BOOLEAN`` | No |  |
-| `savailable` | ``$BOOLEAN`` | No |  |
-| `scode` | ``$STRING`` | No |  |
-| `scoordinate` | ``$OBJECT`` | No |  |
-| `smetadata` | ``$OBJECT`` | No |  |
-| `sname` | ``$STRING`` | No |  |
-| `stype` | ``$STRING`` | No |  |
-| `tdescription` | ``$STRING`` | No |  |
-| `tmetadata` | ``$OBJECT`` | No |  |
-| `tname` | ``$STRING`` | No |  |
-| `tunit` | ``$STRING`` | No |  |
+| `mperiod` | `int` | No |  |
+| `mtransactiontime` | `string` | No |  |
+| `mvalidtime` | `string` | No |  |
+| `mvalue` | `float` | No |  |
+| `sactive` | `bool` | No |  |
+| `savailable` | `bool` | No |  |
+| `scode` | `string` | No |  |
+| `scoordinate` | `array` | No |  |
+| `smetadata` | `array` | No |  |
+| `sname` | `string` | No |  |
+| `stype` | `string` | No |  |
+| `tdescription` | `string` | No |  |
+| `tmetadata` | `array` | No |  |
+| `tname` | `string` | No |  |
+| `tunit` | `string` | No |  |
 
 ### Operations
 
-#### `list(array $reqmatch, ?array $ctrl = null): mixed`
+#### `list(?array $reqmatch = null, ?array $ctrl = null): mixed`
 
-List entities matching the given criteria. Returns an array. Throws on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Throws on error.
 
 ```php
-$results = $client->EnvironmentalMonitoring()->list([]);
+$results = $client->EnvironmentalMonitoring()->list();
 ```
 
 ### Common Methods
 
-#### `dataGet(): array`
+#### `data_get(): array`
 
 Get the entity data. Returns a copy of the current data.
 
-#### `dataSet($data): void`
+#### `data_set($data): void`
 
 Set the entity data.
 
-#### `matchGet(): array`
+#### `match_get(): array`
 
 Get the entity match criteria.
 
-#### `matchSet($match): void`
+#### `match_set($match): void`
 
 Set the entity match criteria.
 
@@ -141,7 +141,7 @@ Set the entity match criteria.
 Create a new `EnvironmentalMonitoringEntity` instance with the same client and
 options.
 
-#### `getName(): string`
+#### `get_name(): string`
 
 Return the entity name.
 

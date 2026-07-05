@@ -27,8 +27,7 @@ type EnvironmentalMonitoring struct {
 	Tunit *string `json:"tunit,omitempty"`
 }
 
-// EnvironmentalMonitoringListMatch mirrors the environmental_monitoring fields as an all-optional match
-// filter (Go analog of Partial<EnvironmentalMonitoring>).
+// EnvironmentalMonitoringListMatch is the typed request payload for EnvironmentalMonitoring.ListTyped.
 type EnvironmentalMonitoringListMatch struct {
 	Mperiod *int `json:"mperiod,omitempty"`
 	Mtransactiontime *string `json:"mtransactiontime,omitempty"`

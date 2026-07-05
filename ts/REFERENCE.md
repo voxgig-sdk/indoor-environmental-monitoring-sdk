@@ -116,21 +116,21 @@ const environmental_monitoring = client.EnvironmentalMonitoring()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `mperiod` | ``$INTEGER`` | No |  |
-| `mtransactiontime` | ``$STRING`` | No |  |
-| `mvalidtime` | ``$STRING`` | No |  |
-| `mvalue` | ``$NUMBER`` | No |  |
-| `sactive` | ``$BOOLEAN`` | No |  |
-| `savailable` | ``$BOOLEAN`` | No |  |
-| `scode` | ``$STRING`` | No |  |
-| `scoordinate` | ``$OBJECT`` | No |  |
-| `smetadata` | ``$OBJECT`` | No |  |
-| `sname` | ``$STRING`` | No |  |
-| `stype` | ``$STRING`` | No |  |
-| `tdescription` | ``$STRING`` | No |  |
-| `tmetadata` | ``$OBJECT`` | No |  |
-| `tname` | ``$STRING`` | No |  |
-| `tunit` | ``$STRING`` | No |  |
+| `mperiod` | `number` | No |  |
+| `mtransactiontime` | `string` | No |  |
+| `mvalidtime` | `string` | No |  |
+| `mvalue` | `number` | No |  |
+| `sactive` | `boolean` | No |  |
+| `savailable` | `boolean` | No |  |
+| `scode` | `string` | No |  |
+| `scoordinate` | `Record<string, any>` | No |  |
+| `smetadata` | `Record<string, any>` | No |  |
+| `sname` | `string` | No |  |
+| `stype` | `string` | No |  |
+| `tdescription` | `string` | No |  |
+| `tmetadata` | `Record<string, any>` | No |  |
+| `tname` | `string` | No |  |
+| `tunit` | `string` | No |  |
 
 ### Operations
 

@@ -73,7 +73,7 @@ EnvironmentalMonitoring = Struct.new(
   keyword_init: true
 )
 
-# Match filter for EnvironmentalMonitoring#list (any subset of EnvironmentalMonitoring fields).
+# Request payload for EnvironmentalMonitoring#list.
 #
 # @!attribute [rw] mperiod
 #   @return [Integer, nil]

@@ -221,7 +221,7 @@ class IndoorEnvironmentalMonitoringSDK:
 
 
     def EnvironmentalMonitoring(self, data=None) -> "EnvironmentalMonitoringEntity":
-        """Entity factory: client.EnvironmentalMonitoring().list({}) / client.EnvironmentalMonitoring().load({"id": ...})."""
+        """Entity factory: client.EnvironmentalMonitoring().list() / client.EnvironmentalMonitoring().load({"id": ...})."""
         from entity.environmental_monitoring_entity import EnvironmentalMonitoringEntity
         return EnvironmentalMonitoringEntity(self, data)
 

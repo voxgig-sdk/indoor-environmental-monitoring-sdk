@@ -23,5 +23,21 @@ export interface EnvironmentalMonitoring {
   tunit?: string
 }
 
-export type EnvironmentalMonitoringListMatch = Partial<EnvironmentalMonitoring>
+export interface EnvironmentalMonitoringListMatch {
+  mperiod?: number
+  mtransactiontime?: string
+  mvalidtime?: string
+  mvalue?: number
+  sactive?: boolean
+  savailable?: boolean
+  scode?: string
+  scoordinate?: Record<string, any>
+  smetadata?: Record<string, any>
+  sname?: string
+  stype?: string
+  tdescription?: string
+  tmetadata?: Record<string, any>
+  tname?: string
+  tunit?: string
+}
 

@@ -32,7 +32,7 @@ class EnvironmentalMonitoring
     public ?string $tunit = null;
 }
 
-/** Match filter for EnvironmentalMonitoring#list (any subset of EnvironmentalMonitoring fields). */
+/** Request payload for EnvironmentalMonitoring#list. */
 class EnvironmentalMonitoringListMatch
 {
     public ?int $mperiod = null;

@@ -24,6 +24,21 @@
 ---@field tunit? string
 
 ---@class EnvironmentalMonitoringListMatch
+---@field mperiod? number
+---@field mtransactiontime? string
+---@field mvalidtime? string
+---@field mvalue? number
+---@field sactive? boolean
+---@field savailable? boolean
+---@field scode? string
+---@field scoordinate? table
+---@field smetadata? table
+---@field sname? string
+---@field stype? string
+---@field tdescription? string
+---@field tmetadata? table
+---@field tname? string
+---@field tunit? string
 
 local M = {}
 

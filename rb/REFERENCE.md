@@ -8,7 +8,7 @@ Complete API reference for the IndoorEnvironmentalMonitoring Ruby SDK.
 ### Constructor
 
 ```ruby
-require_relative 'indoor-environmental-monitoring_sdk'
+require_relative 'IndoorEnvironmentalMonitoring_sdk'
 
 client = IndoorEnvironmentalMonitoringSDK.new(options)
 ```
@@ -93,30 +93,30 @@ environmental_monitoring = client.EnvironmentalMonitoring
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `mperiod` | ``$INTEGER`` | No |  |
-| `mtransactiontime` | ``$STRING`` | No |  |
-| `mvalidtime` | ``$STRING`` | No |  |
-| `mvalue` | ``$NUMBER`` | No |  |
-| `sactive` | ``$BOOLEAN`` | No |  |
-| `savailable` | ``$BOOLEAN`` | No |  |
-| `scode` | ``$STRING`` | No |  |
-| `scoordinate` | ``$OBJECT`` | No |  |
-| `smetadata` | ``$OBJECT`` | No |  |
-| `sname` | ``$STRING`` | No |  |
-| `stype` | ``$STRING`` | No |  |
-| `tdescription` | ``$STRING`` | No |  |
-| `tmetadata` | ``$OBJECT`` | No |  |
-| `tname` | ``$STRING`` | No |  |
-| `tunit` | ``$STRING`` | No |  |
+| `mperiod` | `Integer` | No |  |
+| `mtransactiontime` | `String` | No |  |
+| `mvalidtime` | `String` | No |  |
+| `mvalue` | `Float` | No |  |
+| `sactive` | `Boolean` | No |  |
+| `savailable` | `Boolean` | No |  |
+| `scode` | `String` | No |  |
+| `scoordinate` | `Hash` | No |  |
+| `smetadata` | `Hash` | No |  |
+| `sname` | `String` | No |  |
+| `stype` | `String` | No |  |
+| `tdescription` | `String` | No |  |
+| `tmetadata` | `Hash` | No |  |
+| `tname` | `String` | No |  |
+| `tunit` | `String` | No |  |
 
 ### Operations
 
-#### `list(reqmatch, ctrl = nil) -> Array`
+#### `list(reqmatch = nil, ctrl = nil) -> Array`
 
-List entities matching the given criteria. Returns an array. Raises on error.
+List entities matching the given criteria (call with no argument to list all). Returns an array. Raises on error.
 
 ```ruby
-results = client.EnvironmentalMonitoring.list(nil)
+results = client.EnvironmentalMonitoring.list
 ```
 
 ### Common Methods
