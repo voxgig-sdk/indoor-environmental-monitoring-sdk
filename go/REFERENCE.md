@@ -90,7 +90,8 @@ same parameters as `Direct()`.
 ## EnvironmentalMonitoringEntity
 
 ```go
-environmental_monitoring := client.EnvironmentalMonitoring(nil)
+environmentalMonitoring := client.EnvironmentalMonitoring(nil)
+fmt.Println(environmentalMonitoring.GetName()) // "environmental_monitoring"
 ```
 
 ### Fields
@@ -121,6 +122,10 @@ List entities matching the given criteria. Returns an array.
 
 ```go
 results, err := client.EnvironmentalMonitoring(nil).List(nil, nil)
+if err != nil {
+    panic(err)
+}
+fmt.Println(results)
 ```
 
 ### Common Methods

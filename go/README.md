@@ -50,12 +50,12 @@ import (
 func main() {
     client := sdk.New()
 
-    // List environmentalmonitoring records — the value is the array of records itself.
-    environmentalmonitorings, err := client.EnvironmentalMonitoring(nil).List(nil, nil)
+    // List environmentalMonitoring records — the value is the array of records itself.
+    environmentalMonitorings, err := client.EnvironmentalMonitoring(nil).List(nil, nil)
     if err != nil {
         panic(err)
     }
-    for _, item := range environmentalmonitorings.([]any) {
+    for _, item := range environmentalMonitorings.([]any) {
         fmt.Println(item)
     }
 }
@@ -137,13 +137,13 @@ Create a mock client for unit testing — no server required:
 ```go
 client := sdk.Test()
 
-environmentalmonitoring, err := client.EnvironmentalMonitoring(nil).List(
+environmentalMonitoring, err := client.EnvironmentalMonitoring(nil).List(
     nil, nil,
 )
 if err != nil {
     panic(err)
 }
-fmt.Println(environmentalmonitoring) // the returned mock data
+fmt.Println(environmentalMonitoring) // the returned mock data
 ```
 
 ### Use a custom fetch function
@@ -247,9 +247,9 @@ Check `err` first, then use the value directly (or the typed
 `...Typed` variants, which return the entity's model struct and a typed
 slice):
 
-    environmentalmonitoring, err := client.EnvironmentalMonitoring(nil).List(map[string]any{/* fields */}, nil)
+    environmentalMonitoring, err := client.EnvironmentalMonitoring(nil).List(map[string]any{/* fields */}, nil)
     if err != nil { /* handle */ }
-    // environmentalmonitoring is the returned record
+    // environmentalMonitoring is the returned record
 
 Only `Direct()` returns a response envelope — a `map[string]any` with
 `"ok"`, `"status"`, `"headers"`, and `"data"` keys.
@@ -287,7 +287,7 @@ API path: `/flat/EnvironmentStation`
 
 ### EnvironmentalMonitoring
 
-Create an instance: `environmental_monitoring := client.EnvironmentalMonitoring(nil)`
+Create an instance: `environmentalMonitoring := client.EnvironmentalMonitoring(nil)`
 
 #### Operations
 
@@ -318,11 +318,11 @@ Create an instance: `environmental_monitoring := client.EnvironmentalMonitoring(
 #### Example: List
 
 ```go
-environmental_monitorings, err := client.EnvironmentalMonitoring(nil).List(nil, nil)
+environmentalMonitorings, err := client.EnvironmentalMonitoring(nil).List(nil, nil)
 if err != nil {
     panic(err)
 }
-fmt.Println(environmental_monitorings) // the array of records
+fmt.Println(environmentalMonitorings) // the array of records
 ```
 
 

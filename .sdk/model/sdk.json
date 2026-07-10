@@ -6,9 +6,6 @@
     },
     "kit": {
       "config": {
-        "auth": {
-          "prefix": "Bearer"
-        },
         "docs_order": [
           "ts",
           "py",
@@ -336,14 +333,17 @@
           "name": "CC0-1.0",
           "url": "https://creativecommons.org/publicdomain/zero/1.0/"
         },
+        "meta_source": "https://www.freepublicapis.com",
         "servers": [
           {
             "description": "Open Data Hub API Server",
             "url": "https://mobility.api.opendatahub.com/v2"
           }
         ],
+        "summary": "This API provides access to environmental monitoring data, including key parameters such as humidity, temperature, and carbon dioxide levels, from selected areas within NOI Techpark Bolzano and Brunico.",
         "title": "Indoor Environmental Monitoring",
-        "version": "1.0.0"
+        "version": "1.0.0",
+        "website": "https://databrowser.opendatahub.com/dataset-overview/fad6ba99-2f71-425a-8466-10c5d78475f6"
       },
       "option": {},
       "target": {
@@ -396,6 +396,9 @@
           },
           "name": "go-cli",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
@@ -446,6 +449,9 @@
           },
           "name": "go-mcp",
           "phase": {
+            "agentguide": {
+              "active": false
+            },
             "entity": {
               "active": false
             },
