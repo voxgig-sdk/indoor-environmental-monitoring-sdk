@@ -1,4 +1,4 @@
--- ProjectName SDK exists test
+-- IndoorEnvironmentalMonitoring SDK exists test
 
 local sdk = require("indoor-environmental-monitoring_sdk")
 
