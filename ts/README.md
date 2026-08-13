@@ -35,7 +35,9 @@ const client = new IndoorEnvironmentalMonitoringSDK()
 
 ### 2. List environmentalmonitoring records
 
-`list()` resolves to an array of EnvironmentalMonitoring objects — iterate it directly:
+`list()` resolves to an array of EnvironmentalMonitoring ENTITIES — every operation
+resolves to entities, not raw records. Iterate them directly, and call
+`.data()` on one for the record it holds:
 
 ```ts
 const environmentalmonitorings = await client.EnvironmentalMonitoring().list()
@@ -120,7 +122,8 @@ Create a mock client for unit testing — no server required:
 const client = IndoorEnvironmentalMonitoringSDK.test()
 
 const environmentalmonitoring = await client.EnvironmentalMonitoring().list()
-// environmentalmonitoring is a bare entity populated with mock response data
+// environmentalmonitoring is the entity, populated with mock response data
+// — call environmentalmonitoring.data() for the record itself
 console.log(environmentalmonitoring)
 ```
 

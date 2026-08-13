@@ -218,9 +218,9 @@ data **directly** — there is no wrapper:
 
 Check `err` first (it is non-`nil` on failure), then use `value`:
 
-    local environmental_monitoring, err = client:EnvironmentalMonitoring():load()
+    local environmental_monitoring, err = client:EnvironmentalMonitoring():list()
     if err then error(err) end
-    -- environmental_monitoring is the loaded record
+    -- environmental_monitoring is the record list
 
 Only `direct()` returns a response envelope — a `table` with `ok`,
 `status`, `headers`, and `data` keys.

@@ -188,6 +188,7 @@ module IndoorEnvironmentalMonitoringConfig
                       },
                     ],
                   },
+                  "kind" => "http",
                   "method" => "GET",
                   "orig" => "/flat/EnvironmentStation",
                   "parts" => [
@@ -205,7 +206,7 @@ module IndoorEnvironmentalMonitoringConfig
                   },
                   "transform" => {
                     "req" => "`reqdata`",
-                    "res" => "`body`",
+                    "res" => "`body.data`",
                   },
                   "index$" => 0,
                 },

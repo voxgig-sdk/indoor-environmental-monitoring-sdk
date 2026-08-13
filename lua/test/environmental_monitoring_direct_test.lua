@@ -61,11 +61,11 @@ function environmental_monitoring_direct_setup(mockres)
   local calls = {}
 
   local env = runner.env_override({
-    ["INDOORENVIRONMENTALMONITORING_TEST_ENVIRONMENTAL_MONITORING_ENTID"] = {},
-    ["INDOORENVIRONMENTALMONITORING_TEST_LIVE"] = "FALSE",
+    ["INDOOR_ENVIRONMENTAL_MONITORING_TEST_ENVIRONMENTAL_MONITORING_ENTID"] = {},
+    ["INDOOR_ENVIRONMENTAL_MONITORING_TEST_LIVE"] = "FALSE",
   })
 
-  local live = env["INDOORENVIRONMENTALMONITORING_TEST_LIVE"] == "TRUE"
+  local live = env["INDOOR_ENVIRONMENTAL_MONITORING_TEST_LIVE"] == "TRUE"
 
   if live then
     local merged_opts = {

@@ -8,6 +8,7 @@ guide: {
   entity: environmental_monitoring: {
     path: "/flat/EnvironmentStation": {
       op: list: method: *GET
+      op: list: transform: res: *("`body.data`")|top
     }
   }
 

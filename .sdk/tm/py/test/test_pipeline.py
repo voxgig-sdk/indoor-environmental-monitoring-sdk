@@ -16,11 +16,11 @@
 import pytest
 
 from projectname_sdk import IndoorEnvironmentalMonitoringSDK
-from core.error import IndoorEnvironmentalMonitoringError
-from core.result import IndoorEnvironmentalMonitoringResult
-from core.response import IndoorEnvironmentalMonitoringResponse
-from core.spec import IndoorEnvironmentalMonitoringSpec
-from feature.base_feature import IndoorEnvironmentalMonitoringBaseFeature
+from projectname_sdk.core.error import IndoorEnvironmentalMonitoringError
+from projectname_sdk.core.result import IndoorEnvironmentalMonitoringResult
+from projectname_sdk.core.response import IndoorEnvironmentalMonitoringResponse
+from projectname_sdk.core.spec import IndoorEnvironmentalMonitoringSpec
+from projectname_sdk.feature.base_feature import IndoorEnvironmentalMonitoringBaseFeature
 
 
 def _client():

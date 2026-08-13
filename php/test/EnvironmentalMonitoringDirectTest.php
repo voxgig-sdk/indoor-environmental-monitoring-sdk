@@ -66,11 +66,11 @@ function environmental_monitoring_direct_setup($mockres)
     $calls = new \ArrayObject();
 
     $env = Runner::env_override([
-        "INDOORENVIRONMENTALMONITORING_TEST_ENVIRONMENTAL_MONITORING_ENTID" => [],
-        "INDOORENVIRONMENTALMONITORING_TEST_LIVE" => "FALSE",
+        "INDOOR_ENVIRONMENTAL_MONITORING_TEST_ENVIRONMENTAL_MONITORING_ENTID" => [],
+        "INDOOR_ENVIRONMENTAL_MONITORING_TEST_LIVE" => "FALSE",
     ]);
 
-    $live = $env["INDOORENVIRONMENTALMONITORING_TEST_LIVE"] === "TRUE";
+    $live = $env["INDOOR_ENVIRONMENTAL_MONITORING_TEST_LIVE"] === "TRUE";
 
     if ($live) {
         $merged_opts = [

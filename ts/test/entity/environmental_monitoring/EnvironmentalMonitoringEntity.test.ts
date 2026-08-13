@@ -26,8 +26,8 @@ import {
 describe('EnvironmentalMonitoringEntity', async () => {
 
   // Per-test live pacing. Delay is read from sdk-test-control.json's
-  // `test.live.delayMs`; only sleeps when INDOORENVIRONMENTALMONITORING_TEST_LIVE=TRUE.
-  afterEach(liveDelay('INDOORENVIRONMENTALMONITORING_TEST_LIVE'))
+  // `test.live.delayMs`; only sleeps when INDOOR_ENVIRONMENTAL_MONITORING_TEST_LIVE=TRUE.
+  afterEach(liveDelay('INDOOR_ENVIRONMENTAL_MONITORING_TEST_LIVE'))
 
   test('instance', async () => {
     const testsdk = IndoorEnvironmentalMonitoringSDK.test()
@@ -63,7 +63,7 @@ describe('EnvironmentalMonitoringEntity', async () => {
     const environmental_monitoring_ref01_ent = client.EnvironmentalMonitoring()
     const environmental_monitoring_ref01_match: any = {}
 
-    const environmental_monitoring_ref01_list = await environmental_monitoring_ref01_ent.list(environmental_monitoring_ref01_match)
+    const environmental_monitoring_ref01_list = (await environmental_monitoring_ref01_ent.list(environmental_monitoring_ref01_match)).map((e: any) => e.data())
 
 
   })

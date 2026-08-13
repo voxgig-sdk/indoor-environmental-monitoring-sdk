@@ -3,9 +3,9 @@
 import json
 import pytest
 
-from utility.voxgig_struct import voxgig_struct as vs
+from indoorenvironmentalmonitoring_sdk.utility.voxgig_struct import voxgig_struct as vs
 from indoorenvironmentalmonitoring_sdk import IndoorEnvironmentalMonitoringSDK
-from core import helpers
+from indoorenvironmentalmonitoring_sdk.core import helpers
 from test import runner
 
 
@@ -58,11 +58,11 @@ def _environmental_monitoring_direct_setup(mockres):
     calls = []
 
     env = runner.env_override({
-        "INDOORENVIRONMENTALMONITORING_TEST_ENVIRONMENTAL_MONITORING_ENTID": {},
-        "INDOORENVIRONMENTALMONITORING_TEST_LIVE": "FALSE",
+        "INDOOR_ENVIRONMENTAL_MONITORING_TEST_ENVIRONMENTAL_MONITORING_ENTID": {},
+        "INDOOR_ENVIRONMENTAL_MONITORING_TEST_LIVE": "FALSE",
     })
 
-    live = env.get("INDOORENVIRONMENTALMONITORING_TEST_LIVE") == "TRUE"
+    live = env.get("INDOOR_ENVIRONMENTAL_MONITORING_TEST_LIVE") == "TRUE"
 
     if live:
         merged_opts = {

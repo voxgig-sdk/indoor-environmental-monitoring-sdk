@@ -43,8 +43,8 @@ class IndoorEnvironmentalMonitoringTestRunner
 
     public static function env_override(array $m): array
     {
-        $live = self::getenv('INDOORENVIRONMENTALMONITORING_TEST_LIVE');
-        $override = self::getenv('INDOORENVIRONMENTALMONITORING_TEST_OVERRIDE');
+        $live = self::getenv('INDOOR_ENVIRONMENTAL_MONITORING_TEST_LIVE');
+        $override = self::getenv('INDOOR_ENVIRONMENTAL_MONITORING_TEST_OVERRIDE');
 
         if ($live === 'TRUE' || $override === 'TRUE') {
             foreach (array_keys($m) as $key) {
@@ -63,9 +63,9 @@ class IndoorEnvironmentalMonitoringTestRunner
             }
         }
 
-        $explain = self::getenv('INDOORENVIRONMENTALMONITORING_TEST_EXPLAIN');
+        $explain = self::getenv('INDOOR_ENVIRONMENTAL_MONITORING_TEST_EXPLAIN');
         if ($explain !== null && $explain !== '') {
-            $m['INDOORENVIRONMENTALMONITORING_TEST_EXPLAIN'] = $explain;
+            $m['INDOOR_ENVIRONMENTAL_MONITORING_TEST_EXPLAIN'] = $explain;
         }
 
         return $m;

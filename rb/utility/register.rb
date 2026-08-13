@@ -24,6 +24,7 @@ require_relative 'prepare_method'
 require_relative 'prepare_params'
 require_relative 'prepare_path'
 require_relative 'prepare_query'
+require_relative 'graphql'
 require_relative 'result_basic'
 require_relative 'result_body'
 require_relative 'result_headers'
@@ -55,6 +56,8 @@ IndoorEnvironmentalMonitoringUtility.registrar = ->(u) {
   u.prepare_params = IndoorEnvironmentalMonitoringUtilities::PrepareParams
   u.prepare_path = IndoorEnvironmentalMonitoringUtilities::PreparePath
   u.prepare_query = IndoorEnvironmentalMonitoringUtilities::PrepareQuery
+  u.graphql_body = IndoorEnvironmentalMonitoringUtilities::GraphqlBody
+  u.graphql_errors = IndoorEnvironmentalMonitoringUtilities::GraphqlErrors
   u.result_basic = IndoorEnvironmentalMonitoringUtilities::ResultBasic
   u.result_body = IndoorEnvironmentalMonitoringUtilities::ResultBody
   u.result_headers = IndoorEnvironmentalMonitoringUtilities::ResultHeaders

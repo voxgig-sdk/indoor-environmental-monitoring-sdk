@@ -38,9 +38,18 @@ network, and no credentials:
 ### TypeScript
 
 ```ts
-const client = IndoorEnvironmentalMonitoringSDK.test()
+// The offline mock starts EMPTY — seed it with the records the test needs.
+// Shape: { entity: { <entity-name>: { <id>: <record> } } }
+const client = IndoorEnvironmentalMonitoringSDK.test({
+  entity: {
+    environmental_monitoring: {
+      test01: { id: 'test01' },
+    },
+  },
+})
 const environmentalmonitorings = await client.EnvironmentalMonitoring().list()
-// environmentalmonitorings is an array of bare EnvironmentalMonitoring records populated with mock data
+// environmentalmonitorings is an array of EnvironmentalMonitoring entities, populated with mock data
+// — call environmentalmonitorings[0].data() for the record itself
 console.log(environmentalmonitorings)
 ```
 
@@ -110,7 +119,7 @@ import { IndoorEnvironmentalMonitoringSDK } from '@voxgig-sdk/indoor-environment
 
 const client = new IndoorEnvironmentalMonitoringSDK()
 
-// List all environmentalmonitorings (returns EnvironmentalMonitoring[])
+// List all environmentalmonitorings (returns EnvironmentalMonitoringEntity[] — .data() for the record)
 const environmentalmonitorings = await client.EnvironmentalMonitoring().list()
 for (const environmentalmonitoring of environmentalmonitorings) {
   console.log(environmentalmonitoring)
@@ -343,6 +352,9 @@ Pass custom features via the `extend` option at construction time.
 
 This SDK is generated from the upstream OpenAPI specification. It is an
 unofficial client and is not affiliated with the API provider.
+
+The OpenAPI spec(s) this SDK was generated from are kept in the
+[`.sdk/def/`](.sdk/def/) folder.
 
 - Upstream API: [https://databrowser.opendatahub.com](https://databrowser.opendatahub.com)
 

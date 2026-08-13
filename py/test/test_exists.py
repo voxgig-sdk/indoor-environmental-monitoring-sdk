@@ -1,4 +1,4 @@
-# ProjectName SDK exists test
+# IndoorEnvironmentalMonitoring SDK exists test
 
 import pytest
 from indoorenvironmentalmonitoring_sdk import IndoorEnvironmentalMonitoringSDK

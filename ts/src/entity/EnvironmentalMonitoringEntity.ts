@@ -37,7 +37,7 @@ class EnvironmentalMonitoringEntity extends IndoorEnvironmentalMonitoringEntityB
 
 
 
-  async list(this: any, reqmatch?: EnvironmentalMonitoringListMatch, ctrl?: Control): Promise<EnvironmentalMonitoring[]> {
+  async list(this: any, reqmatch?: EnvironmentalMonitoringListMatch, ctrl?: Control): Promise<EnvironmentalMonitoringEntity[]> {
 
     const utility = this._utility
 

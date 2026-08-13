@@ -23,8 +23,8 @@ module IndoorEnvironmentalMonitoringTestRunner
   end
 
   def self.env_override(m)
-    live = getenv("INDOORENVIRONMENTALMONITORING_TEST_LIVE")
-    override = getenv("INDOORENVIRONMENTALMONITORING_TEST_OVERRIDE")
+    live = getenv("INDOOR_ENVIRONMENTAL_MONITORING_TEST_LIVE")
+    override = getenv("INDOOR_ENVIRONMENTAL_MONITORING_TEST_OVERRIDE")
 
     if live == "TRUE" || override == "TRUE"
       m.each_key do |key|
@@ -44,8 +44,8 @@ module IndoorEnvironmentalMonitoringTestRunner
       end
     end
 
-    explain = getenv("INDOORENVIRONMENTALMONITORING_TEST_EXPLAIN")
-    m["INDOORENVIRONMENTALMONITORING_TEST_EXPLAIN"] = explain if explain && !explain.empty?
+    explain = getenv("INDOOR_ENVIRONMENTAL_MONITORING_TEST_EXPLAIN")
+    m["INDOOR_ENVIRONMENTAL_MONITORING_TEST_EXPLAIN"] = explain if explain && !explain.empty?
 
     m
   end
