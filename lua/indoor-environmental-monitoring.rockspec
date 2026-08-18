@@ -23,6 +23,7 @@ build = {
   modules = {
     ["indoor-environmental-monitoring_sdk"] = "indoor-environmental-monitoring_sdk.lua",
     ["config"] = "config.lua",
+    ["config_shared"] = "config_shared.lua",
     ["features"] = "features.lua",
   }
 }

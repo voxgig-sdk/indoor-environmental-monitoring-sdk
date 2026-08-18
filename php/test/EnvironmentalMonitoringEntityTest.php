@@ -40,7 +40,7 @@ class EnvironmentalMonitoringEntityTest extends TestCase
         $this->assertCount(3, $seen);
 
         // Inbound: streaming active -> yields each item from the feature.
-        $cfg = IndoorEnvironmentalMonitoringConfig::make_config();
+        $cfg = IndoorEnvironmentalMonitoringConfig::shared_config();
         if (isset($cfg["feature"]) && is_array($cfg["feature"]) && isset($cfg["feature"]["streaming"])) {
             $sdk = IndoorEnvironmentalMonitoringSDK::test($seed, ["feature" => ["streaming" => ["active" => true]]]);
             $got = [];

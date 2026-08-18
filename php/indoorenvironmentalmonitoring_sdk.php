@@ -40,7 +40,7 @@ class IndoorEnvironmentalMonitoringSDK
         $utility = new IndoorEnvironmentalMonitoringUtility();
         $this->_utility = $utility;
 
-        $config = IndoorEnvironmentalMonitoringConfig::make_config();
+        $config = IndoorEnvironmentalMonitoringConfig::shared_config();
 
         $this->_rootctx = ($utility->make_context)([
             "client" => $this,

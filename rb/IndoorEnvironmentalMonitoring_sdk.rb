@@ -28,7 +28,7 @@ class IndoorEnvironmentalMonitoringSDK
     utility = IndoorEnvironmentalMonitoringUtility.new
     @_utility = utility
 
-    config = IndoorEnvironmentalMonitoringConfig.make_config
+    config = IndoorEnvironmentalMonitoringConfig.shared_config
 
     @_rootctx = utility.make_context.call({
       "client" => self,
