@@ -237,21 +237,21 @@ returns a result `Hash` with these keys:
 
 | Field | Description |
 | --- | --- |
-| `mperiod` |  |
-| `mtransactiontime` |  |
-| `mvalidtime` |  |
-| `mvalue` |  |
-| `sactive` |  |
-| `savailable` |  |
-| `scode` |  |
-| `scoordinate` |  |
-| `smetadata` |  |
-| `sname` |  |
-| `stype` |  |
-| `tdescription` |  |
-| `tmetadata` |  |
-| `tname` |  |
-| `tunit` |  |
+| `mperiod` | Measurement period in seconds |
+| `mtransactiontime` | Timestamp when the data was recorded in the database |
+| `mvalidtime` | Timestamp when the measurement was taken |
+| `mvalue` | Measured value |
+| `sactive` | Whether the station is currently active |
+| `savailable` | Whether the station data is available |
+| `scode` | Unique station code identifier |
+| `scoordinate` | Geographic coordinates of the station |
+| `smetadata` | Additional metadata about the station |
+| `sname` | Human-readable station name |
+| `stype` | Station type |
+| `tdescription` | Description of the measurement type |
+| `tmetadata` | Additional metadata about the measurement type |
+| `tname` | Type of measurement |
+| `tunit` | Unit of measurement |
 
 Operations: List.
 
@@ -276,21 +276,21 @@ Create an instance: `environmental_monitoring = client.EnvironmentalMonitoring`
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `mperiod` | `Integer` |  |
-| `mtransactiontime` | `String` |  |
-| `mvalidtime` | `String` |  |
-| `mvalue` | `Float` |  |
-| `sactive` | `Boolean` |  |
-| `savailable` | `Boolean` |  |
-| `scode` | `String` |  |
-| `scoordinate` | `Hash` |  |
-| `smetadata` | `Hash` |  |
-| `sname` | `String` |  |
-| `stype` | `String` |  |
-| `tdescription` | `String` |  |
-| `tmetadata` | `Hash` |  |
-| `tname` | `String` |  |
-| `tunit` | `String` |  |
+| `mperiod` | `Integer` | Measurement period in seconds |
+| `mtransactiontime` | `String` | Timestamp when the data was recorded in the database |
+| `mvalidtime` | `String` | Timestamp when the measurement was taken |
+| `mvalue` | `Float` | Measured value |
+| `sactive` | `Boolean` | Whether the station is currently active |
+| `savailable` | `Boolean` | Whether the station data is available |
+| `scode` | `String` | Unique station code identifier |
+| `scoordinate` | `Hash` | Geographic coordinates of the station |
+| `smetadata` | `Hash` | Additional metadata about the station |
+| `sname` | `String` | Human-readable station name |
+| `stype` | `String` | Station type |
+| `tdescription` | `String` | Description of the measurement type |
+| `tmetadata` | `Hash` | Additional metadata about the measurement type |
+| `tname` | `String` | Type of measurement |
+| `tunit` | `String` | Unit of measurement |
 
 #### Example: List
 

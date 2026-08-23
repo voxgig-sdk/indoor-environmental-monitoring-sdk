@@ -9,7 +9,7 @@ The API is exposed as capitalised, semantic **Entities** — e.g.
 instead of raw URL paths and query parameters. This keeps the surface
 predictable and low-friction for both humans and AI agents.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go`, `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb` — see
 > the [top-level README](../README.md).
 
 
@@ -287,21 +287,21 @@ The `prepare()` method returns:
 
 | Field | Description |
 | --- | --- |
-| `mperiod` |  |
-| `mtransactiontime` |  |
-| `mvalidtime` |  |
-| `mvalue` |  |
-| `sactive` |  |
-| `savailable` |  |
-| `scode` |  |
-| `scoordinate` |  |
-| `smetadata` |  |
-| `sname` |  |
-| `stype` |  |
-| `tdescription` |  |
-| `tmetadata` |  |
-| `tname` |  |
-| `tunit` |  |
+| `mperiod` | Measurement period in seconds |
+| `mtransactiontime` | Timestamp when the data was recorded in the database |
+| `mvalidtime` | Timestamp when the measurement was taken |
+| `mvalue` | Measured value |
+| `sactive` | Whether the station is currently active |
+| `savailable` | Whether the station data is available |
+| `scode` | Unique station code identifier |
+| `scoordinate` | Geographic coordinates of the station |
+| `smetadata` | Additional metadata about the station |
+| `sname` | Human-readable station name |
+| `stype` | Station type |
+| `tdescription` | Description of the measurement type |
+| `tmetadata` | Additional metadata about the measurement type |
+| `tname` | Type of measurement |
+| `tunit` | Unit of measurement |
 
 Operations: list.
 
@@ -326,21 +326,21 @@ Create an instance: `const environmental_monitoring = client.EnvironmentalMonito
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `mperiod` | `number` |  |
-| `mtransactiontime` | `string` |  |
-| `mvalidtime` | `string` |  |
-| `mvalue` | `number` |  |
-| `sactive` | `boolean` |  |
-| `savailable` | `boolean` |  |
-| `scode` | `string` |  |
-| `scoordinate` | `Record<string, any>` |  |
-| `smetadata` | `Record<string, any>` |  |
-| `sname` | `string` |  |
-| `stype` | `string` |  |
-| `tdescription` | `string` |  |
-| `tmetadata` | `Record<string, any>` |  |
-| `tname` | `string` |  |
-| `tunit` | `string` |  |
+| `mperiod` | `number` | Measurement period in seconds |
+| `mtransactiontime` | `string` | Timestamp when the data was recorded in the database |
+| `mvalidtime` | `string` | Timestamp when the measurement was taken |
+| `mvalue` | `number` | Measured value |
+| `sactive` | `boolean` | Whether the station is currently active |
+| `savailable` | `boolean` | Whether the station data is available |
+| `scode` | `string` | Unique station code identifier |
+| `scoordinate` | `Record<string, any>` | Geographic coordinates of the station |
+| `smetadata` | `Record<string, any>` | Additional metadata about the station |
+| `sname` | `string` | Human-readable station name |
+| `stype` | `string` | Station type |
+| `tdescription` | `string` | Description of the measurement type |
+| `tmetadata` | `Record<string, any>` | Additional metadata about the measurement type |
+| `tname` | `string` | Type of measurement |
+| `tunit` | `string` | Unit of measurement |
 
 #### Example: List
 

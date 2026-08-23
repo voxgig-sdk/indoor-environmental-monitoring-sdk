@@ -247,21 +247,21 @@ On error, `ok` is `false` and `$err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `mperiod` |  |
-| `mtransactiontime` |  |
-| `mvalidtime` |  |
-| `mvalue` |  |
-| `sactive` |  |
-| `savailable` |  |
-| `scode` |  |
-| `scoordinate` |  |
-| `smetadata` |  |
-| `sname` |  |
-| `stype` |  |
-| `tdescription` |  |
-| `tmetadata` |  |
-| `tname` |  |
-| `tunit` |  |
+| `mperiod` | Measurement period in seconds |
+| `mtransactiontime` | Timestamp when the data was recorded in the database |
+| `mvalidtime` | Timestamp when the measurement was taken |
+| `mvalue` | Measured value |
+| `sactive` | Whether the station is currently active |
+| `savailable` | Whether the station data is available |
+| `scode` | Unique station code identifier |
+| `scoordinate` | Geographic coordinates of the station |
+| `smetadata` | Additional metadata about the station |
+| `sname` | Human-readable station name |
+| `stype` | Station type |
+| `tdescription` | Description of the measurement type |
+| `tmetadata` | Additional metadata about the measurement type |
+| `tname` | Type of measurement |
+| `tunit` | Unit of measurement |
 
 Operations: List.
 
@@ -286,21 +286,21 @@ Create an instance: `$environmental_monitoring = $client->EnvironmentalMonitorin
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `mperiod` | `int` |  |
-| `mtransactiontime` | `string` |  |
-| `mvalidtime` | `string` |  |
-| `mvalue` | `float` |  |
-| `sactive` | `bool` |  |
-| `savailable` | `bool` |  |
-| `scode` | `string` |  |
-| `scoordinate` | `array` |  |
-| `smetadata` | `array` |  |
-| `sname` | `string` |  |
-| `stype` | `string` |  |
-| `tdescription` | `string` |  |
-| `tmetadata` | `array` |  |
-| `tname` | `string` |  |
-| `tunit` | `string` |  |
+| `mperiod` | `int` | Measurement period in seconds |
+| `mtransactiontime` | `string` | Timestamp when the data was recorded in the database |
+| `mvalidtime` | `string` | Timestamp when the measurement was taken |
+| `mvalue` | `float` | Measured value |
+| `sactive` | `bool` | Whether the station is currently active |
+| `savailable` | `bool` | Whether the station data is available |
+| `scode` | `string` | Unique station code identifier |
+| `scoordinate` | `array` | Geographic coordinates of the station |
+| `smetadata` | `array` | Additional metadata about the station |
+| `sname` | `string` | Human-readable station name |
+| `stype` | `string` | Station type |
+| `tdescription` | `string` | Description of the measurement type |
+| `tmetadata` | `array` | Additional metadata about the measurement type |
+| `tname` | `string` | Type of measurement |
+| `tunit` | `string` | Unit of measurement |
 
 #### Example: List
 

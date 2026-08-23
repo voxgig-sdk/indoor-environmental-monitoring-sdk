@@ -93,21 +93,21 @@ environmental_monitoring = client.EnvironmentalMonitoring
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `mperiod` | `Integer` | No |  |
-| `mtransactiontime` | `String` | No |  |
-| `mvalidtime` | `String` | No |  |
-| `mvalue` | `Float` | No |  |
-| `sactive` | `Boolean` | No |  |
-| `savailable` | `Boolean` | No |  |
-| `scode` | `String` | No |  |
-| `scoordinate` | `Hash` | No |  |
-| `smetadata` | `Hash` | No |  |
-| `sname` | `String` | No |  |
-| `stype` | `String` | No |  |
-| `tdescription` | `String` | No |  |
-| `tmetadata` | `Hash` | No |  |
-| `tname` | `String` | No |  |
-| `tunit` | `String` | No |  |
+| `mperiod` | `Integer` | No | Measurement period in seconds |
+| `mtransactiontime` | `String` | No | Timestamp when the data was recorded in the database |
+| `mvalidtime` | `String` | No | Timestamp when the measurement was taken |
+| `mvalue` | `Float` | No | Measured value |
+| `sactive` | `Boolean` | No | Whether the station is currently active |
+| `savailable` | `Boolean` | No | Whether the station data is available |
+| `scode` | `String` | No | Unique station code identifier |
+| `scoordinate` | `Hash` | No | Geographic coordinates of the station |
+| `smetadata` | `Hash` | No | Additional metadata about the station |
+| `sname` | `String` | No | Human-readable station name |
+| `stype` | `String` | No | Station type |
+| `tdescription` | `String` | No | Description of the measurement type |
+| `tmetadata` | `Hash` | No | Additional metadata about the measurement type |
+| `tname` | `String` | No | Type of measurement |
+| `tunit` | `String` | No | Unit of measurement |
 
 ### Operations
 

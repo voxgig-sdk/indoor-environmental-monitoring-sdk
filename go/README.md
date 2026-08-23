@@ -6,7 +6,7 @@ The Golang SDK for the IndoorEnvironmentalMonitoring API — an entity-oriented 
 
 It exposes the API as capitalised, semantic **Entities** — e.g. `client.EnvironmentalMonitoring(nil)` — each with the same small set of operations (`List`) instead of raw URL paths and query strings. You call meaning, not endpoints, which keeps the cognitive load low.
 
-> Other languages, the CLI, and MCP server live alongside this one — see
+> Also generated from this model: `go-cli`, `go-mcp`, `lua`, `php`, `py`, `rb`, `ts` — see
 > the [top-level README](../README.md).
 
 
@@ -260,21 +260,21 @@ Only `Direct()` returns a response envelope — a `map[string]any` with
 
 | Field | Description |
 | --- | --- |
-| `"mperiod"` |  |
-| `"mtransactiontime"` |  |
-| `"mvalidtime"` |  |
-| `"mvalue"` |  |
-| `"sactive"` |  |
-| `"savailable"` |  |
-| `"scode"` |  |
-| `"scoordinate"` |  |
-| `"smetadata"` |  |
-| `"sname"` |  |
-| `"stype"` |  |
-| `"tdescription"` |  |
-| `"tmetadata"` |  |
-| `"tname"` |  |
-| `"tunit"` |  |
+| `"mperiod"` | Measurement period in seconds |
+| `"mtransactiontime"` | Timestamp when the data was recorded in the database |
+| `"mvalidtime"` | Timestamp when the measurement was taken |
+| `"mvalue"` | Measured value |
+| `"sactive"` | Whether the station is currently active |
+| `"savailable"` | Whether the station data is available |
+| `"scode"` | Unique station code identifier |
+| `"scoordinate"` | Geographic coordinates of the station |
+| `"smetadata"` | Additional metadata about the station |
+| `"sname"` | Human-readable station name |
+| `"stype"` | Station type |
+| `"tdescription"` | Description of the measurement type |
+| `"tmetadata"` | Additional metadata about the measurement type |
+| `"tname"` | Type of measurement |
+| `"tunit"` | Unit of measurement |
 
 Operations: List.
 
@@ -299,21 +299,21 @@ Create an instance: `environmentalMonitoring := client.EnvironmentalMonitoring(n
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `mperiod` | `int` |  |
-| `mtransactiontime` | `string` |  |
-| `mvalidtime` | `string` |  |
-| `mvalue` | `float64` |  |
-| `sactive` | `bool` |  |
-| `savailable` | `bool` |  |
-| `scode` | `string` |  |
-| `scoordinate` | `map[string]any` |  |
-| `smetadata` | `map[string]any` |  |
-| `sname` | `string` |  |
-| `stype` | `string` |  |
-| `tdescription` | `string` |  |
-| `tmetadata` | `map[string]any` |  |
-| `tname` | `string` |  |
-| `tunit` | `string` |  |
+| `mperiod` | `int` | Measurement period in seconds |
+| `mtransactiontime` | `string` | Timestamp when the data was recorded in the database |
+| `mvalidtime` | `string` | Timestamp when the measurement was taken |
+| `mvalue` | `float64` | Measured value |
+| `sactive` | `bool` | Whether the station is currently active |
+| `savailable` | `bool` | Whether the station data is available |
+| `scode` | `string` | Unique station code identifier |
+| `scoordinate` | `map[string]any` | Geographic coordinates of the station |
+| `smetadata` | `map[string]any` | Additional metadata about the station |
+| `sname` | `string` | Human-readable station name |
+| `stype` | `string` | Station type |
+| `tdescription` | `string` | Description of the measurement type |
+| `tmetadata` | `map[string]any` | Additional metadata about the measurement type |
+| `tname` | `string` | Type of measurement |
+| `tunit` | `string` | Unit of measurement |
 
 #### Example: List
 

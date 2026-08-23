@@ -243,21 +243,21 @@ On error, `ok` is `False` and `err` contains the error value.
 
 | Field | Description |
 | --- | --- |
-| `mperiod` |  |
-| `mtransactiontime` |  |
-| `mvalidtime` |  |
-| `mvalue` |  |
-| `sactive` |  |
-| `savailable` |  |
-| `scode` |  |
-| `scoordinate` |  |
-| `smetadata` |  |
-| `sname` |  |
-| `stype` |  |
-| `tdescription` |  |
-| `tmetadata` |  |
-| `tname` |  |
-| `tunit` |  |
+| `mperiod` | Measurement period in seconds |
+| `mtransactiontime` | Timestamp when the data was recorded in the database |
+| `mvalidtime` | Timestamp when the measurement was taken |
+| `mvalue` | Measured value |
+| `sactive` | Whether the station is currently active |
+| `savailable` | Whether the station data is available |
+| `scode` | Unique station code identifier |
+| `scoordinate` | Geographic coordinates of the station |
+| `smetadata` | Additional metadata about the station |
+| `sname` | Human-readable station name |
+| `stype` | Station type |
+| `tdescription` | Description of the measurement type |
+| `tmetadata` | Additional metadata about the measurement type |
+| `tname` | Type of measurement |
+| `tunit` | Unit of measurement |
 
 Operations: List.
 
@@ -282,21 +282,21 @@ Create an instance: `environmental_monitoring = client.EnvironmentalMonitoring()
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `mperiod` | `int` |  |
-| `mtransactiontime` | `str` |  |
-| `mvalidtime` | `str` |  |
-| `mvalue` | `float` |  |
-| `sactive` | `bool` |  |
-| `savailable` | `bool` |  |
-| `scode` | `str` |  |
-| `scoordinate` | `dict` |  |
-| `smetadata` | `dict` |  |
-| `sname` | `str` |  |
-| `stype` | `str` |  |
-| `tdescription` | `str` |  |
-| `tmetadata` | `dict` |  |
-| `tname` | `str` |  |
-| `tunit` | `str` |  |
+| `mperiod` | `int` | Measurement period in seconds |
+| `mtransactiontime` | `str` | Timestamp when the data was recorded in the database |
+| `mvalidtime` | `str` | Timestamp when the measurement was taken |
+| `mvalue` | `float` | Measured value |
+| `sactive` | `bool` | Whether the station is currently active |
+| `savailable` | `bool` | Whether the station data is available |
+| `scode` | `str` | Unique station code identifier |
+| `scoordinate` | `dict` | Geographic coordinates of the station |
+| `smetadata` | `dict` | Additional metadata about the station |
+| `sname` | `str` | Human-readable station name |
+| `stype` | `str` | Station type |
+| `tdescription` | `str` | Description of the measurement type |
+| `tmetadata` | `dict` | Additional metadata about the measurement type |
+| `tname` | `str` | Type of measurement |
+| `tunit` | `str` | Unit of measurement |
 
 #### Example: List
 

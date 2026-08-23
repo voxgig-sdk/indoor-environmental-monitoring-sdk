@@ -90,21 +90,21 @@ local environmental_monitoring = client:EnvironmentalMonitoring(nil)
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `mperiod` | `number` | No |  |
-| `mtransactiontime` | `string` | No |  |
-| `mvalidtime` | `string` | No |  |
-| `mvalue` | `number` | No |  |
-| `sactive` | `boolean` | No |  |
-| `savailable` | `boolean` | No |  |
-| `scode` | `string` | No |  |
-| `scoordinate` | `table` | No |  |
-| `smetadata` | `table` | No |  |
-| `sname` | `string` | No |  |
-| `stype` | `string` | No |  |
-| `tdescription` | `string` | No |  |
-| `tmetadata` | `table` | No |  |
-| `tname` | `string` | No |  |
-| `tunit` | `string` | No |  |
+| `mperiod` | `number` | No | Measurement period in seconds |
+| `mtransactiontime` | `string` | No | Timestamp when the data was recorded in the database |
+| `mvalidtime` | `string` | No | Timestamp when the measurement was taken |
+| `mvalue` | `number` | No | Measured value |
+| `sactive` | `boolean` | No | Whether the station is currently active |
+| `savailable` | `boolean` | No | Whether the station data is available |
+| `scode` | `string` | No | Unique station code identifier |
+| `scoordinate` | `table` | No | Geographic coordinates of the station |
+| `smetadata` | `table` | No | Additional metadata about the station |
+| `sname` | `string` | No | Human-readable station name |
+| `stype` | `string` | No | Station type |
+| `tdescription` | `string` | No | Description of the measurement type |
+| `tmetadata` | `table` | No | Additional metadata about the measurement type |
+| `tname` | `string` | No | Type of measurement |
+| `tunit` | `string` | No | Unit of measurement |
 
 ### Operations
 

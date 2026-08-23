@@ -92,21 +92,21 @@ $environmental_monitoring = $client->EnvironmentalMonitoring();
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `mperiod` | `int` | No |  |
-| `mtransactiontime` | `string` | No |  |
-| `mvalidtime` | `string` | No |  |
-| `mvalue` | `float` | No |  |
-| `sactive` | `bool` | No |  |
-| `savailable` | `bool` | No |  |
-| `scode` | `string` | No |  |
-| `scoordinate` | `array` | No |  |
-| `smetadata` | `array` | No |  |
-| `sname` | `string` | No |  |
-| `stype` | `string` | No |  |
-| `tdescription` | `string` | No |  |
-| `tmetadata` | `array` | No |  |
-| `tname` | `string` | No |  |
-| `tunit` | `string` | No |  |
+| `mperiod` | `int` | No | Measurement period in seconds |
+| `mtransactiontime` | `string` | No | Timestamp when the data was recorded in the database |
+| `mvalidtime` | `string` | No | Timestamp when the measurement was taken |
+| `mvalue` | `float` | No | Measured value |
+| `sactive` | `bool` | No | Whether the station is currently active |
+| `savailable` | `bool` | No | Whether the station data is available |
+| `scode` | `string` | No | Unique station code identifier |
+| `scoordinate` | `array` | No | Geographic coordinates of the station |
+| `smetadata` | `array` | No | Additional metadata about the station |
+| `sname` | `string` | No | Human-readable station name |
+| `stype` | `string` | No | Station type |
+| `tdescription` | `string` | No | Description of the measurement type |
+| `tmetadata` | `array` | No | Additional metadata about the measurement type |
+| `tname` | `string` | No | Type of measurement |
+| `tunit` | `string` | No | Unit of measurement |
 
 ### Operations
 

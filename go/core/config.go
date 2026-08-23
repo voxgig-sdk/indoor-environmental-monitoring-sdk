@@ -11,6 +11,9 @@ func MakeConfig() map[string]any {
 	return map[string]any{
 		"main": map[string]any{
 			"name": "IndoorEnvironmentalMonitoring",
+			"slug": "indoor-environmental-monitoring",
+			"version": "0.0.1",
+			"target": "go",
 		},
 		"feature": map[string]any{
 			"test": map[string]any{
@@ -33,62 +36,77 @@ func MakeConfig() map[string]any {
 				"fields": []any{
 					map[string]any{
 						"name": "mperiod",
+						"short": "Measurement period in seconds",
 						"type": "`$INTEGER`",
 					},
 					map[string]any{
 						"name": "mtransactiontime",
+						"short": "Timestamp when the data was recorded in the database",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "mvalidtime",
+						"short": "Timestamp when the measurement was taken",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "mvalue",
+						"short": "Measured value",
 						"type": "`$NUMBER`",
 					},
 					map[string]any{
 						"name": "sactive",
+						"short": "Whether the station is currently active",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "savailable",
+						"short": "Whether the station data is available",
 						"type": "`$BOOLEAN`",
 					},
 					map[string]any{
 						"name": "scode",
+						"short": "Unique station code identifier",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "scoordinate",
+						"short": "Geographic coordinates of the station",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "smetadata",
+						"short": "Additional metadata about the station",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "sname",
+						"short": "Human-readable station name",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "stype",
+						"short": "Station type",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "tdescription",
+						"short": "Description of the measurement type",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "tmetadata",
+						"short": "Additional metadata about the measurement type",
 						"type": "`$OBJECT`",
 					},
 					map[string]any{
 						"name": "tname",
+						"short": "Type of measurement",
 						"type": "`$STRING`",
 					},
 					map[string]any{
 						"name": "tunit",
+						"short": "Unit of measurement",
 						"type": "`$STRING`",
 					},
 				},

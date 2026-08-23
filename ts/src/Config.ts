@@ -19,9 +19,20 @@ class Config {
     return fi
   }
 
+  // False for a feature added at runtime via options.extend (station's
+  // adopt path) - the constructor uses this to skip makeFeature for names
+  // no generated class backs.
+  hasFeature(this: any, fn: string) {
+    return null != FEATURE_CLASS[fn]
+  }
+
 
   main = {
     name: 'IndoorEnvironmentalMonitoring',
+        slug: "indoor-environmental-monitoring",
+    version: "0.0.1",
+    target: "ts",
+
   }
 
 
@@ -56,62 +67,77 @@ class Config {
       "fields": [
         {
           "name": "mperiod",
+          "short": "Measurement period in seconds",
           "type": "`$INTEGER`"
         },
         {
           "name": "mtransactiontime",
+          "short": "Timestamp when the data was recorded in the database",
           "type": "`$STRING`"
         },
         {
           "name": "mvalidtime",
+          "short": "Timestamp when the measurement was taken",
           "type": "`$STRING`"
         },
         {
           "name": "mvalue",
+          "short": "Measured value",
           "type": "`$NUMBER`"
         },
         {
           "name": "sactive",
+          "short": "Whether the station is currently active",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "savailable",
+          "short": "Whether the station data is available",
           "type": "`$BOOLEAN`"
         },
         {
           "name": "scode",
+          "short": "Unique station code identifier",
           "type": "`$STRING`"
         },
         {
           "name": "scoordinate",
+          "short": "Geographic coordinates of the station",
           "type": "`$OBJECT`"
         },
         {
           "name": "smetadata",
+          "short": "Additional metadata about the station",
           "type": "`$OBJECT`"
         },
         {
           "name": "sname",
+          "short": "Human-readable station name",
           "type": "`$STRING`"
         },
         {
           "name": "stype",
+          "short": "Station type",
           "type": "`$STRING`"
         },
         {
           "name": "tdescription",
+          "short": "Description of the measurement type",
           "type": "`$STRING`"
         },
         {
           "name": "tmetadata",
+          "short": "Additional metadata about the measurement type",
           "type": "`$OBJECT`"
         },
         {
           "name": "tname",
+          "short": "Type of measurement",
           "type": "`$STRING`"
         },
         {
           "name": "tunit",
+          "short": "Unit of measurement",
           "type": "`$STRING`"
         }
       ],

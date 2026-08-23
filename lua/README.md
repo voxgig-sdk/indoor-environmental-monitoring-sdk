@@ -231,21 +231,21 @@ Only `direct()` returns a response envelope — a `table` with `ok`,
 
 | Field | Description |
 | --- | --- |
-| `mperiod` |  |
-| `mtransactiontime` |  |
-| `mvalidtime` |  |
-| `mvalue` |  |
-| `sactive` |  |
-| `savailable` |  |
-| `scode` |  |
-| `scoordinate` |  |
-| `smetadata` |  |
-| `sname` |  |
-| `stype` |  |
-| `tdescription` |  |
-| `tmetadata` |  |
-| `tname` |  |
-| `tunit` |  |
+| `mperiod` | Measurement period in seconds |
+| `mtransactiontime` | Timestamp when the data was recorded in the database |
+| `mvalidtime` | Timestamp when the measurement was taken |
+| `mvalue` | Measured value |
+| `sactive` | Whether the station is currently active |
+| `savailable` | Whether the station data is available |
+| `scode` | Unique station code identifier |
+| `scoordinate` | Geographic coordinates of the station |
+| `smetadata` | Additional metadata about the station |
+| `sname` | Human-readable station name |
+| `stype` | Station type |
+| `tdescription` | Description of the measurement type |
+| `tmetadata` | Additional metadata about the measurement type |
+| `tname` | Type of measurement |
+| `tunit` | Unit of measurement |
 
 Operations: List.
 
@@ -270,21 +270,21 @@ Create an instance: `local environmental_monitoring = client:EnvironmentalMonito
 
 | Field | Type | Description |
 | --- | --- | --- |
-| `mperiod` | `number` |  |
-| `mtransactiontime` | `string` |  |
-| `mvalidtime` | `string` |  |
-| `mvalue` | `number` |  |
-| `sactive` | `boolean` |  |
-| `savailable` | `boolean` |  |
-| `scode` | `string` |  |
-| `scoordinate` | `table` |  |
-| `smetadata` | `table` |  |
-| `sname` | `string` |  |
-| `stype` | `string` |  |
-| `tdescription` | `string` |  |
-| `tmetadata` | `table` |  |
-| `tname` | `string` |  |
-| `tunit` | `string` |  |
+| `mperiod` | `number` | Measurement period in seconds |
+| `mtransactiontime` | `string` | Timestamp when the data was recorded in the database |
+| `mvalidtime` | `string` | Timestamp when the measurement was taken |
+| `mvalue` | `number` | Measured value |
+| `sactive` | `boolean` | Whether the station is currently active |
+| `savailable` | `boolean` | Whether the station data is available |
+| `scode` | `string` | Unique station code identifier |
+| `scoordinate` | `table` | Geographic coordinates of the station |
+| `smetadata` | `table` | Additional metadata about the station |
+| `sname` | `string` | Human-readable station name |
+| `stype` | `string` | Station type |
+| `tdescription` | `string` | Description of the measurement type |
+| `tmetadata` | `table` | Additional metadata about the measurement type |
+| `tname` | `string` | Type of measurement |
+| `tunit` | `string` | Unit of measurement |
 
 #### Example: List
 

@@ -87,21 +87,21 @@ environmental_monitoring = client.EnvironmentalMonitoring()
 
 | Field | Type | Required | Description |
 | --- | --- | --- | --- |
-| `mperiod` | `int` | No |  |
-| `mtransactiontime` | `str` | No |  |
-| `mvalidtime` | `str` | No |  |
-| `mvalue` | `float` | No |  |
-| `sactive` | `bool` | No |  |
-| `savailable` | `bool` | No |  |
-| `scode` | `str` | No |  |
-| `scoordinate` | `dict` | No |  |
-| `smetadata` | `dict` | No |  |
-| `sname` | `str` | No |  |
-| `stype` | `str` | No |  |
-| `tdescription` | `str` | No |  |
-| `tmetadata` | `dict` | No |  |
-| `tname` | `str` | No |  |
-| `tunit` | `str` | No |  |
+| `mperiod` | `int` | No | Measurement period in seconds |
+| `mtransactiontime` | `str` | No | Timestamp when the data was recorded in the database |
+| `mvalidtime` | `str` | No | Timestamp when the measurement was taken |
+| `mvalue` | `float` | No | Measured value |
+| `sactive` | `bool` | No | Whether the station is currently active |
+| `savailable` | `bool` | No | Whether the station data is available |
+| `scode` | `str` | No | Unique station code identifier |
+| `scoordinate` | `dict` | No | Geographic coordinates of the station |
+| `smetadata` | `dict` | No | Additional metadata about the station |
+| `sname` | `str` | No | Human-readable station name |
+| `stype` | `str` | No | Station type |
+| `tdescription` | `str` | No | Description of the measurement type |
+| `tmetadata` | `dict` | No | Additional metadata about the measurement type |
+| `tname` | `str` | No | Type of measurement |
+| `tunit` | `str` | No | Unit of measurement |
 
 ### Operations
 
