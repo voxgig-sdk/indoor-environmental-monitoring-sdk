@@ -28,6 +28,7 @@ module IndoorEnvironmentalMonitoringConfig
           "options" => {
             "active" => false,
           },
+          "transport" => "base",
         },
       },
       "options" => {
