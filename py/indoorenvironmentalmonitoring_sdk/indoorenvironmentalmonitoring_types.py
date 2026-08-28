@@ -35,18 +35,8 @@ class EnvironmentalMonitoring(TypedDict, total=False):
 
 
 class EnvironmentalMonitoringListMatch(TypedDict, total=False):
-    mperiod: int
-    mtransactiontime: str
-    mvalidtime: str
-    mvalue: float
-    sactive: bool
-    savailable: bool
-    scode: str
-    scoordinate: dict
-    smetadata: dict
-    sname: str
-    stype: str
-    tdescription: str
-    tmetadata: dict
-    tname: str
-    tunit: str
+    distinct: bool
+    limit: int
+    offset: int
+    select: str
+    where: str

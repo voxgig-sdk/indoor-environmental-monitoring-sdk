@@ -33,21 +33,11 @@ type EnvironmentalMonitoring struct {
 
 // EnvironmentalMonitoringListMatch is the typed request payload for EnvironmentalMonitoring.ListTyped.
 type EnvironmentalMonitoringListMatch struct {
-	Mperiod *int `json:"mperiod,omitempty"`
-	Mtransactiontime *string `json:"mtransactiontime,omitempty"`
-	Mvalidtime *string `json:"mvalidtime,omitempty"`
-	Mvalue *float64 `json:"mvalue,omitempty"`
-	Sactive *bool `json:"sactive,omitempty"`
-	Savailable *bool `json:"savailable,omitempty"`
-	Scode *string `json:"scode,omitempty"`
-	Scoordinate *map[string]any `json:"scoordinate,omitempty"`
-	Smetadata *map[string]any `json:"smetadata,omitempty"`
-	Sname *string `json:"sname,omitempty"`
-	Stype *string `json:"stype,omitempty"`
-	Tdescription *string `json:"tdescription,omitempty"`
-	Tmetadata *map[string]any `json:"tmetadata,omitempty"`
-	Tname *string `json:"tname,omitempty"`
-	Tunit *string `json:"tunit,omitempty"`
+	Distinct *bool `json:"distinct,omitempty"`
+	Limit *int `json:"limit,omitempty"`
+	Offset *int `json:"offset,omitempty"`
+	Select *string `json:"select,omitempty"`
+	Where *string `json:"where,omitempty"`
 }
 
 // asMap turns a typed request/data struct into the map[string]any the

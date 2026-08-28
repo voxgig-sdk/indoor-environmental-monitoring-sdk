@@ -75,66 +75,26 @@ EnvironmentalMonitoring = Struct.new(
 
 # Request payload for EnvironmentalMonitoring#list.
 #
-# @!attribute [rw] mperiod
+# @!attribute [rw] distinct
+#   @return [Boolean, nil]
+#
+# @!attribute [rw] limit
 #   @return [Integer, nil]
 #
-# @!attribute [rw] mtransactiontime
+# @!attribute [rw] offset
+#   @return [Integer, nil]
+#
+# @!attribute [rw] select
 #   @return [String, nil]
 #
-# @!attribute [rw] mvalidtime
-#   @return [String, nil]
-#
-# @!attribute [rw] mvalue
-#   @return [Float, nil]
-#
-# @!attribute [rw] sactive
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] savailable
-#   @return [Boolean, nil]
-#
-# @!attribute [rw] scode
-#   @return [String, nil]
-#
-# @!attribute [rw] scoordinate
-#   @return [Hash, nil]
-#
-# @!attribute [rw] smetadata
-#   @return [Hash, nil]
-#
-# @!attribute [rw] sname
-#   @return [String, nil]
-#
-# @!attribute [rw] stype
-#   @return [String, nil]
-#
-# @!attribute [rw] tdescription
-#   @return [String, nil]
-#
-# @!attribute [rw] tmetadata
-#   @return [Hash, nil]
-#
-# @!attribute [rw] tname
-#   @return [String, nil]
-#
-# @!attribute [rw] tunit
+# @!attribute [rw] where
 #   @return [String, nil]
 EnvironmentalMonitoringListMatch = Struct.new(
-  :mperiod,
-  :mtransactiontime,
-  :mvalidtime,
-  :mvalue,
-  :sactive,
-  :savailable,
-  :scode,
-  :scoordinate,
-  :smetadata,
-  :sname,
-  :stype,
-  :tdescription,
-  :tmetadata,
-  :tname,
-  :tunit,
+  :distinct,
+  :limit,
+  :offset,
+  :select,
+  :where,
   keyword_init: true
 )
 

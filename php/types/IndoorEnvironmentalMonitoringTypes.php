@@ -35,20 +35,10 @@ class EnvironmentalMonitoring
 /** Request payload for EnvironmentalMonitoring#list. */
 class EnvironmentalMonitoringListMatch
 {
-    public ?int $mperiod = null;
-    public ?string $mtransactiontime = null;
-    public ?string $mvalidtime = null;
-    public ?float $mvalue = null;
-    public ?bool $sactive = null;
-    public ?bool $savailable = null;
-    public ?string $scode = null;
-    public ?array $scoordinate = null;
-    public ?array $smetadata = null;
-    public ?string $sname = null;
-    public ?string $stype = null;
-    public ?string $tdescription = null;
-    public ?array $tmetadata = null;
-    public ?string $tname = null;
-    public ?string $tunit = null;
+    public ?bool $distinct = null;
+    public ?int $limit = null;
+    public ?int $offset = null;
+    public ?string $select = null;
+    public ?string $where = null;
 }
 

@@ -24,20 +24,10 @@ export interface EnvironmentalMonitoring {
 }
 
 export interface EnvironmentalMonitoringListMatch {
-  mperiod?: number
-  mtransactiontime?: string
-  mvalidtime?: string
-  mvalue?: number
-  sactive?: boolean
-  savailable?: boolean
-  scode?: string
-  scoordinate?: Record<string, any>
-  smetadata?: Record<string, any>
-  sname?: string
-  stype?: string
-  tdescription?: string
-  tmetadata?: Record<string, any>
-  tname?: string
-  tunit?: string
+  distinct?: boolean
+  limit?: number
+  offset?: number
+  select?: string
+  where?: string
 }
 
