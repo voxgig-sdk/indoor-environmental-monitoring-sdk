@@ -37,16 +37,19 @@ local function make_config()
             ["type"] = "`$INTEGER`",
           },
           {
+            ["format"] = "date-time",
             ["name"] = "mtransactiontime",
             ["short"] = "Timestamp when the data was recorded in the database",
             ["type"] = "`$STRING`",
           },
           {
+            ["format"] = "date-time",
             ["name"] = "mvalidtime",
             ["short"] = "Timestamp when the measurement was taken",
             ["type"] = "`$STRING`",
           },
           {
+            ["format"] = "double",
             ["name"] = "mvalue",
             ["short"] = "Measured value",
             ["type"] = "`$NUMBER`",
@@ -156,9 +159,13 @@ local function make_config()
                 ["kind"] = "http",
                 ["method"] = "GET",
                 ["orig"] = "/flat/EnvironmentStation",
-                ["parts"] = {
-                  "flat",
-                  "EnvironmentStation",
+                ["segments"] = {
+                  {
+                    ["lit"] = "flat",
+                  },
+                  {
+                    ["lit"] = "EnvironmentStation",
+                  },
                 },
                 ["select"] = {
                   ["exist"] = {
@@ -172,6 +179,10 @@ local function make_config()
                 ["transform"] = {
                   ["req"] = "`reqdata`",
                   ["res"] = "`body.data`",
+                },
+                ["parts"] = {
+                  "flat",
+                  "EnvironmentStation",
                 },
               },
             },

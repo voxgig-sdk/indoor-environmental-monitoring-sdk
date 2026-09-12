@@ -12,18 +12,21 @@ main: kit: entity: environmental_monitoring: {
       type: "`$INTEGER`"
     }
     {
+      format: "date-time"
       name: "mtransactiontime"
       req: false
       short: "Timestamp when the data was recorded in the database"
       type: "`$STRING`"
     }
     {
+      format: "date-time"
       name: "mvalidtime"
       req: false
       short: "Timestamp when the measurement was taken"
       type: "`$STRING`"
     }
     {
+      format: "double"
       name: "mvalue"
       req: false
       short: "Measured value"
@@ -149,9 +152,13 @@ main: kit: entity: environmental_monitoring: {
           }
           method: "GET"
           orig: "/flat/EnvironmentStation"
-          parts: [
-            "flat"
-            "EnvironmentStation"
+          segments: [
+            {
+              lit: "flat"
+            }
+            {
+              lit: "EnvironmentStation"
+            }
           ]
           select: {
             exist: [
