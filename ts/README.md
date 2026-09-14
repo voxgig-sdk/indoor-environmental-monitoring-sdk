@@ -28,7 +28,7 @@ loading a specific record.
 ### 1. Create a client
 
 ```ts
-import { IndoorEnvironmentalMonitoringSDK } from '@voxgig-sdk/indoor-environmental-monitoring'
+import { IndoorEnvironmentalMonitoringSDK } from '@voxgig-sdk/indoor-environmental-monitoring-sdk'
 
 const client = new IndoorEnvironmentalMonitoringSDK()
 ```
@@ -431,7 +431,7 @@ indoor-environmental-monitoring/
 Import the SDK from the package root:
 
 ```ts
-import { IndoorEnvironmentalMonitoringSDK } from '@voxgig-sdk/indoor-environmental-monitoring'
+import { IndoorEnvironmentalMonitoringSDK } from '@voxgig-sdk/indoor-environmental-monitoring-sdk'
 ```
 
 ### Entity state

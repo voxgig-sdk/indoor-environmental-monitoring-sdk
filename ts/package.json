@@ -1,5 +1,5 @@
 {
-  "name": "@voxgig-sdk/indoor-environmental-monitoring",
+  "name": "@voxgig-sdk/indoor-environmental-monitoring-sdk",
   "version": "0.0.1",
   "description": "Unofficial generated TypeScript SDK for the Indoor Environmental Monitoring public API. Not affiliated with or endorsed by the upstream API provider.",
   "keywords": [

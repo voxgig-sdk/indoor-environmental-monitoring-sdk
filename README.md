@@ -105,7 +105,7 @@ local results, err = client:EnvironmentalMonitoring():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/indoor-environmental-monitoring` | publish pending — [install from git tag](https://github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/releases) |
+| TypeScript | `@voxgig-sdk/indoor-environmental-monitoring-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/releases) |
 | Python | `voxgig-sdk-indoor-environmental-monitoring` | publish pending — [install from git tag](https://github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/releases) |
 | PHP | `voxgig-sdk/indoor-environmental-monitoring` | publish pending — [install from git tag](https://github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/releases) |
 | Golang | `github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/go` | `go get github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/go@latest` |
@@ -119,7 +119,7 @@ local results, err = client:EnvironmentalMonitoring():list()
 ### TypeScript
 
 ```ts
-import { IndoorEnvironmentalMonitoringSDK } from '@voxgig-sdk/indoor-environmental-monitoring'
+import { IndoorEnvironmentalMonitoringSDK } from '@voxgig-sdk/indoor-environmental-monitoring-sdk'
 
 const client = new IndoorEnvironmentalMonitoringSDK()
 
