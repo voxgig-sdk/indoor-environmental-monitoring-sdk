@@ -1,12 +1,18 @@
 # IndoorEnvironmentalMonitoring SDK feature factory
 
 from indoorenvironmentalmonitoring_sdk.feature.base_feature import IndoorEnvironmentalMonitoringBaseFeature
+from indoorenvironmentalmonitoring_sdk.feature.ratelimit_feature import IndoorEnvironmentalMonitoringRatelimitFeature
+from indoorenvironmentalmonitoring_sdk.feature.retry_feature import IndoorEnvironmentalMonitoringRetryFeature
 from indoorenvironmentalmonitoring_sdk.feature.test_feature import IndoorEnvironmentalMonitoringTestFeature
+from indoorenvironmentalmonitoring_sdk.feature.timeout_feature import IndoorEnvironmentalMonitoringTimeoutFeature
 
 
 _FEATURES = {
     "base": lambda: IndoorEnvironmentalMonitoringBaseFeature(),
+    "ratelimit": lambda: IndoorEnvironmentalMonitoringRatelimitFeature(),
+    "retry": lambda: IndoorEnvironmentalMonitoringRetryFeature(),
     "test": lambda: IndoorEnvironmentalMonitoringTestFeature(),
+    "timeout": lambda: IndoorEnvironmentalMonitoringTimeoutFeature(),
 }
 
 

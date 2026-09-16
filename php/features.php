@@ -4,7 +4,10 @@ declare(strict_types=1);
 // IndoorEnvironmentalMonitoring SDK feature factory
 
 require_once __DIR__ . '/feature/BaseFeature.php';
+require_once __DIR__ . '/feature/RatelimitFeature.php';
+require_once __DIR__ . '/feature/RetryFeature.php';
 require_once __DIR__ . '/feature/TestFeature.php';
+require_once __DIR__ . '/feature/TimeoutFeature.php';
 
 
 class IndoorEnvironmentalMonitoringFeatures
@@ -14,8 +17,14 @@ class IndoorEnvironmentalMonitoringFeatures
         switch ($name) {
             case "base":
                 return new IndoorEnvironmentalMonitoringBaseFeature();
+            case "ratelimit":
+                return new IndoorEnvironmentalMonitoringRatelimitFeature();
+            case "retry":
+                return new IndoorEnvironmentalMonitoringRetryFeature();
             case "test":
                 return new IndoorEnvironmentalMonitoringTestFeature();
+            case "timeout":
+                return new IndoorEnvironmentalMonitoringTimeoutFeature();
             default:
                 return new IndoorEnvironmentalMonitoringBaseFeature();
         }
@@ -31,7 +40,10 @@ class IndoorEnvironmentalMonitoringFeatures
     {
         switch ($name) {
             case "base":
+            case "ratelimit":
+            case "retry":
             case "test":
+            case "timeout":
                 return true;
             default:
                 return false;

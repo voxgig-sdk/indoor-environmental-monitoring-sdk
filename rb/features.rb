@@ -1,7 +1,10 @@
 # IndoorEnvironmentalMonitoring SDK feature factory
 
 require_relative 'feature/base_feature'
+require_relative 'feature/ratelimit_feature'
+require_relative 'feature/retry_feature'
 require_relative 'feature/test_feature'
+require_relative 'feature/timeout_feature'
 
 
 module IndoorEnvironmentalMonitoringFeatures
@@ -9,8 +12,14 @@ module IndoorEnvironmentalMonitoringFeatures
     case name
     when "base"
       IndoorEnvironmentalMonitoringBaseFeature.new
+    when "ratelimit"
+      IndoorEnvironmentalMonitoringRatelimitFeature.new
+    when "retry"
+      IndoorEnvironmentalMonitoringRetryFeature.new
     when "test"
       IndoorEnvironmentalMonitoringTestFeature.new
+    when "timeout"
+      IndoorEnvironmentalMonitoringTimeoutFeature.new
     else
       IndoorEnvironmentalMonitoringBaseFeature.new
     end
