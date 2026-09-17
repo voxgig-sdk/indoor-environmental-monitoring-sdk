@@ -105,12 +105,12 @@ local results, err = client:EnvironmentalMonitoring():list()
 
 | Language | Package | Install |
 | --- | --- | --- |
-| TypeScript | `@voxgig-sdk/indoor-environmental-monitoring-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/releases) |
-| Python | `voxgig-sdk-indoor-environmental-monitoring` | publish pending — [install from git tag](https://github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/releases) |
-| PHP | `voxgig-sdk/indoor-environmental-monitoring` | publish pending — [install from git tag](https://github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/releases) |
+| TypeScript | `@voxgig-sdk/indoor-environmental-monitoring-sdk` | publish pending — [install from git tag](https://github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/tags) |
+| Python | `voxgig-sdk-indoor-environmental-monitoring` | publish pending — [install from git tag](https://github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/tags) |
+| PHP | `voxgig-sdk/indoor-environmental-monitoring` | publish pending — [install from git tag](https://github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/tags) |
 | Golang | `github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/go` | `go get github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/go@latest` |
-| Ruby | `voxgig-sdk-indoor-environmental-monitoring` | publish pending — [install from git tag](https://github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/releases) |
-| Lua | `voxgig-sdk-indoor-environmental-monitoring` | publish pending — [install from git tag](https://github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/releases) |
+| Ruby | `voxgig-sdk-indoor-environmental-monitoring` | publish pending — [install from git tag](https://github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/tags) |
+| Lua | `voxgig-sdk-indoor-environmental-monitoring` | publish pending — [install from git tag](https://github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/tags) |
 | Go CLI | `github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/go-cli` | `go install github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/go-cli/cmd/indoor-environmental-monitoring@latest` |
 | Go MCP server | `github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/go-mcp` | `go get github.com/voxgig-sdk/indoor-environmental-monitoring-sdk/go-mcp@latest` |
 

@@ -127,9 +127,9 @@ class Config {
 
     entity: {
       
-      environmental_monitoring: {
-      },
-
+        environmental_monitoring: {
+        },
+  
     }
   }
 
