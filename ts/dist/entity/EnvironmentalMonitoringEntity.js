@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.EnvironmentalMonitoringEntity = void 0;
 const IndoorEnvironmentalMonitoringEntityBase_1 = require("../IndoorEnvironmentalMonitoringEntityBase");
-// TODO: needs Entity superclass
 class EnvironmentalMonitoringEntity extends IndoorEnvironmentalMonitoringEntityBase_1.IndoorEnvironmentalMonitoringEntityBase {
     constructor(client, entopts) {
         super(client, entopts);

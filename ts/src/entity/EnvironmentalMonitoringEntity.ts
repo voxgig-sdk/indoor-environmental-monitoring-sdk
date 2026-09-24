@@ -19,7 +19,6 @@ import type {
   EnvironmentalMonitoringListMatch,
 } from '../IndoorEnvironmentalMonitoringTypes'
 
-// TODO: needs Entity superclass
 class EnvironmentalMonitoringEntity extends IndoorEnvironmentalMonitoringEntityBase<EnvironmentalMonitoring> {
 
   constructor(client: IndoorEnvironmentalMonitoringSDK, entopts: any) {

@@ -16,12 +16,6 @@ const FEATURE_CLASS: Record<string, typeof BaseFeature> = {
 }
 
 
-// Per-feature plugin DEFINITIONS (voxgig/plugin `Definition` values), from
-// the model's active plugin groups. A feature that takes a `plugins` option
-// (secrets over sekreto) reads its own entry; a feature with no plugins has
-// none. Named imports above make each definition statically reachable, so
-// an SDK carries exactly the plugin modules its model selects — the same
-// leanness the old side-effect registry imports bought, without a registry.
 const FEATURE_PLUGINS: Record<string, any[]> = {
   
 }
@@ -32,7 +26,6 @@ class Config {
   makeFeature(this: any, fn: string) {
     const fc = FEATURE_CLASS[fn]
     const fi = new fc()
-    // TODO: errors etc
     return fi
   }
 
@@ -139,81 +132,96 @@ class Config {
       "fields": [
         {
           "name": "mperiod",
-          "short": "Measurement period in seconds",
-          "type": "`$INTEGER`"
+          "title": "Mperiod",
+          "type": "`$INTEGER`",
+          "short": "Measurement period in seconds"
         },
         {
-          "format": "date-time",
           "name": "mtransactiontime",
+          "title": "Mtransactiontime",
+          "type": "`$STRING`",
           "short": "Timestamp when the data was recorded in the database",
-          "type": "`$STRING`"
+          "format": "date-time"
         },
         {
-          "format": "date-time",
           "name": "mvalidtime",
+          "title": "Mvalidtime",
+          "type": "`$STRING`",
           "short": "Timestamp when the measurement was taken",
-          "type": "`$STRING`"
+          "format": "date-time"
         },
         {
-          "format": "double",
           "name": "mvalue",
+          "title": "Mvalue",
+          "type": "`$NUMBER`",
           "short": "Measured value",
-          "type": "`$NUMBER`"
+          "format": "double"
         },
         {
           "name": "sactive",
-          "short": "Whether the station is currently active",
-          "type": "`$BOOLEAN`"
+          "title": "Sactive",
+          "type": "`$BOOLEAN`",
+          "short": "Whether the station is currently active"
         },
         {
           "name": "savailable",
-          "short": "Whether the station data is available",
-          "type": "`$BOOLEAN`"
+          "title": "Savailable",
+          "type": "`$BOOLEAN`",
+          "short": "Whether the station data is available"
         },
         {
           "name": "scode",
-          "short": "Unique station code identifier",
-          "type": "`$STRING`"
+          "title": "Scode",
+          "type": "`$STRING`",
+          "short": "Unique station code identifier"
         },
         {
           "name": "scoordinate",
-          "short": "Geographic coordinates of the station",
-          "type": "`$OBJECT`"
+          "title": "Scoordinate",
+          "type": "`$OBJECT`",
+          "short": "Geographic coordinates of the station"
         },
         {
           "name": "smetadata",
-          "short": "Additional metadata about the station",
-          "type": "`$OBJECT`"
+          "title": "Smetadata",
+          "type": "`$OBJECT`",
+          "short": "Additional metadata about the station"
         },
         {
           "name": "sname",
-          "short": "Human-readable station name",
-          "type": "`$STRING`"
+          "title": "Sname",
+          "type": "`$STRING`",
+          "short": "Human-readable station name"
         },
         {
           "name": "stype",
-          "short": "Station type",
-          "type": "`$STRING`"
+          "title": "Stype",
+          "type": "`$STRING`",
+          "short": "Station type"
         },
         {
           "name": "tdescription",
-          "short": "Description of the measurement type",
-          "type": "`$STRING`"
+          "title": "Tdescription",
+          "type": "`$STRING`",
+          "short": "Description of the measurement type"
         },
         {
           "name": "tmetadata",
-          "short": "Additional metadata about the measurement type",
-          "type": "`$OBJECT`"
+          "title": "Tmetadata",
+          "type": "`$OBJECT`",
+          "short": "Additional metadata about the measurement type"
         },
         {
           "name": "tname",
-          "short": "Type of measurement",
-          "type": "`$STRING`"
+          "title": "Tname",
+          "type": "`$STRING`",
+          "short": "Type of measurement"
         },
         {
           "name": "tunit",
-          "short": "Unit of measurement",
-          "type": "`$STRING`"
+          "title": "Tunit",
+          "type": "`$STRING`",
+          "short": "Unit of measurement"
         }
       ],
       "name": "environmental_monitoring",
@@ -223,45 +231,6 @@ class Config {
           "name": "list",
           "points": [
             {
-              "args": {
-                "query": [
-                  {
-                    "example": false,
-                    "kind": "query",
-                    "name": "distinct",
-                    "orig": "distinct",
-                    "type": "`$BOOLEAN`"
-                  },
-                  {
-                    "example": 200,
-                    "kind": "query",
-                    "name": "limit",
-                    "orig": "limit",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "example": 0,
-                    "kind": "query",
-                    "name": "offset",
-                    "orig": "offset",
-                    "type": "`$INTEGER`"
-                  },
-                  {
-                    "example": "scode,sname,scoordinate,mvalidtime,mvalue",
-                    "kind": "query",
-                    "name": "select",
-                    "orig": "select",
-                    "type": "`$STRING`"
-                  },
-                  {
-                    "example": "sactive.eq.true",
-                    "kind": "query",
-                    "name": "where",
-                    "orig": "where",
-                    "type": "`$STRING`"
-                  }
-                ]
-              },
               "kind": "http",
               "method": "GET",
               "orig": "/flat/EnvironmentStation",
@@ -273,6 +242,54 @@ class Config {
                   "lit": "EnvironmentStation"
                 }
               ],
+              "parts": [
+                "flat",
+                "EnvironmentStation"
+              ],
+              "rename": {},
+              "transform": {
+                "req": "`reqdata`",
+                "res": "`body.data`"
+              },
+              "args": {
+                "query": [
+                  {
+                    "name": "distinct",
+                    "orig": "distinct",
+                    "type": "`$BOOLEAN`",
+                    "kind": "query",
+                    "example": false
+                  },
+                  {
+                    "name": "limit",
+                    "orig": "limit",
+                    "type": "`$INTEGER`",
+                    "kind": "query",
+                    "example": 200
+                  },
+                  {
+                    "name": "offset",
+                    "orig": "offset",
+                    "type": "`$INTEGER`",
+                    "kind": "query",
+                    "example": 0
+                  },
+                  {
+                    "name": "select",
+                    "orig": "select",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "scode,sname,scoordinate,mvalidtime,mvalue"
+                  },
+                  {
+                    "name": "where",
+                    "orig": "where",
+                    "type": "`$STRING`",
+                    "kind": "query",
+                    "example": "sactive.eq.true"
+                  }
+                ]
+              },
               "select": {
                 "exist": [
                   "distinct",
@@ -281,15 +298,7 @@ class Config {
                   "select",
                   "where"
                 ]
-              },
-              "transform": {
-                "req": "`reqdata`",
-                "res": "`body.data`"
-              },
-              "parts": [
-                "flat",
-                "EnvironmentStation"
-              ]
+              }
             }
           ]
         }

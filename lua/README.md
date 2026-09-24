@@ -43,7 +43,7 @@ local environmentalmonitorings, err = client:EnvironmentalMonitoring():list()
 if err then error(err) end
 
 for _, item in ipairs(environmentalmonitorings) do
-  print(item["mtransactiontime"])
+  print(item)
 end
 ```
 

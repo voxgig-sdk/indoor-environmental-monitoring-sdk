@@ -1,0 +1,22 @@
+# BasicEnvironmentalMonitoringFlow
+
+main: kit: flow: BasicEnvironmentalMonitoringFlow:
+{
+  entity: "environmental_monitoring",
+  kind: "basic",
+  name: "BasicEnvironmentalMonitoringFlow",
+  step: [
+    {
+      o: "list",
+      v: [
+        {
+          apply: "ItemExists",
+          def: {
+            ref: "environmental_monitoring_ref01"
+          }
+        }
+      ]
+    }
+  ],
+  "key$": "BasicEnvironmentalMonitoringFlow"
+}

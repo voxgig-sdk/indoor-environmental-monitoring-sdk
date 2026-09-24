@@ -1,7 +1,7 @@
 // Typed models for the IndoorEnvironmentalMonitoring SDK.
 //
-// GENERATED from the API model: main.kit.entity.<e>.fields[] and per-op
-// params (op.<name>.points[].args.params[]). Field/param types come from the
+// GENERATED from the API model: main.kit.entity.<e>.fields{} and per-op
+// params (op.<name>.points[].g.params[]). Field/param types come from the
 // canonical type sentinels via @voxgig/sdkgen canonToType (source of truth:
 // @voxgig/apidef VALID_CANON). Do not edit by hand.
 package entity
@@ -14,21 +14,6 @@ import (
 
 // EnvironmentalMonitoring is the typed data model for the environmental_monitoring entity.
 type EnvironmentalMonitoring struct {
-	Mperiod *int `json:"mperiod,omitempty"`
-	Mtransactiontime *string `json:"mtransactiontime,omitempty"`
-	Mvalidtime *string `json:"mvalidtime,omitempty"`
-	Mvalue *float64 `json:"mvalue,omitempty"`
-	Sactive *bool `json:"sactive,omitempty"`
-	Savailable *bool `json:"savailable,omitempty"`
-	Scode *string `json:"scode,omitempty"`
-	Scoordinate *map[string]any `json:"scoordinate,omitempty"`
-	Smetadata *map[string]any `json:"smetadata,omitempty"`
-	Sname *string `json:"sname,omitempty"`
-	Stype *string `json:"stype,omitempty"`
-	Tdescription *string `json:"tdescription,omitempty"`
-	Tmetadata *map[string]any `json:"tmetadata,omitempty"`
-	Tname *string `json:"tname,omitempty"`
-	Tunit *string `json:"tunit,omitempty"`
 }
 
 // EnvironmentalMonitoringListMatch is the typed request payload for EnvironmentalMonitoring.ListTyped.

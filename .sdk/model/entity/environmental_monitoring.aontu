@@ -1,0 +1,203 @@
+# Entity: environmental_monitoring
+
+main: kit: entity: environmental_monitoring: {
+
+  alias: field: {}
+
+  fields: {
+    mperiod: {
+      h: "Mperiod"
+      n: "mperiod"
+      r: false
+      sh: "Measurement period in seconds"
+      t: "`$INTEGER`"
+    }
+    mtransactiontime: {
+      fo: "date-time"
+      h: "Mtransactiontime"
+      n: "mtransactiontime"
+      r: false
+      sh: "Timestamp when the data was recorded in the database"
+      t: "`$STRING`"
+    }
+    mvalidtime: {
+      fo: "date-time"
+      h: "Mvalidtime"
+      n: "mvalidtime"
+      r: false
+      sh: "Timestamp when the measurement was taken"
+      t: "`$STRING`"
+    }
+    mvalue: {
+      fo: "double"
+      h: "Mvalue"
+      n: "mvalue"
+      r: false
+      sh: "Measured value"
+      t: "`$NUMBER`"
+    }
+    sactive: {
+      h: "Sactive"
+      n: "sactive"
+      r: false
+      sh: "Whether the station is currently active"
+      t: "`$BOOLEAN`"
+    }
+    savailable: {
+      h: "Savailable"
+      n: "savailable"
+      r: false
+      sh: "Whether the station data is available"
+      t: "`$BOOLEAN`"
+    }
+    scode: {
+      h: "Scode"
+      n: "scode"
+      r: false
+      sh: "Unique station code identifier"
+      t: "`$STRING`"
+    }
+    scoordinate: {
+      h: "Scoordinate"
+      n: "scoordinate"
+      r: false
+      sh: "Geographic coordinates of the station"
+      t: "`$OBJECT`"
+    }
+    smetadata: {
+      h: "Smetadata"
+      n: "smetadata"
+      r: false
+      sh: "Additional metadata about the station"
+      t: "`$OBJECT`"
+    }
+    sname: {
+      h: "Sname"
+      n: "sname"
+      r: false
+      sh: "Human-readable station name"
+      t: "`$STRING`"
+    }
+    stype: {
+      h: "Stype"
+      n: "stype"
+      r: false
+      sh: "Station type"
+      t: "`$STRING`"
+    }
+    tdescription: {
+      h: "Tdescription"
+      n: "tdescription"
+      r: false
+      sh: "Description of the measurement type"
+      t: "`$STRING`"
+    }
+    tmetadata: {
+      h: "Tmetadata"
+      n: "tmetadata"
+      r: false
+      sh: "Additional metadata about the measurement type"
+      t: "`$OBJECT`"
+    }
+    tname: {
+      h: "Tname"
+      n: "tname"
+      r: false
+      sh: "Type of measurement"
+      t: "`$STRING`"
+    }
+    tunit: {
+      h: "Tunit"
+      n: "tunit"
+      r: false
+      sh: "Unit of measurement"
+      t: "`$STRING`"
+    }
+  }
+
+  name: "environmental_monitoring"
+  op: {
+    list: {
+      name: "list"
+      points: [
+        {
+          co: {
+            id: "GET /flat/EnvironmentStation"
+            source: "openapi3"
+            version: 2
+          }
+          g: {
+            query: [
+              {
+                ex: false
+                k: "query"
+                n: "distinct"
+                or: "distinct"
+                r: false
+                t: "`$BOOLEAN`"
+              }
+              {
+                ex: 200
+                k: "query"
+                n: "limit"
+                or: "limit"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: 0
+                k: "query"
+                n: "offset"
+                or: "offset"
+                r: false
+                t: "`$INTEGER`"
+              }
+              {
+                ex: "scode,sname,scoordinate,mvalidtime,mvalue"
+                k: "query"
+                n: "select"
+                or: "select"
+                r: false
+                t: "`$STRING`"
+              }
+              {
+                ex: "sactive.eq.true"
+                k: "query"
+                n: "where"
+                or: "where"
+                r: false
+                t: "`$STRING`"
+              }
+            ]
+          }
+          m: "GET"
+          o: "/flat/EnvironmentStation"
+          q: {
+            exist: [
+              "distinct"
+              "limit"
+              "offset"
+              "select"
+              "where"
+            ]
+          }
+          s: [
+            {
+              lit: "flat"
+            }
+            {
+              lit: "EnvironmentStation"
+            }
+          ]
+          t: {
+            req: "`reqdata`"
+            res: "`body.data`"
+          }
+        }
+      ]
+    }
+  }
+
+
+
+}
