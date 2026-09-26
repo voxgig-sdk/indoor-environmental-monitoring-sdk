@@ -1,5 +1,5 @@
 {
-  "name": "voxgig-sdk/indoor-environmental-monitoring",
+  "name": "voxgig-sdk/indoor-environmental-monitoring-sdk",
   "description": "Unofficial generated PHP SDK for the Indoor Environmental Monitoring public API. Not affiliated with or endorsed by the upstream API provider.",
   "type": "library",
   "keywords": ["voxgig", "sdk", "generated-sdk", "openapi", "api-client", "indoor-environmental-monitoring"],
