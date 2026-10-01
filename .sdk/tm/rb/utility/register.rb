@@ -33,6 +33,8 @@ require_relative 'transform_response'
 
 IndoorEnvironmentalMonitoringUtility.registrar = ->(u) {
   u.clean = IndoorEnvironmentalMonitoringUtilities::Clean
+  u.clean_add = IndoorEnvironmentalMonitoringUtilities::CleanAdd
+  u.clean_explain = IndoorEnvironmentalMonitoringUtilities::CleanExplain
   u.done = IndoorEnvironmentalMonitoringUtilities::Done
   u.make_error = IndoorEnvironmentalMonitoringUtilities::MakeError
   u.feature_add = IndoorEnvironmentalMonitoringUtilities::FeatureAdd

@@ -37,6 +37,8 @@ require_once __DIR__ . '/TransformResponse.php';
 
 IndoorEnvironmentalMonitoringUtility::setRegistrar(function (IndoorEnvironmentalMonitoringUtility $u): void {
     $u->clean = [IndoorEnvironmentalMonitoringClean::class, 'call'];
+    $u->clean_add = [IndoorEnvironmentalMonitoringClean::class, 'add'];
+    $u->clean_explain = [IndoorEnvironmentalMonitoringDone::class, 'clean_explain'];
     $u->done = [IndoorEnvironmentalMonitoringDone::class, 'call'];
     $u->make_error = [IndoorEnvironmentalMonitoringMakeError::class, 'call'];
     $u->feature_add = [IndoorEnvironmentalMonitoringFeatureAdd::class, 'call'];
