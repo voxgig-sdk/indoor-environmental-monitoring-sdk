@@ -17,18 +17,44 @@ const PLAN: any[] = [
     "args": [],
     "select": {
       "distinct": "v1",
-      "limit": "v1",
-      "offset": "v1",
+      "limit": 200,
+      "offset": 0,
       "select": "scode,sname,scoordinate,mvalidtime,mvalue",
       "where": "sactive.eq.true"
     },
     "headers": [],
+    "cookies": [],
+    "responseMedia": [
+      "application/json"
+    ],
     "query": [
       "limit",
       "offset",
       "where",
       "select",
       "distinct"
+    ],
+    "queryArgs": [
+      {
+        "name": "distinct",
+        "wire": "distinct"
+      },
+      {
+        "name": "limit",
+        "wire": "limit"
+      },
+      {
+        "name": "offset",
+        "wire": "offset"
+      },
+      {
+        "name": "select",
+        "wire": "select"
+      },
+      {
+        "name": "where",
+        "wire": "where"
+      }
     ],
     "auth": null,
     "status": 200,

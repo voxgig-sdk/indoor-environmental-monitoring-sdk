@@ -3,5 +3,17 @@
     "SUMMARY.md"
   ],
   "config": ".sdk/doc/qa/vale.ini",
-  "routes": {}
+  "routes": {},
+  "quoted": {
+    "SUMMARY.md": [
+      "Measured value",
+      "Measurement period in seconds",
+      "Open Data Hub API Server",
+      "Successful response with environmental monitoring data",
+      "This API provides access to environmental monitoring data, including key parameters such as humidity, temperature, and carbon dioxide levels, from selected areas within NOI Techpark Bolzano and Brunico. The data can be utilized for studies related to indoor air quality, energy efficiency, and health impact assessments.",
+      "Timestamp when the data was recorded in the database",
+      "Timestamp when the measurement was taken",
+      "Whether the station is currently active"
+    ]
+  }
 }

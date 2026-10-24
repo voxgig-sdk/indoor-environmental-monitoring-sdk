@@ -93,6 +93,7 @@ class IndoorEnvironmentalMonitoringConfig
           ],
           'optspec' => [
             'clearTimer' => '`$FUNCTION`',
+            'now' => '`$FUNCTION`',
             'setTimer' => '`$FUNCTION`',
           ],
           'strict' => false,
@@ -271,14 +272,10 @@ class IndoorEnvironmentalMonitoringConfig
                       ],
                     ],
                   ],
-                  'select' => [
-                    'exist' => [
-                      'distinct',
-                      'limit',
-                      'offset',
-                      'select',
-                      'where',
-                    ],
+                  'select' => [],
+                  'response' => [
+                    'kind' => 'json',
+                    'media' => 'application/json',
                   ],
                 ],
               ],

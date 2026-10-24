@@ -79,6 +79,7 @@ module IndoorEnvironmentalMonitoringConfig
           },
           "optspec" => {
             "clearTimer" => "`$FUNCTION`",
+            "now" => "`$FUNCTION`",
             "setTimer" => "`$FUNCTION`",
           },
           "strict" => false,
@@ -257,14 +258,10 @@ module IndoorEnvironmentalMonitoringConfig
                       },
                     ],
                   },
-                  "select" => {
-                    "exist" => [
-                      "distinct",
-                      "limit",
-                      "offset",
-                      "select",
-                      "where",
-                    ],
+                  "select" => {},
+                  "response" => {
+                    "kind" => "json",
+                    "media" => "application/json",
                   },
                 },
               ],
